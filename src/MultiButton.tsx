@@ -1,27 +1,25 @@
-import { styled } from "@mui/material/styles";
-import { Box, Typography } from "@mui/material";
+import {styled} from '@mui/material/styles';
+import {Box, Button} from '@mui/material';
 
-import { useWallet } from "@solana/wallet-adapter-react";
-import useCandyMachine from "../hooks/useCandyMachine";
+// TODO: Everything :)
 
-import WalletModalButton from "./WalletModalButton";
-import MintButton from "./MintButton";
+/*
+    ? STATES:
+    *   Mint Coming Soon
+    *   Countdown to Mint
+    *   Connect Wallet
+    *   Mint
+    *   Mint Loading
+    *   Sold Out
+*/
+
 
 const MultiButton = styled((props) => {
-  const { connected } = useWallet();
-  const { isSoldOut, mintStartDate, isMinting } = useCandyMachine();
-
-  return (
-    <Box {...props}>
-      {!connected ? (
-        <WalletModalButton>Connect<br/>Wallet</WalletModalButton>
-      ) : !isSoldOut ? (
-        <MintButton>Mint</MintButton>
-      ) : (
-        <Typography variant="h4">Sold Out</Typography>
-      )}
-    </Box>
-  );
+    return (
+        <Button {...props}>
+           Connect Wallet
+        </Button>
+    );
 })``;
 
 export default MultiButton;

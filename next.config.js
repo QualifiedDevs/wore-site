@@ -2,6 +2,7 @@ const withTM = require("next-transpile-modules")([
   "@mui/material",
   "@mui/lab",
   "@mui/system",
+  "@mui/icons-material",
   "@blocto/sdk",
   "@project-serum/sol-wallet-adapter",
   "@solana/wallet-adapter-base",
