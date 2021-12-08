@@ -34,48 +34,128 @@ const Mockups = styled((props) => {
   return (
     <Box {...props}>
       <Mockup src={mockup1} />
-      <Mockup src={mockup2} />
+      <Mockup src={mockup2} sx={{ zIndex: 1 }} />
       <Mockup src={mockup3} />
     </Box>
   );
-})``;
+})`
+  display: flex;
+  justify-content: center;
+`;
 
 //Displays Total Price based on Quantity Selected
 const TotalPrice = styled((props) => {
   //TODO: Display price based on mint supply selected, provided by react context?
   return (
     <Box {...props}>
-      <Typography />
+      <Typography>Total</Typography>
+      <Typography>X SOL</Typography>
     </Box>
   );
-})``;
+})`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
 
 const index = styled((props) => {
   return (
-    <Container {...props}>
-      <Header />
-      <Typography variant="h1">
-        The Boss Bulls <span>TM</span> Club
+    <Container maxWidth="contentBox" disableGutters {...props}>
+      <Header sx={{mb: 8}}/>
+      <Typography variant="h1" color="text.secondary" className="title">
+        The <b>Boss Bulls</b> <span className="tm">™</span> Club
       </Typography>
-      <Typography variant="subtitle1">
+      <Typography variant="subtitle1" className="subtitle">
         An Ultra-Realistic 3D Generative NFT on Solana
       </Typography>
-      <MintStatus variant="h2" />
-      <Box>
-        <Box>
-          <Typography>Price per NFT</Typography>
-          <Typography>2 SOL Each</Typography>
+      <MintStatus variant="h2" color="text.secondary" sx={{mb: 2}} className="mint-status" />
+      <Box className="content">
+        <Typography className="price-per" color="#908f95">
+          Price per NFT <b>2 SOL Each</b>
+        </Typography>
+        <Quantity color="#908f95" sx={{mb: 2}} className="quantity-minted" />
+        <Mockups sx={{mb: 2}} className="mockups" />
+        <ChooseQuantity sx={{my: 1}}/>
+        <Box className="price-total">
+          <TotalPrice />
         </Box>
-        <Quantity />
-        <Mockups />
-        <ChooseQuantity />
+        <MultiButton sx={{my: 2}}/>
       </Box>
-      <Box>
-        <TotalPrice />
-      </Box>
-      <MultiButton />
     </Container>
   );
-})``;
+})`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title,
+  .subtitle,
+  .mint-status {
+    text-transform: uppercase;
+  }
+
+  .title,
+  .mint-status {
+    font-size: 4.5rem;
+  }
+
+  .title {
+    b {
+      color: ${({ theme }) => {
+        return theme.palette.text.primary;
+      }};
+    }
+  }
+
+  .subtitle {
+    transform: translate(0, -10px);
+  }
+
+  .mint-status {
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+
+    background: #09090a;
+    border: 2px solid #908f95;
+    border-radius: 20px;
+
+    .price-per {
+      font-size: 1.2rem;
+      b {
+        color: ${({ theme }) => {
+          return theme.palette.text.primary;
+        }};
+        margin-left: 1em;
+        font-size: 2rem;
+      }
+    }
+
+    .quantity-minted {
+        transform: translate(0, -10px);
+        font-size: 1.2rem;
+    }
+
+    .mockups {
+      width: 80%;
+    }
+
+    .price-total {
+      border: 2px solid #c4c4c4;
+      border-right-width: 0;
+      border-left-width: 0;
+      width: 99%;
+      padding: .2rem 2rem;
+    }
+  }
+
+  .multi-button {
+
+  }
+`;
 
 export default index;

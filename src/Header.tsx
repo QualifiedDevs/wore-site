@@ -16,16 +16,24 @@ const Logo = styled((props) => {
 const MenuItem = styled((props) => {
   return (
     <li>
-      <Link underline="none" color="text.secondary" href={props.link}>
-        <Typography {...props}>{props.item}</Typography>
+      <Link underline="none" color="#bcc2b9" href={props.link}>
+        <Typography variant="h5" {...props}>{props.item}</Typography>
       </Link>
     </li>
   );
-})``;
+})`
+    text-transform: uppercase;
+    font-size: 1rem;
+`;
 
 const SocialMenu = styled((props) => {
   return <Box {...props}>{props.children}</Box>;
-})``;
+})`
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+`;
 
 const Header = styled((props) => {
   return (
@@ -39,6 +47,16 @@ const Header = styled((props) => {
       </header>
     </Box>
   );
-})``;
+})`
+
+width: 100%;
+header {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+`;
 
 export default Header;

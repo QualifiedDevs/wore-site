@@ -35,6 +35,11 @@ const ChooseQuantity = styled((props) => {
       <IncrementButton />
     </Box>
   );
-})``;
+})`
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-column-gap: .2rem;
+place-items: center;
+`;
 
 export default ChooseQuantity;

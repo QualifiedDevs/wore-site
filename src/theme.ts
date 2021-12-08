@@ -4,6 +4,16 @@ import { createTheme } from "@mui/material/styles";
 
 // Create a theme instance.
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+      contentBox: 680,
+    }
+  },
   palette: {
     background: {
       default: "#000000",
@@ -79,3 +89,9 @@ declare module "@mui/material/Button" {
 }
 
 export default theme;
+
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    contentBox: true;
+  }
+}
