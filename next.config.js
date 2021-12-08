@@ -1,4 +1,7 @@
 const withTM = require("next-transpile-modules")([
+  "@mui/material",
+  "@mui/lab",
+  "@mui/system",
   "@blocto/sdk",
   "@project-serum/sol-wallet-adapter",
   "@solana/wallet-adapter-base",
@@ -17,12 +20,16 @@ const withTM = require("next-transpile-modules")([
   "@solana/wallet-adapter-sollet",
   "@solana/wallet-adapter-solong",
   "@solana/wallet-adapter-torus",
-]);
+]); // pass the modules you would like to see transpiled
 
-/** @type {import('next').NextConfig} */
 module.exports = withTM({
   reactStrictMode: true,
   webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@mui/styled-engine": "@mui/styled-engine-sc",
+    };
+
     config.resolve.fallback = {
       fs: false,
       os: false,
