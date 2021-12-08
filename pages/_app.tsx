@@ -1,5 +1,5 @@
 import * as React from "react";
-import {CssBaseline, GlobalStyles} from "@mui/material";
+import { CssBaseline, GlobalStyles } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -35,7 +35,12 @@ export default function MyApp(props: AppProps) {
           <WalletBalanceProvider>
             <Toaster position="bottom-center" />
             <CssBaseline />
-            <GlobalStyles styles={{html: {scrollBehavior: "smooth"}}}/>
+            <GlobalStyles
+              styles={{
+                html: { scrollBehavior: "smooth" },
+                body: { listStyleType: "none" },
+              }}
+            />
             <Component {...pageProps} />
           </WalletBalanceProvider>
         </WalletConnectionProvider>

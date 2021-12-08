@@ -8,7 +8,7 @@ import Remove from "@mui/icons-material/Remove";
 const IncrementButton = styled((props) => {
   return (
     //  TODO: Integrate Context
-    <IconButton variant="contained" {...props}>
+    <IconButton color="button" {...props}>
       <Add />
     </IconButton>
   );
@@ -18,7 +18,7 @@ const IncrementButton = styled((props) => {
 const DecrementButton = styled((props) => {
   //  TODO: Integrate Context
   return (
-    <IconButton variant="contained" {...props}>
+    <IconButton color="button" {...props}>
       <Remove />
     </IconButton>
   );
@@ -30,9 +30,9 @@ const ChooseQuantity = styled((props) => {
   // TODO: Accept "maxquantity" prop
   return (
     <Box {...props}>
-      <IncrementButton />
-      <span>X</span>
       <DecrementButton />
+      <span>X</span>
+      <IncrementButton />
     </Box>
   );
 })``;

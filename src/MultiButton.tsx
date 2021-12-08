@@ -16,7 +16,7 @@ import {Box, Button} from '@mui/material';
 
 const MultiButton = styled((props) => {
     return (
-        <Button {...props}>
+        <Button variant="contained" color="button" {...props}>
            Connect Wallet
         </Button>
     );

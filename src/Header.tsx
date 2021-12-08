@@ -16,7 +16,7 @@ const Logo = styled((props) => {
 const MenuItem = styled((props) => {
   return (
     <li>
-      <Link href={props.link}>
+      <Link underline="none" color="text.secondary" href={props.link}>
         <Typography {...props}>{props.item}</Typography>
       </Link>
     </li>
