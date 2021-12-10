@@ -11,6 +11,8 @@ import {Box, Button} from '@mui/material';
     *   Mint
     *   Mint Loading
     *   Sold Out
+    * 
+    *   Make a Countdown, 
 */
 
 

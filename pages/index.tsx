@@ -1,3 +1,4 @@
+import React, { useContext } from "react";
 import { styled } from "@mui/material/styles";
 import { Container, Box, Typography } from "@mui/material";
 
@@ -7,7 +8,10 @@ import mockup2 from "../public/mockup2.png";
 import mockup3 from "../public/mockup3.png";
 
 import Header from "../src/Header";
-import ChooseQuantity from "../src/ChooseQuantity";
+import ChooseQuantity, {
+  QuantityProvider,
+  QuantityContext,
+} from "../src/ChooseQuantity";
 import MultiButton from "../src/MultiButton";
 
 //  Displays Mint Status: "Coming Soon | Mint Started | Sold Out"
@@ -45,11 +49,13 @@ const Mockups = styled((props) => {
 
 //Displays Total Price based on Quantity Selected
 const TotalPrice = styled((props) => {
+  const price = 2;
+  const { quantity } = useContext(QuantityContext);
   //TODO: Display price based on mint supply selected, provided by react context?
   return (
     <Box {...props}>
       <Typography>Total</Typography>
-      <Typography>X SOL</Typography>
+      <Typography>{quantity * price} SOL</Typography>
     </Box>
   );
 })`
@@ -60,28 +66,39 @@ const TotalPrice = styled((props) => {
 
 const index = styled((props) => {
   return (
-    <Container maxWidth="contentBox" disableGutters {...props}>
-      <Header sx={{mb: 8}}/>
-      <Typography variant="h1" color="text.secondary" className="title">
-        The <b>Boss Bulls</b> <span className="tm">™</span> Club
-      </Typography>
-      <Typography variant="subtitle1" className="subtitle">
-        An Ultra-Realistic 3D Generative NFT on Solana
-      </Typography>
-      <MintStatus variant="h2" color="text.secondary" sx={{mb: 2}} className="mint-status" />
-      <Box className="content">
-        <Typography className="price-per" color="#908f95">
-          Price per NFT <b>2 SOL Each</b>
+    <QuantityProvider>
+      <Container maxWidth="contentBox" disableGutters {...props}>
+        <Header sx={{ mb: 8 }} />
+        <Typography variant="h1" color="text.secondary" className="title">
+          The <b>Boss Bulls</b> <span className="tm">™</span> Club
         </Typography>
-        <Quantity color="#908f95" sx={{mb: 2}} className="quantity-minted" />
-        <Mockups sx={{mb: 2}} className="mockups" />
-        <ChooseQuantity sx={{my: 1}}/>
-        <Box className="price-total">
-          <TotalPrice />
+        <Typography variant="subtitle1" className="subtitle">
+          An Ultra-Realistic 3D Generative NFT on Solana
+        </Typography>
+        <MintStatus
+          variant="h2"
+          color="text.secondary"
+          sx={{ mb: 2 }}
+          className="mint-status"
+        />
+        <Box className="content">
+          <Typography className="price-per" color="#908f95">
+            Price per NFT <b>2 SOL Each</b>
+          </Typography>
+          <Quantity
+            color="#908f95"
+            sx={{ mb: 2 }}
+            className="quantity-minted"
+          />
+          <Mockups sx={{ mb: 2 }} className="mockups" />
+          <ChooseQuantity sx={{ my: 1 }} />
+          <Box className="price-total">
+            <TotalPrice />
+          </Box>
+          <MultiButton sx={{ my: 2 }} />
         </Box>
-        <MultiButton sx={{my: 2}}/>
-      </Box>
-    </Container>
+      </Container>
+    </QuantityProvider>
   );
 })`
   display: flex;
@@ -136,8 +153,8 @@ const index = styled((props) => {
     }
 
     .quantity-minted {
-        transform: translate(0, -10px);
-        font-size: 1.2rem;
+      transform: translate(0, -10px);
+      font-size: 1.2rem;
     }
 
     .mockups {
@@ -149,12 +166,11 @@ const index = styled((props) => {
       border-right-width: 0;
       border-left-width: 0;
       width: 99%;
-      padding: .2rem 2rem;
+      padding: 0.2rem 2rem;
     }
   }
 
   .multi-button {
-
   }
 `;
 
