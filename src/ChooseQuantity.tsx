@@ -5,7 +5,7 @@ import { Box, IconButton } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import Remove from "@mui/icons-material/Remove";
 
-export const QuantityContext = createContext({ quantity: 1, setQuantity? });
+export const QuantityContext = createContext({ quantity: 1, setQuantity: () => {}});
 
 //Incremenet QuantitySelected Context
 const IncrementButton = styled((props) => {
