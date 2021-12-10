@@ -27,7 +27,7 @@ const DecrementButton = styled((props) => {
   //  TODO: Integrate Context
   const { quantity, setQuantity } = useContext(QuantityContext);
   return (
-    <IconButton
+    <IconButton 
       color="button"
       onClick={() => (quantity > 1) && setQuantity(quantity - 1)}
       {...props}

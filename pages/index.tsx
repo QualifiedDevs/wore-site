@@ -40,9 +40,9 @@ const Mockup = styled((props) => {
 const Mockups = styled((props) => {
   return (
     <Box {...props}>
-      <Mockup src={mockup1} />
+      <Mockup src={mockup1} sx={{transform: "translate(12%, 0)"}}/>
       <Mockup src={mockup2} sx={{ zIndex: 1 }} />
-      <Mockup src={mockup3} />
+      <Mockup src={mockup3} sx={{transform: "translate(-12%, 0)"}}/>
     </Box>
   );
 })`
@@ -98,7 +98,7 @@ const index = styled((props) => {
           <Box className="price-total">
             <TotalPrice />
           </Box>
-          <MultiButton sx={{ my: 2 }} />
+          <MultiButton variant="contained" color="button" sx={{ my: 2 }} />
         </Box>
       </Container>
     </QuantityProvider>
