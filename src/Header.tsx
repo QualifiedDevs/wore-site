@@ -8,7 +8,7 @@ import logo from "../public/logo.png";
 const Logo = styled((props) => {
   return (
     <Box {...props}>
-      <Image src={logo} />
+      <Image src={logo} className="logo" />
     </Box>
   );
 })``;

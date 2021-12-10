@@ -70,7 +70,7 @@ const TotalPrice = styled((props) => {
 const index = styled((props) => {
   return (
     <QuantityProvider>
-      <Container maxWidth="contentBox" disableGutters {...props}>
+      <Container maxWidth="contentBox" {...props}>
         <Header sx={{ mb: 8 }} />
         <Typography variant="h1" color="text.secondary" className="title">
           The <b>Boss Bulls</b> <span className="tm">™</span> Club
@@ -174,6 +174,12 @@ const index = styled((props) => {
   }
 
   .multi-button {
+  }
+
+  @media screen and (max-width: 680px) {
+    .title {
+      font-size: 2rem;
+    }
   }
 `;
 
