@@ -14,6 +14,8 @@ import ChooseQuantity, {
 } from "../src/ChooseQuantity";
 import MultiButton from "../src/MultiButton";
 
+import useCandyMachine from "../hooks/useCandyMachine";
+
 //  Displays Mint Status: "Coming Soon | Mint Started | Sold Out"
 const MintStatus = styled((props) => {
   //TODO: display data based on candymachine state
@@ -23,7 +25,8 @@ const MintStatus = styled((props) => {
 //  Displays Amount Left to Mint out of Total Supply
 const Quantity = styled((props) => {
   // TODO: get data from candymachine
-  return <Typography {...props}>Minted: xxx/xxx</Typography>;
+  const {nftsData: {itemsRemaining, itemsAvailable}} = useCandyMachine();
+  return <Typography {...props}>Minted: {itemsRemaining}/{itemsAvailable}</Typography>;
 })``;
 
 const Mockup = styled((props) => {
