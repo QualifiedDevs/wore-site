@@ -62,7 +62,7 @@ const ChooseQuantity = styled((props) => {
 
 export default ChooseQuantity;
 
-export const QuantityProvider = (props) => {
+export const QuantityProvider = (props: any) => {
   const [quantity, setQuantity] = useState(1);
   return (
     <QuantityContext.Provider value={{ quantity, setQuantity }} {...props} />
