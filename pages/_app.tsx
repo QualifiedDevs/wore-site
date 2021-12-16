@@ -8,7 +8,7 @@ import theme from "../src/theme";
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>QD</title>
         <link href="/favicon.ico" rel="icon" />
@@ -26,6 +26,6 @@ export default function MyApp(props: AppProps) {
         />
         <Component {...pageProps} />
       </ThemeProvider>
-    </React.Fragment>
+    </>
   );
 }
