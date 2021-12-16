@@ -5,25 +5,12 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import theme from "../src/theme";
 
-import dynamic from "next/dynamic";
-import { Toaster } from "react-hot-toast";
-import { WalletBalanceProvider } from "../hooks/useWalletBalance";
-
-require("@solana/wallet-adapter-react-ui/styles.css");
-
-const WalletConnectionProvider = dynamic(
-  () => import("../components/WalletConnection/WalletConnectionProvider"),
-  {
-    ssr: false,
-  }
-);
-
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
   return (
     <React.Fragment>
       <Head>
-        <title>Boss Bulls Club</title>
+        <title>QD</title>
         <link href="/favicon.ico" rel="icon" />
         <meta
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -31,19 +18,13 @@ export default function MyApp(props: AppProps) {
         />
       </Head>
       <ThemeProvider theme={theme}>
-        <WalletConnectionProvider>
-          <WalletBalanceProvider>
-            <Toaster position="bottom-center" />
-            <CssBaseline />
-            <GlobalStyles
-              styles={{
-                html: { scrollBehavior: "smooth" },
-                body: { listStyleType: "none" },
-              }}
-            />
-            <Component {...pageProps} />
-          </WalletBalanceProvider>
-        </WalletConnectionProvider>
+        <CssBaseline />
+        <GlobalStyles
+          styles={{
+            html: { scrollBehavior: "smooth" }
+          }}
+        />
+        <Component {...pageProps} />
       </ThemeProvider>
     </React.Fragment>
   );

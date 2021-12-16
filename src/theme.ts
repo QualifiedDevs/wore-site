@@ -11,12 +11,11 @@ const theme = createTheme({
       md: 900,
       lg: 1200,
       xl: 1536,
-      contentBox: 680,
-    }
+    },
   },
   palette: {
     background: {
-      default: "#000000",
+      default: "#0A0C26",
     },
     text: {
       primary: "#ffffff",
@@ -29,40 +28,18 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Saira Condensed",
-    h1: {
-      fontWeight: 700,
-    },
-    h2: {
-      fontWeight: 700,
-    },
-    h3: {
-      fontWeight: 700,
-    },
-    h4: {
-      fontWeight: 700,
-    },
-    h5: {
-      fontWeight: 700,
-    },
-    h6: {
-      fontWeight: 700,
-    },
-    button: {
-      fontWeight: 700,
-    },
-    subtitle1: {
-      fontWeight: 700,
-    },
-    subtitle2: {
-      fontWeight: 700,
-    },
-    body1: {
-      fontWeight: 700,
-    },
-    body2: {
-      fontWeight: 700,
-    }
+    fontFamily: "Roboto, sans-serif",
+    h1: {},
+    h2: {},
+    h3: {},
+    h4: {},
+    h5: {},
+    h6: {},
+    button: {},
+    subtitle1: {},
+    subtitle2: {},
+    body1: {},
+    body2: {},
   },
   components: {
     MuiButton: {
@@ -90,8 +67,8 @@ declare module "@mui/material/Button" {
 
 export default theme;
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface BreakpointOverrides {
-    contentBox: true;
+
   }
 }

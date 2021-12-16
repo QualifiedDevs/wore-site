@@ -1,1 +1,1 @@
-Boss Bulls Mint Site by cryptominnow
+Qualified Devs Site
