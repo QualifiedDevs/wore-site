@@ -96,13 +96,13 @@ const MemberList = styled(({ team, ...props }) => {
   grid-row-gap: .5rem;
 `;
 
-const Team = styled(({ manifest: { team }, ...props }) => {
+const Team = styled(({ manifest: { team, socials }, ...props }) => {
   return (
     <Box {...props}>
         <Typography variant="h3" sx={{mb: 2}}>
             Created By:
         </Typography>
-      <Company />
+      <Company link={socials.twitter} />
       <Divider flexItem light sx={{my: 2}} />
       <MemberList team={team} />
     </Box>
