@@ -38,7 +38,7 @@ const manifest = {
       discord: "https://discord.gg/g7gt5BnR5A",
     },
     mainMenu: {
-      "HAPES DROP": "/games/hapes-drop",
+      "HAPES DROP": "/games/HAPE-DROP",
       About: "/about",
     },
     team: {
