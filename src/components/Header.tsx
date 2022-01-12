@@ -12,28 +12,48 @@ const Header = styled(({ menu, socials, ...props }) => {
   return (
     <Box component="header" {...props}>
       <Container maxWidth="xl" className="content">
-        <Link underline="none" color="white" href="/">
-          <LogoFull className="logo" />
-        </Link>
-        <Menu items={menu} />
-        <SocialsMenu socials={socials} />
+        <Box className="menu">
+          <Link underline="none" color="white" href="/">
+            <LogoFull className="logo" />
+          </Link>
+          <Menu items={menu} />
+        </Box>
+        <SocialsMenu socials={socials} className="socials" />
       </Container>
     </Box>
   );
 })`
   height: 5rem;
   width: 100%;
-  border-bottom: 2px solid white;
+  border-bottom: 3px solid #1B2060;
 
   .content {
     height: 100%;
+    width: 100%;
     display: grid;
     align-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     .logo {
       font-size: 1.8rem;
     }
+
+    .menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .socials {
+        justify-self: end;
+    }
+
+    .menu, .socials {
+        &, nav, li {
+            height: 100%;
+        }
+    }
+
+
   }
 `;
 

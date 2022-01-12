@@ -3,11 +3,14 @@ import { Box, Typography } from "@mui/material";
 
 import { LogoFull } from "@components/Branding";
 
-const index = styled((props) => {
+import DiscordButton from "@components/DiscordButton";
+
+const index = styled(({manifest, ...props}) => {
   return (
     <Box {...props}>
-      <LogoFull className="logo" sx={{mb: 2}} />
-      <Typography>The best devs on this side of the blockchain.</Typography>
+      <LogoFull className="logo" sx={{mb: 1}} />
+      <Typography sx={{mb: 4}} >Blockchain development as a service, and much much more.</Typography>
+      <DiscordButton link={manifest.socials.discord} />
     </Box>
   );
 })`
@@ -24,3 +27,9 @@ const index = styled((props) => {
 `;
 
 export default index;
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}

@@ -15,7 +15,7 @@ const Company = styled(({ link, ...props }) => {
   );
 })`
   display: block;
-  border: 3px solid #5b5b5b;
+  border: 3px solid #1B2060;
   width: fit-content;
   height: fit-content;
   border-radius: 60px;
@@ -46,7 +46,7 @@ const Member = styled(({ member, ...props }) => {
   );
 })`
   display: block;
-  border: 3px solid #5b5b5b;
+  border: 3px solid #1B2060;
   width: fit-content;
   border-radius: 60px;
   text-transform: none;
@@ -67,7 +67,7 @@ const Member = styled(({ member, ...props }) => {
       width: 60px;
       height: 60px;
       border-radius: 100%;
-      border: 3px solid #5b5b5b;
+      border: 3px solid #1B2060;
     }
 
     .avatar span {
@@ -108,7 +108,6 @@ const Team = styled(({ manifest: { team }, ...props }) => {
     </Box>
   );
 })`
-  flex-direction: column;
 
   h3 {
       font-size: 2rem;
@@ -116,6 +115,7 @@ const Team = styled(({ manifest: { team }, ...props }) => {
 
   hr {
       background: white;
+      height: 2px;
   }
 `;
 

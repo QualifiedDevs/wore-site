@@ -16,13 +16,24 @@ const hapesdrop = styled(({manifest, ...props}) => {
           <Team manifest={manifest} sx={{px: 3}} />
         </Box>
         <Game />
+        <Box></Box>
       </Box>
     </>
   );
 })`
   height: 100%;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 20vw 1fr 20vw;
+  
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
 `;
 
 export default hapesdrop;
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}

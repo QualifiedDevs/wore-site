@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 const Game = styled((props) => {
   return (
     <Box {...props}>
-      <Typography>GAME</Typography>
+      <Typography variant="h2">GAME</Typography>
     </Box>
   );
 })`
@@ -14,6 +14,7 @@ const Game = styled((props) => {
   place-items: center;
 
   border: 2px solid white;
+  border-radius: 10px;
 `;
 
 export default Game;
