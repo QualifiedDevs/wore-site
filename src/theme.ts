@@ -14,6 +14,13 @@ const theme = createTheme({
     },
   },
   palette: {
+    primary: {
+      main: "#b933ff",
+      contrastText: "FFF",
+    },
+    secondary: {
+      main: "#FFF",
+    },
     background: {
       default: "#0A0C26",
     },
@@ -68,7 +75,5 @@ declare module "@mui/material/Button" {
 export default theme;
 
 declare module "@mui/material/styles" {
-  interface BreakpointOverrides {
-
-  }
+  interface BreakpointOverrides {}
 }

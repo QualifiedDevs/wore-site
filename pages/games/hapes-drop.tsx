@@ -1,0 +1,28 @@
+import { styled } from "@mui/material/styles";
+import { Box } from "@mui/material";
+import Head from "next/head";
+
+import Team from "@components/Team";
+import Game from "@components/Game";
+
+const hapesdrop = styled(({manifest, ...props}) => {
+  return (
+    <>
+      <Head>
+        <title>HAPES DROP</title>
+      </Head>
+      <Box {...props}>
+        <Box component="aside" className="sidebar">
+          <Team manifest={manifest} sx={{px: 3}} />
+        </Box>
+        <Game />
+      </Box>
+    </>
+  );
+})`
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+`;
+
+export default hapesdrop;

@@ -1,17 +1,23 @@
+import fs from "fs";
+
 import * as React from "react";
 import { CssBaseline, GlobalStyles } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import theme from "../src/theme";
 
-export default function MyApp(props: AppProps) {
+import DefaultPage from "@layouts/DefaultPage";
+
+function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
+
   return (
     <>
       <Head>
-        <title>QD</title>
-        <link href="/favicon.ico" rel="icon" />
+        <title>qualified devs</title>
+        <link href="/favicon.png" rel="icon" />
         <meta
           content="minimum-scale=1, initial-scale=1, width=device-width"
           name="viewport"
@@ -21,11 +27,25 @@ export default function MyApp(props: AppProps) {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            html: { scrollBehavior: "smooth" }
+            html: { scrollBehavior: "smooth" },
           }}
         />
-        <Component {...pageProps} />
+        <DefaultPage {...pageProps}>
+          <Component {...pageProps} />
+        </DefaultPage>
       </ThemeProvider>
     </>
   );
 }
+
+MyApp.getInitialProps = async (appContext: any) => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+
+  const manifest = JSON.parse(fs.readFileSync("./src/manifest.json", "utf-8"));
+  appProps.pageProps.manifest = manifest;
+
+  return { ...appProps };
+};
+
+export default MyApp;
