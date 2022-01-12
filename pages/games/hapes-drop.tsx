@@ -31,9 +31,3 @@ const hapesdrop = styled(({manifest, ...props}) => {
 `;
 
 export default hapesdrop;
-
-export async function getServerSideProps() {
-  return {
-    props: {}
-  }
-}

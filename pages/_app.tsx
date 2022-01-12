@@ -30,7 +30,7 @@ function MyApp(props: AppProps) {
             html: { scrollBehavior: "smooth" },
           }}
         />
-        <DefaultPage {...pageProps}>
+        <DefaultPage {...pageProps} >
           <Component {...pageProps} />
         </DefaultPage>
       </ThemeProvider>
@@ -38,14 +38,14 @@ function MyApp(props: AppProps) {
   );
 }
 
-MyApp.getInitialProps = async (appContext: any) => {
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
+// MyApp.getInitialProps = async (appContext: any) => {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
 
-  const manifest = JSON.parse(fs.readFileSync("./src/manifest.json", "utf-8"));
-  appProps.pageProps.manifest = manifest;
+//   const manifest = JSON.parse(fs.readFileSync("./src/manifest.json", "utf-8"));
+//   appProps.pageProps.manifest = manifest;
 
-  return { ...appProps };
-};
+//   return { ...appProps };
+// };
 
 export default MyApp;

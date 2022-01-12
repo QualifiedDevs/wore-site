@@ -10,9 +10,3 @@ const about = styled((props) => {
 })``;
 
 export default about;
-
-export async function getServerSideProps() {
-    return {
-        props: {}
-    }
-}

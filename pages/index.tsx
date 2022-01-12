@@ -27,9 +27,3 @@ const index = styled(({manifest, ...props}) => {
 `;
 
 export default index;
-
-export async function getServerSideProps() {
-  return {
-    props: {}
-  }
-}
