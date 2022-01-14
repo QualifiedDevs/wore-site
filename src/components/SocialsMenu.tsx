@@ -28,10 +28,10 @@ const SocialButton = styled(({ social, link, ...props }) => {
 
 //@ts-ignore
 const SocialsMenu = styled(({ socials, ...props }) => {
-  const socialButtons = Object.keys(socials).map((socialName: string) => {
+  const socialButtons = Object.keys(socials).map((socialName: string, index: number) => {
     const link = socials[socialName];
         {/* @ts-ignore */}
-    return <SocialButton social={socialName} link={link} />;
+    return <SocialButton social={socialName} link={link} key={index} />;
   });
   return <Box component="nav" {...props}>{socialButtons}</Box>;
 })``;

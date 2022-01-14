@@ -1,12 +1,14 @@
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
 import Team from "@components/Team";
-import Game from "@components/Game";
+
+const Game = dynamic(() => import("@components/Game"), { ssr: false });
 
 //@ts-ignore
-const hapesdrop = styled(({manifest, ...props}) => {
+const hapesdrop = styled(({ manifest, ...props }) => {
   return (
     <>
       <Head>
@@ -15,7 +17,7 @@ const hapesdrop = styled(({manifest, ...props}) => {
       <Box {...props}>
         <Box component="aside" className="sidebar">
           {/* @ts-ignore */}
-          <Team manifest={manifest} sx={{px: 3}} />
+          <Team manifest={manifest} sx={{ px: 3 }} />
         </Box>
         <Game />
         <Box></Box>
@@ -26,7 +28,7 @@ const hapesdrop = styled(({manifest, ...props}) => {
   height: 100%;
   display: grid;
   grid-template-columns: 20vw 1fr 20vw;
-  
+
   align-content: center;
   justify-content: center;
   justify-items: center;

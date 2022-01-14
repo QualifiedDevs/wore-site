@@ -55,15 +55,15 @@ const LogoFull = styled((props) => {
   align-items: center;
   font-size: 2rem;
 
-    svg {
-        margin-right: .2em;
-    }
-
-  * {
-    font-size: inherit;
-    font-family: Tw Cen MT;
+  svg {
+    margin-right: 0.2em;
   }
 
+  span,
+  svg {
+    font-family: Tw Cen MT;
+    font-size: inherit;
+  }
 `;
 
 export { LogoIcon, LogoFull };

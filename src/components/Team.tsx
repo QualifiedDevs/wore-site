@@ -80,11 +80,11 @@ const Member = styled(({ member, ...props }) => {
 
 //@ts-ignore
 const MemberList = styled(({ team, ...props }) => {
-  const members = Object.keys(team).map((memberName) => {
+  const members = Object.keys(team).map((memberName, index) => {
     const member = team[memberName];
     member.name = memberName;
     //@ts-ignore
-    return <Member member={member} />;
+    return <Member member={member} key={index} />;
   });
 
   return (

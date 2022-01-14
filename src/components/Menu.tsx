@@ -16,9 +16,9 @@ const Item = styled(({ name, link, ...props }) => {
 
 //@ts-ignore
 const Menu = styled(({ items, ...props }) => {
-  const menuItems = Object.keys(items).map((itemName: string) => {
+  const menuItems = Object.keys(items).map((itemName: string, index: number) => {
             {/* @ts-ignore */}
-    return <Item name={itemName} link={items[itemName]} />;
+    return <Item name={itemName} link={items[itemName]} key={index} />;
   });
 
   return (
