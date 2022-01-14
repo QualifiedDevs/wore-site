@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 
 import Discord from "@src/vector-graphics/socials/discord";
 
+//@ts-ignore
 const DiscordButton = styled(({ link, ...props }) => {
   return (
     <Button

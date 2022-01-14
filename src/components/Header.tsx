@@ -8,16 +8,21 @@ import { LogoFull } from "@components/Branding";
 
 import Link from "@components/Link";
 
+//@ts-ignore
+
 const Header = styled(({ menu, socials, ...props }) => {
   return (
     <Box component="header" {...props}>
       <Container maxWidth="xl" className="content">
         <Box className="menu">
           <Link underline="none" color="white" href="/">
+            {/* @ts-ignore */}
             <LogoFull className="logo" />
           </Link>
+            {/* @ts-ignore */}
           <Menu items={menu} />
         </Box>
+            {/* @ts-ignore */}
         <SocialsMenu socials={socials} className="socials" />
       </Container>
     </Box>

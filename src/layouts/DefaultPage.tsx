@@ -5,14 +5,17 @@ import { Box } from "@mui/material";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 
+//@ts-ignore
 const DefaultPage = styled(({ children, ...props }) => {
 
   const { mainMenu, socials } = manifest;
 
   return (
     <Box {...props}>
+        {/* @ts-ignore */}
       <Header menu={mainMenu} socials={socials} />
       <Box className="content">{React.cloneElement(children, {manifest})}</Box>
+        {/* @ts-ignore */}
       <Footer manifest={manifest} />
     </Box>
   );

@@ -7,6 +7,7 @@ import Link from "@components/Link";
 
 import { LogoFull } from "@components/Branding";
 
+//@ts-ignore
 const Company = styled(({ link, ...props }) => {
   return (
     <Button component="a" href={link} {...props}>
@@ -24,6 +25,7 @@ const Company = styled(({ link, ...props }) => {
   color: white;
 `;
 
+//@ts-ignore
 const Member = styled(({ member, ...props }) => {
   const { name, twitter, discord } = member;
 
@@ -76,10 +78,12 @@ const Member = styled(({ member, ...props }) => {
   }
 `;
 
+//@ts-ignore
 const MemberList = styled(({ team, ...props }) => {
   const members = Object.keys(team).map((memberName) => {
     const member = team[memberName];
     member.name = memberName;
+    //@ts-ignore
     return <Member member={member} />;
   });
 
@@ -96,14 +100,17 @@ const MemberList = styled(({ team, ...props }) => {
   grid-row-gap: .5rem;
 `;
 
+//@ts-ignore
 const Team = styled(({ manifest: { team, socials }, ...props }) => {
   return (
     <Box {...props}>
         <Typography variant="h3" sx={{mb: 2}}>
             Created By:
         </Typography>
+        {/* @ts-ignore */}
       <Company link={socials.twitter} />
       <Divider flexItem light sx={{my: 2}} />
+        {/* @ts-ignore */}
       <MemberList team={team} />
     </Box>
   );

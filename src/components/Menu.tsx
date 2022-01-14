@@ -3,8 +3,7 @@ import { Box } from "@mui/material";
 
 import Link from "@components/Link";
 
-// Loop over
-
+//@ts-ignore
 const Item = styled(({ name, link, ...props }) => {
   return (
     <Link underline="none" color="white" href={link} {...props}>
@@ -15,8 +14,10 @@ const Item = styled(({ name, link, ...props }) => {
   );
 })``;
 
+//@ts-ignore
 const Menu = styled(({ items, ...props }) => {
   const menuItems = Object.keys(items).map((itemName: string) => {
+            {/* @ts-ignore */}
     return <Item name={itemName} link={items[itemName]} />;
   });
 

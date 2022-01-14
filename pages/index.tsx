@@ -5,11 +5,15 @@ import { LogoFull } from "@components/Branding";
 
 import DiscordButton from "@components/DiscordButton";
 
+//@ts-ignore
 const index = styled(({manifest, ...props}) => {
   return (
     <Box {...props}>
+      
+      {/* @ts-ignore */}
       <LogoFull className="logo" sx={{mb: 1}} />
       <Typography sx={{mb: 4}} >Blockchain development as a service, and much much more.</Typography>
+      {/* @ts-ignore */}
       <DiscordButton link={manifest.socials.discord} />
     </Box>
   );

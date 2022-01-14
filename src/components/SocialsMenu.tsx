@@ -13,6 +13,8 @@ const socialIcons = {
 };
 
 //TODO: Type annotations on props
+
+//@ts-ignore
 const SocialButton = styled(({ social, link, ...props }) => {
   //@ts-ignore
   const Icon = socialIcons[social];
@@ -24,9 +26,11 @@ const SocialButton = styled(({ social, link, ...props }) => {
   );
 })``;
 
+//@ts-ignore
 const SocialsMenu = styled(({ socials, ...props }) => {
   const socialButtons = Object.keys(socials).map((socialName: string) => {
     const link = socials[socialName];
+        {/* @ts-ignore */}
     return <SocialButton social={socialName} link={link} />;
   });
   return <Box component="nav" {...props}>{socialButtons}</Box>;
