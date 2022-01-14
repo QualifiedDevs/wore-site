@@ -5,6 +5,7 @@ import Head from "next/head";
 import Team from "@components/Team";
 import Game from "@components/Game";
 
+//@ts-ignore
 const hapesdrop = styled(({manifest, ...props}) => {
   return (
     <>
@@ -13,6 +14,7 @@ const hapesdrop = styled(({manifest, ...props}) => {
       </Head>
       <Box {...props}>
         <Box component="aside" className="sidebar">
+          {/* @ts-ignore */}
           <Team manifest={manifest} sx={{px: 3}} />
         </Box>
         <Game />
