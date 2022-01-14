@@ -1,5 +1,3 @@
-import { IconButton } from "@mui/material";
-import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 // Create a theme instance.
@@ -48,31 +46,15 @@ const theme = createTheme({
     body1: {},
     body2: {},
   },
-  components: {
-    MuiButton: {
-      variants: [
-        {
-          props: { variant: "mint" },
-          style: {},
-        },
-      ],
-    },
-  },
 });
+
+export default theme;
 
 declare module "@mui/material/styles" {
   interface PaletteOptions {
     button?: PaletteOptions["primary"];
   }
 }
-
-declare module "@mui/material/Button" {
-  interface ButtonPropsVariantOverrides {
-    mint: true;
-  }
-}
-
-export default theme;
 
 declare module "@mui/material/styles" {
   interface BreakpointOverrides {}

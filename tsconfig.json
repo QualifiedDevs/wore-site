@@ -12,6 +12,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "jsxImportSource": "@emotion/react",
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
@@ -20,7 +21,6 @@
       "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@mui/styled-engine": ["node_modules/@mui/styled-engine-sc"] // this mapping is relative to "baseUrl"
     },
     "incremental": true
   },

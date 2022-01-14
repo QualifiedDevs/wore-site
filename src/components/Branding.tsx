@@ -60,9 +60,10 @@ const LogoFull = styled((props) => {
     }
 
   * {
-    font-family: Tw Cen MT;
     font-size: inherit;
+    font-family: Tw Cen MT;
   }
+
 `;
 
 export { LogoIcon, LogoFull };

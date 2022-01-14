@@ -1,20 +1,28 @@
 import fs from "fs";
-
 import * as React from "react";
 import { CssBaseline, GlobalStyles } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import App from "next/app";
 import Head from "next/head";
-import theme from "../src/theme";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import theme from "@src/theme";
+import createEmotionCache from "@src/createEmotionCache";
 
 import DefaultPage from "@layouts/DefaultPage";
 
-function MyApp(props: AppProps) {
-  const { Component, pageProps } = props;
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+function MyApp(props: MyAppProps) {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
-    <>
+    <CacheProvider value={emotionCache}>
       <Head>
         <title>qualified devs</title>
         <link href="/favicon.png" rel="icon" />
@@ -34,7 +42,7 @@ function MyApp(props: AppProps) {
           <Component {...pageProps} />
         </DefaultPage>
       </ThemeProvider>
-    </>
+    </CacheProvider>
   );
 }
 
