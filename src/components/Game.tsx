@@ -8,10 +8,10 @@ import Unity, { UnityContext, IUnityConfig } from "react-unity-webgl";
 //  How do I direct this to the public folder instead?
 
 const unityContext = new UnityContext({
-  loaderUrl: "http://localhost:3000/HAPEDROP/Build/HAPEDROP.loader.js",
-  dataUrl: "http://localhost:3000/HAPEDROP/Build/HAPEDROP.data",
-  frameworkUrl: "http://localhost:3000/HAPEDROP/Build/HAPEDROP.framework.js",
-  codeUrl: "http://localhost:3000/HAPEDROP/Build/HAPEDROP.wasm",
+  loaderUrl: "https://www.qualifieddevs.io/HAPEDROP/Build/HAPEDROP.loader.js",
+  dataUrl: "https://www.qualifieddevs.io/HAPEDROP/Build/HAPEDROP.data",
+  frameworkUrl: "https://www.qualifieddevs.io/HAPEDROP/Build/HAPEDROP.framework.js",
+  codeUrl: "https://www.qualifieddevs.io/HAPEDROP/Build/HAPEDROP.wasm",
 });
 
 const Game = styled((props) => {
