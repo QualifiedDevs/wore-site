@@ -4,29 +4,6 @@
     "discord": "https://discord.gg/g7gt5BnR5A"
   },
   "mainMenu": {
-    "HAPE DROP": "/games/HAPE-DROP",
-    "About": "/about"
-  },
-  "team": {
-    "minnow": {
-      "twitter": "CryptoMinnows",
-      "discord": "minnow#1884",
-      "roles": ["Co-Founder"]
-    },
-    "Jax": {
-      "twitter": "LuckyUniverse2",
-      "discord": "Jax#0235",
-      "roles": ["Co-Founder"]
-    },
-    "OrionStar": {
-      "twitter": "OrionDevStar",
-      "discord": "+OrionStar#8194",
-      "roles": ["Co-Founder"]
-    },
-    "Dodge": {
-      "twitter": "DodgeInMedia",
-      "discord": "Dodge#2824",
-      "roles": ["Networking"]
-    }
+    "Home": "/"
   }
 }

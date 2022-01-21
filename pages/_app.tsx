@@ -1,5 +1,5 @@
 import fs from "fs";
-import * as React from "react";
+import React, {useRef} from "react"
 import { CssBaseline, GlobalStyles } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
@@ -19,7 +19,11 @@ interface MyAppProps extends AppProps {
 }
 
 function MyApp(props: MyAppProps) {
+
+  //@ts-ignore
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const manifestRef = useRef(pageProps.manifest)
+  pageProps.manifest = manifestRef.current;
 
   return (
     <CacheProvider value={emotionCache}>
@@ -45,15 +49,5 @@ function MyApp(props: MyAppProps) {
     </CacheProvider>
   );
 }
-
-// MyApp.getInitialProps = async (appContext: any) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-
-//   const manifest = JSON.parse(fs.readFileSync("./src/manifest.json", "utf-8"));
-//   appProps.pageProps.manifest = manifest;
-
-//   return { ...appProps };
-// };
 
 export default MyApp;

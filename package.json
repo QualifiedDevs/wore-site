@@ -1,6 +1,6 @@
 {
-  "name": "qualified-site-emotion",
-  "version": "5.0.0",
+  "name": "meta-search",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -21,9 +21,7 @@
     "next-transpile-modules": "latest",
     "react": "^17.0.2",
     "react-dom": "latest",
-    "react-hot-toast": "^2.1.1",
-    "react-is": "latest",
-    "react-unity-webgl": "8.x"
+    "react-is": "latest"
   },
   "devDependencies": {
     "@types/react": "latest",
