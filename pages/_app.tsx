@@ -30,7 +30,7 @@ function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>qualified devs</title>
+        <title>WORE</title>
         <link href="/favicon.png" rel="icon" />
         <meta
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -44,7 +44,7 @@ function MyApp(props: MyAppProps) {
             html: { scrollBehavior: "smooth" },
           }}
         />
-        <Alert />
+        {/* <Alert /> */}
         <DefaultPage {...pageProps} >
           <Component {...pageProps} />
         </DefaultPage>

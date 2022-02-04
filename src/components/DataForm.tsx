@@ -5,8 +5,14 @@ import { LoadingButton } from "@mui/lab";
 
 import signup from "@utils/signup";
 
+enum SubmitState {
+  NONE = 0,
+  SUBMITTED,
+}
+
 const DataForm = styled((props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [submitState, setSubmitState] = useState(SubmitState.NONE);
 
   const [email, setEmail] = useState("");
   const [discord, setDiscord] = useState("");
@@ -16,12 +22,17 @@ const DataForm = styled((props) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await signup(email, discord, (walletAddress !== "")? walletAddress : undefined);
+      const res = await signup(
+        email,
+        discord,
+        walletAddress !== "" ? walletAddress : undefined
+      );
       console.log("RESPONSE RECEIVED:", res);
     } catch (err) {
       console.log("SUBMIT FAILED", err);
     }
     setIsLoading(false);
+    setSubmitState(SubmitState.SUBMITTED);
   }
 
   return (
@@ -33,6 +44,7 @@ const DataForm = styled((props) => {
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
+          setSubmitState(SubmitState.NONE);
         }}
       />
       <TextField
@@ -42,6 +54,7 @@ const DataForm = styled((props) => {
         value={discord}
         onChange={(e) => {
           setDiscord(e.target.value);
+          setSubmitState(SubmitState.NONE);
         }}
       />
       <TextField
@@ -50,10 +63,11 @@ const DataForm = styled((props) => {
         value={walletAddress}
         onChange={(e) => {
           setWalletAddress(e.target.value);
+          setSubmitState(SubmitState.NONE);
         }}
       />
       <LoadingButton type="submit" loading={isLoading} variant="contained">
-        Submit
+        {submitState === SubmitState.SUBMITTED ? "Submitted" : "Submit"}
       </LoadingButton>
     </Box>
   );
@@ -65,15 +79,25 @@ const DataForm = styled((props) => {
 
   .MuiButton-root,
   .MuiTextField-root {
+    backround: black;
+  }
 
+  .MuiTextField-root {
+    background: black;
   }
 
   .MuiButton-root {
+    color: #222222;
+    padding: 0.25em 0;
+    font-size: 1.5rem;
 
     &.MuiLoadingButton-loading {
-        background: #8B8B8B;
+      background: #8b8b8b;
+      color: transparent !important;
     }
 
+    &.MuiButton-disabled {
+    }
   }
 
   .MuiTextField-root {

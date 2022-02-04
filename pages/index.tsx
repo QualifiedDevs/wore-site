@@ -19,10 +19,10 @@ const index = styled(({ manifest, ...props }) => {
 
       <Box>
         <Typography className="desc" variant="h5" sx={{mb: 1}}>
-          Already Whitelisted?
+          Coming Soon...
         </Typography>
         <Link href="/presale">
-        <Button variant="outlined">Enter Presale</Button>
+        <Button variant="outlined">Register Now</Button>
         </Link>
       </Box>
     </Box>
@@ -58,7 +58,7 @@ const index = styled(({ manifest, ...props }) => {
     letter-spacing: 0.1em;
     background: black;
     color: white;
-    border: 2px solid white;
+    border: 2px solid white !important;
     border-radius: 0;
   }
 `;
