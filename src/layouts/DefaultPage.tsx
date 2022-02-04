@@ -7,21 +7,21 @@ import Footer from "@components/Footer";
 
 //@ts-ignore
 const DefaultPage = styled(({ children, manifest, ...props }) => {
-
-  const {mainMenu, socials} = manifest;
+  const { mainMenu, socials } = manifest;
 
   return (
     <Box {...props}>
-        {/* @ts-ignore */}
-      {/* <Header menu={mainMenu} socials={socials} /> */}
+      {/* @ts-ignore */}
+      <Header menu={mainMenu} socials={socials} />
       <Box className="content">{children}</Box>
-        {/* @ts-ignore */}
-      {/* <Footer manifest={manifest} /> */}
+      {/* @ts-ignore */}
+      <Footer />
     </Box>
   );
 })`
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: auto 1fr auto;
+
   height: 100vh;
 
   .content {

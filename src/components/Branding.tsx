@@ -80,4 +80,36 @@ aspect-ratio: 741/230;
 width: 500px;
 `;
 
+import woreLogoIcon from "@public/wore-nft.png"
+
+export const WORELogoIcon = styled((props) => {
+  return (
+    <Box {...props}>
+      <Image src={woreLogoIcon} />
+    </Box>
+  );
+})`
+position: relative;
+aspect-ratio: 1;
+width: 200px;
+`;
+
+import gpgIcon from "@public/gpg-icon.png"
+
+
+export const GPGIcon = styled((props) => {
+  return (
+    <Box {...props}>
+      <Image src={gpgIcon}/>
+    </Box>
+  );
+})`
+position: relative;
+aspect-ratio: 1;
+width: 200px;
+`;
+
+
+
+
 export { LogoIcon, LogoFull };

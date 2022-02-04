@@ -5,26 +5,27 @@ import { LogoFull } from "@components/Branding";
 import Invite from "@components/Invite";
 import { WORELogo } from "@components/Branding";
 
-import Link from "@components/Link"
+import Link from "@components/Link";
 
 //@ts-ignore
 const index = styled(({ manifest, ...props }) => {
   return (
     <Box {...props}>
-      <Box sx={{mb: 10}}>
+      <Box sx={{ mb: 10 }}>
         {/* @ts-ignore */}
         <WORELogo className="logo" />
         <Typography variant="h2">Real Estate Meets Crypto</Typography>
       </Box>
 
       <Box>
-        <Typography className="desc" variant="h5" sx={{mb: 1}}>
+        <Typography className="desc" variant="h5" sx={{ mb: 1 }}>
           Coming Soon...
         </Typography>
         <Link href="/presale">
-        <Button variant="outlined">Register Now</Button>
+          <Button variant="outlined">Register Now</Button>
         </Link>
       </Box>
+
     </Box>
   );
 })`
