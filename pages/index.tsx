@@ -21,7 +21,7 @@ const index = styled(({ manifest, ...props }) => {
         <Typography className="desc" variant="h5" sx={{ mb: 1 }}>
           Coming Soon...
         </Typography>
-        <Link href="/presale">
+        <Link href="/whitelist-registration">
           <Button variant="outlined">Register Now</Button>
         </Link>
       </Box>
