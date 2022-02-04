@@ -9,6 +9,8 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "@src/theme";
 import createEmotionCache from "@src/createEmotionCache";
 
+import Alert from "@components/Alert"
+
 import DefaultPage from "@layouts/DefaultPage";
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -42,6 +44,7 @@ function MyApp(props: MyAppProps) {
             html: { scrollBehavior: "smooth" },
           }}
         />
+        <Alert />
         <DefaultPage {...pageProps} >
           <Component {...pageProps} />
         </DefaultPage>

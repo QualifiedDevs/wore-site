@@ -13,16 +13,15 @@ const DefaultPage = styled(({ children, manifest, ...props }) => {
   return (
     <Box {...props}>
         {/* @ts-ignore */}
-      <Header menu={mainMenu} socials={socials} />
+      {/* <Header menu={mainMenu} socials={socials} /> */}
       <Box className="content">{children}</Box>
         {/* @ts-ignore */}
-      <Footer manifest={manifest} />
+      {/* <Footer manifest={manifest} /> */}
     </Box>
   );
 })`
   display: grid;
-  grid-template-rows: auto 1fr auto;
-
+  grid-template-rows: 1fr;
   height: 100vh;
 
   .content {

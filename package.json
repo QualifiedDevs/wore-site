@@ -1,5 +1,5 @@
 {
-  "name": "meta-search",
+  "name": "wore-site",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,14 +16,21 @@
     "@mui/icons-material": "^5.2.1",
     "@mui/lab": "^5.0.0-alpha.58",
     "@mui/material": "latest",
-    "@mui/styled-engine-sc": "latest",
+    "@notionhq/client": "^0.4.13",
+    "axios": "^0.25.0",
+    "ethers": "^5.5.4",
+    "googleapis": "^94.0.0",
+    "jotai": "^1.5.3",
     "next": "latest",
     "next-transpile-modules": "latest",
+    "nodemailer": "^6.7.2",
     "react": "^17.0.2",
     "react-dom": "latest",
-    "react-is": "latest"
+    "react-is": "latest",
+    "web3modal": "^1.9.5"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.4",
     "@types/react": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",

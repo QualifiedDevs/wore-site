@@ -1,14 +1,30 @@
 import { styled } from "@mui/material/styles";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button, Container } from "@mui/material";
 
 import { LogoFull } from "@components/Branding";
+import Invite from "@components/Invite";
+import { WORELogo } from "@components/Branding";
+
+import Link from "@components/Link"
 
 //@ts-ignore
-const index = styled(({manifest, ...props}) => {
+const index = styled(({ manifest, ...props }) => {
   return (
     <Box {...props}>
-      {/* @ts-ignore */}
-      <LogoFull className="logo" sx={{mb: 1}} />
+      <Box sx={{mb: 10}}>
+        {/* @ts-ignore */}
+        <WORELogo className="logo" />
+        <Typography variant="h2">Real Estate Meets Crypto</Typography>
+      </Box>
+
+      <Box>
+        <Typography className="desc" variant="h5" sx={{mb: 1}}>
+          Already Whitelisted?
+        </Typography>
+        <Link href="/presale">
+        <Button variant="outlined">Enter Presale</Button>
+        </Link>
+      </Box>
     </Box>
   );
 })`
@@ -19,8 +35,31 @@ const index = styled(({manifest, ...props}) => {
   align-items: center;
   color: white;
 
+  text-align: center;
+
   .logo {
-    font-size: 4rem;
+    width: 650px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2.5em;
+  }
+
+  h5 {
+    color: #8e8e8e;
+    text-transform: uppercase;
+    font-size: 1.2em;
+  }
+
+  .MuiButton-root {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    background: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0;
   }
 `;
 

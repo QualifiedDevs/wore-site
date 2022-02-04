@@ -18,9 +18,10 @@
     "paths": {
       "@public/*": ["public/*"],
       "@pages/*": ["pages/*"],
-      "@src/*": ["src/*"],
-      "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@utils/*": ["src/utils/*"],
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"]
     },
     "incremental": true
   },

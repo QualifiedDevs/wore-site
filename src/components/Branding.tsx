@@ -66,4 +66,18 @@ const LogoFull = styled((props) => {
   }
 `;
 
+import woreLogo from "@public/wore-logo.png"
+
+export const WORELogo = styled((props) => {
+  return (
+    <Box {...props}>
+      <Image src={woreLogo} />
+    </Box>
+  );
+})`
+position: relative;
+aspect-ratio: 741/230;
+width: 500px;
+`;
+
 export { LogoIcon, LogoFull };
