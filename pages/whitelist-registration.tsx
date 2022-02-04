@@ -10,6 +10,7 @@ const presale = styled((props) => {
   return (
     <Box {...props}>
       <Link href="/">
+        {/* @ts-ignore */}
         <WORELogoIcon className="logo" sx={{ mb: 4 }} />
       </Link>
       <DataForm />

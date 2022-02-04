@@ -12,6 +12,7 @@ const Footer = styled(({ manifest, ...props }) => {
     <Box component="footer" {...props}>
       <Container maxWidth={false}>
         <a href="https://www.greaterpropertygroup.com/">
+          {/* @ts-ignore */}
           <GPGIcon className="logo" />
         </a>
       </Container>

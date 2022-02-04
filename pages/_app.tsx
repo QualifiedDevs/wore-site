@@ -30,7 +30,7 @@ function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>WORE</title>
+        <title>W | O | R | E</title>
         <link href="/favicon.png" rel="icon" />
         <meta
           content="minimum-scale=1, initial-scale=1, width=device-width"
