@@ -15,6 +15,7 @@ const Footer = styled(({ manifest, ...props }) => {
   return (
     <Box component="footer" {...props}>
       <Container maxWidth={false}>
+        {/* @ts-ignore */}
         <SocialsMenu socials={socials} />
         <a href="https://www.greaterpropertygroup.com/">
           {/* @ts-ignore */}
