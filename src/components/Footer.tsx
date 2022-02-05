@@ -2,8 +2,12 @@ import { styled } from "@mui/material/styles";
 import { Box, Container } from "@mui/material";
 
 import Team from "@components/Team";
-
 import { GPGIcon } from "@components/Branding";
+
+import manifest from "@src/manifest.json";
+const socials = manifest.socials;
+
+import SocialsMenu from "@components/SocialsMenu";
 
 //@ts-ignore
 
@@ -11,6 +15,7 @@ const Footer = styled(({ manifest, ...props }) => {
   return (
     <Box component="footer" {...props}>
       <Container maxWidth={false}>
+        <SocialsMenu socials={socials} />
         <a href="https://www.greaterpropertygroup.com/">
           {/* @ts-ignore */}
           <GPGIcon className="logo" />
@@ -25,7 +30,7 @@ const Footer = styled(({ manifest, ...props }) => {
   .MuiContainer-root {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   .logo {
