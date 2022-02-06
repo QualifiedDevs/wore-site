@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import React, { useState, useEffect, useCallback } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Paper } from "@mui/material";
@@ -18,7 +20,8 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     whitelistAuth,
     signer,
     price,
-    mintedBalance
+    mintedBalance,
+    
   } = useWeb3();
 
   async function purchase() {
@@ -51,11 +54,15 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     setIsMinting(false);
   }
 
+  let num = 0;
+  if (mintedBalance)
+    num = mintedBalance.toNumber()
+
   return (
     <LoadingButton
       onClick={handleClick}
       loading={isLoading}
-      disabled={isMinting}
+      disabled={isMinting || quantity}
       {...props}
     >
       Purchase {quantity}

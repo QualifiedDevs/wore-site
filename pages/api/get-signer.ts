@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import sign from "@utils/sign";
 import type { NextApiRequest, NextApiResponse } from "next";
 

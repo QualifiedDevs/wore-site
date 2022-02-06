@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import React, { createContext, useState, useEffect } from "react";
 import { ethers } from "ethers";
 
