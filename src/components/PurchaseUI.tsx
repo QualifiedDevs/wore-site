@@ -62,7 +62,7 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     <LoadingButton
       onClick={handleClick}
       loading={isLoading}
-      disabled={isMinting || (3 - mintedBalance) <= quantity }
+      disabled={isMinting || (3 - mintedBalance) < quantity }
       {...props}
     >
       Purchase {quantity}

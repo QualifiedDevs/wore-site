@@ -4,7 +4,6 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import isClient from "@utils/isClient";
 import config from "config.json"
 
-
 const providerOptions = {
   /* See Provider Options Section */
   walletconnect: {
@@ -20,6 +19,8 @@ export default isClient? new Web3Modal({
   cacheProvider: true, // optional
   providerOptions // required
 }) : null;
+
+// ! CORS ERROR?
 
 // const instance = await web3Modal.connect();
 
