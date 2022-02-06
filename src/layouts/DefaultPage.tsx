@@ -5,9 +5,11 @@ import { Box } from "@mui/material";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 
+import manifest from "@src/manifest.json"
+const {mainMenu, socials} = manifest;
+
 //@ts-ignore
-const DefaultPage = styled(({ children, manifest, ...props }) => {
-  const { mainMenu, socials } = manifest;
+const DefaultPage = styled(({ children, ...props }) => {
 
   return (
     <Box {...props}>

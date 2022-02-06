@@ -17,6 +17,7 @@
     "@mui/lab": "^5.0.0-alpha.58",
     "@mui/material": "latest",
     "@notionhq/client": "^0.4.13",
+    "@walletconnect/web3-provider": "^1.7.1",
     "axios": "^0.25.0",
     "ethers": "^5.5.4",
     "googleapis": "^94.0.0",
@@ -27,6 +28,7 @@
     "react": "^17.0.2",
     "react-dom": "latest",
     "react-is": "latest",
+    "web3": "^1.7.0",
     "web3modal": "^1.9.5"
   },
   "devDependencies": {

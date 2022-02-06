@@ -18,7 +18,9 @@
     "paths": {
       "@public/*": ["public/*"],
       "@pages/*": ["pages/*"],
+      "@api/*": ["pages/api/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@hooks/*": ["hooks/*"],
       "@utils/*": ["src/utils/*"],
       "@src/*": ["src/*"],
       "@components/*": ["src/components/*"]
