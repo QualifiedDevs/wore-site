@@ -8,7 +8,11 @@ import { LoadingButton } from "@mui/lab";
 import useWeb3 from "@hooks/useWeb3";
 import { BigNumber } from "ethers";
 
-const prices = [500000000000000000, 500000000000000000 * 2, 500000000000000000 * 3]
+const prices = [
+  500000000000000000,
+  500000000000000000 * 2,
+  500000000000000000 * 3,
+];
 
 const PurchaseButton = styled(({ quantity, ...props }: any) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,14 +25,13 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     signer,
     price,
     mintedBalance,
-    
   } = useWeb3();
 
   async function purchase() {
     //TODO: Attempt purchase from contract with given quantity and signer.
     let res;
     try {
-      console.log(price?.toString())
+      console.log(price?.toString());
       const { hash, signature } = whitelistAuth!;
       res = await presaleContract.buy(quantity, hash, signature, {
         gasLimit: 250000,
@@ -55,20 +58,25 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
   }
 
   let num = 0;
-  if (mintedBalance)
-    num = mintedBalance.toNumber()
+  if (mintedBalance) num = mintedBalance.toNumber();
 
   return (
     <LoadingButton
       onClick={handleClick}
       loading={isLoading}
-      disabled={isMinting || (3 - mintedBalance) < quantity }
+      disabled={isMinting || 3 - mintedBalance < quantity}
       {...props}
     >
       Purchase {quantity}
     </LoadingButton>
   );
-})``;
+})`
+  .MuiButton-root {
+    &.Mui-disabled {
+      color: red;
+    }
+  }
+`;
 
 const PurchaseUI = styled((props) => {
   return (
