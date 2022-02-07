@@ -2,7 +2,6 @@ import { styled } from "@mui/material/styles";
 import { Box, Typography, Button, Container } from "@mui/material";
 
 import { LogoFull } from "@components/Branding";
-import Invite from "@components/Invite";
 import { WORELogo } from "@components/Branding";
 
 import Link from "@components/Link";

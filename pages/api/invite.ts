@@ -1,15 +1,34 @@
 import { randomUUID } from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import notion from "@utils/notionClient"
-import sendEmail from "@utils/sendEmail"
+import notion from "@utils/notionClient";
+import sendEmail from "@utils/sendEmail";
 
 const whitelist_id = process.env.NOTION_WHITELIST_ID!;
-const referers_id = process.env.NOTION_REFERERS_ID!;
+const referrers_id = process.env.NOTION_REFERRERS_ID!;
 
 async function getDatabaseEntries(id: string) {
   const res = await notion.databases.query({ database_id: id });
   return res;
+}
+
+async function getReferrerFromToken(token: string) {
+  let res;
+  console.log(referrers_id)
+  try {
+    res = await notion.databases.query({
+      database_id: referrers_id,
+      filter: {
+        property: "UUID",
+        text: {
+          equals: token,
+        },
+      },
+    });
+  } catch (err) {
+    throw(err)
+  }
+  return res.results[0];
 }
 
 // Return the first page with the given email, or null if none is found
@@ -90,9 +109,14 @@ export default async function inviteHandler(
   res: NextApiResponse
 ) {
   //TODO: Pull referral token. How? Probably req params AND JWT. ignore for now.
-  const { address } = req.body;
+  const { access, address } = req.body;
 
+  // Query database with access filter
+  // If there is an access filter, then continue...
   //! If this is not a valid referer, respond with no access!
+
+  console.log("INDEXING FOR REFERRER WITH TOKEN", access)
+  const referrer = await getReferrerFromToken(access)
 
   const whitelist = await getDatabaseEntries(whitelist_id);
   const page = getPageFromEmail(address, whitelist);
@@ -106,7 +130,7 @@ export default async function inviteHandler(
 
   if (!page) {
     pageProps.email = { email: address };
-    const entry_id = whitelist.results.length.toString()
+    const entry_id = whitelist.results.length.toString();
     const entryRes = await createEntry(whitelist_id, entry_id, pageProps);
     return res.status(200).send(`New entry for account: ${address}`);
   }
@@ -132,12 +156,11 @@ export default async function inviteHandler(
 
   let mailRes;
   try {
-    mailRes = await sendEmail("minnow@qualifieddevs.io", "{TOKEN}")
-    console.log("MAIL RESPONSE RECEIVED", mailRes)
-  } catch(err) {
-    console.error("MAIL FAILED", err)
+    mailRes = await sendEmail("minnow@qualifieddevs.io", "{TOKEN}");
+    console.log("MAIL RESPONSE RECEIVED", mailRes);
+  } catch (err) {
+    console.error("MAIL FAILED", err);
   }
-
 
   res.status(200).send(`${address}`);
 }

@@ -1,15 +1,14 @@
 import axios from "axios";
 
-export default async function sendInvite(address: string) {
+export default async function sendInvite(access: string, address: string) {
   // Send a post request to invite.ts, + middleware
-
+  let res;
   try {
-      console.log("Sending post...")
-    const res = await axios.post("/api/invite", {
+    res = await axios.post("/api/invite", {
+      access,
       address,
     });
-    console.log(res.data)
-    return res
+    return res;
   } catch (err) {
     throw err;
   }
