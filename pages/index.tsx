@@ -10,7 +10,7 @@ import Link from "@components/Link";
 const index = styled(({ manifest, ...props }) => {
   return (
     <Box {...props}>
-      <Box sx={{ mb: 10 }}>
+      <Box sx={{ mb: 10 }} className="branding">
         {/* @ts-ignore */}
         <WORELogo className="logo" />
         <Typography variant="h2">Real Estate Meets Crypto</Typography>
@@ -37,15 +37,21 @@ const index = styled(({ manifest, ...props }) => {
 
   text-align: center;
 
-  .logo {
-    width: 650px;
+  .branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .logo {
+      width: min(650px, 80%);
+    }
+  
+    h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 2.5em;
+    }
   }
 
-  h2 {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 2.5em;
-  }
 
   h5 {
     color: #8e8e8e;
@@ -61,6 +67,13 @@ const index = styled(({ manifest, ...props }) => {
     border: 2px solid white !important;
     border-radius: 0;
   }
+
+  ${({theme}) => theme.breakpoints.down("sm")} {
+    .branding {
+      font-size: .6rem;
+    }
+  }
+
 `;
 
 export default index;

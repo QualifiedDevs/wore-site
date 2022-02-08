@@ -101,7 +101,7 @@ const DataForm = styled((props) => {
         }}
       />
 
-      <Tooltip title="ex) worewolf#1184" placement="left">
+      <Tooltip title="ex) worewolf#1184" placement="bottom-start">
         <TextField
           error={discordErr}
           required
