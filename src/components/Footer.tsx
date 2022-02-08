@@ -15,7 +15,7 @@ import SocialsMenu from "@components/SocialsMenu";
 
 const Footer = styled(({ manifest, ...props }) => {
   return (
-    <Box component="footer" {...props}>
+    <Box component="footer" {...props} sx={{mt: 4}}>
       <Container maxWidth={false}>
         {/* @ts-ignore */}
         <SocialsMenu socials={socials} />

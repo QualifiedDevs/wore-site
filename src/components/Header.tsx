@@ -13,12 +13,12 @@ import Link from "@components/Link";
 
 const Header = styled(({ menu, socials, ...props }) => {
   return (
-    <Box component="header" {...props}>
+    <Box component="header" {...props} sx={{mb: 4}}>
       <Container maxWidth="xl" className="content"></Container>
     </Box>
   );
 })`
-  height: 100px;
+  height: 0px;
 `;
 
 export default Header;
