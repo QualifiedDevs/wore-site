@@ -81,7 +81,7 @@ const jointWhitelist = styled((props) => {
   return (
     <Box {...props}>
       {connected ? <PurchaseUI /> : <ConnectButton variant="contained" />}
-      <ValueWindow className="view" />
+      {/* <ValueWindow className="view" /> */}
     </Box>
   );
 })`
