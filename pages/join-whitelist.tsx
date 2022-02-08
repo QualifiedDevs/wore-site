@@ -1,7 +1,9 @@
 //@ts-nocheck
-
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Paper, Typography } from "@mui/material";
+
+import { useRouter } from "next/router";
 
 import ConnectButton from "@components/ConnectButton";
 import PurchaseUI from "@components/PurchaseUI";
@@ -35,13 +37,51 @@ const ValueWindow = styled((props) => {
   );
 })``;
 
+/*
+  When an account is connected, we query!
+  
+  Once we have gotten a response, we wait for the query.
+  
+
+*/
+
+function getEntryFromWalletAddress(address: string) {}
+
+function getEntryFromId(uuid: string) {}
+
 const jointWhitelist = styled((props) => {
-  const { connected } = useWeb3();
+
+  const { connected, connectedAccount, whitelistAuth, setWhitelistAuth } = useWeb3();
+  const { query, isReady } = useRouter();
+
+  const [x, setX] = useState(); //unknown, authorized, null
+
+  useEffect(() => {
+    if (!connectedAccount) {
+      setWhitelistAuth(null)
+      return
+    }
+    (async () => {
+      const user = await getEntryFromWalletAddress(connectedAccount);
+      if (!user) {
+        setWhitelistAuth(null)
+        return
+      };
+      
+      // If there is a user request auth with this wallet.
+      // If there is not a user then set auth to null.
+    })()
+  }, [connectedAccount]);
+
+  useEffect(() => {
+    
+  }, [isReady])
+  // query, connectedAccount
 
   return (
     <Box {...props}>
       {connected ? <PurchaseUI /> : <ConnectButton variant="contained" />}
-      {/* <ValueWindow /> */}
+      <ValueWindow className="view" />
     </Box>
   );
 })`
@@ -50,6 +90,10 @@ const jointWhitelist = styled((props) => {
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  .view {
+    background: orange;
+  }
 `;
 
 export default jointWhitelist;

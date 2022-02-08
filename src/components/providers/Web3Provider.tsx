@@ -10,16 +10,6 @@ import getPurchaseAuth from "@utils/getPurchaseAuth";
 import { AuthData } from "@api/get-signer";
 
 export type Web3ContextValues = {
-  //! connected
-  //! presaleContract?
-  //! readonlyPresaleContract?
-  //! connectedAccount
-  //! mintMax
-  //! maxSupply
-  //! totalSupply
-  //! soldOut
-  //! mintBalance
-  //! provider
 
   connected?: boolean;
   setConnected?: React.Dispatch<boolean>;
@@ -191,7 +181,7 @@ export default function Web3Provider(props: any) {
     updateReadonlyProperty(
       "MAX_PURCHASE",
       readonlyPrePurchaseContract,
-      setMaxPerWallet
+    setMaxPerWallet
     );
     updateReadonlyProperty(
       "MAX_SUPPLY",
@@ -212,25 +202,6 @@ export default function Web3Provider(props: any) {
     if (!maxSupply || !totalSupply) return;
     setSoldOut(!(totalSupply < maxSupply));
   }, [maxSupply, totalSupply]);
-
-  // * Fetch Whitelist Authorization
-  useEffect(() => {
-    if (!isClient || !connectedAccount) {
-      setWhitelistAuth(undefined);
-      return;
-    }
-    (async () => {
-      let res;
-      setWhitelistAuth(undefined);
-      try {
-        res = await getPurchaseAuth(connectedAccount);
-      } catch (err) {
-        console.error(err);
-        res = null;
-      }
-      setWhitelistAuth(res);
-    })();
-  }, [connectedAccount]);
 
   useEffect(() => {
     if (!presaleContract || !connectedAccount) return;
@@ -260,6 +231,7 @@ export default function Web3Provider(props: any) {
     setProvider,
     price,
     whitelistAuth,
+    setWhitelistAuth
   };
 
   return <Web3Context.Provider value={context} {...props} />;

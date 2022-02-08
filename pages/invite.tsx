@@ -33,7 +33,7 @@ const invite = styled((props) => {
         onChange={(e) => {
           setAddress(e.target.value);
         }}
-      ></TextField>
+      />
       <LoadingButton
         type="submit"
         loading={isLoading}

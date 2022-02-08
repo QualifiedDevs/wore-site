@@ -118,7 +118,7 @@ const DataForm = styled((props) => {
       </Tooltip>
       <Tooltip
         title="Must use an independent wallet provider, NOT from an exchange (e.g. Metamask, Trust Wallet)"
-        placement="left"
+        placement="bottom-start"
       >
         <TextField
           error={walletErr}
@@ -133,7 +133,7 @@ const DataForm = styled((props) => {
           }}
         />
       </Tooltip>
-      <LoadingButton type="submit" loading={isLoading} variant="contained">
+      <LoadingButton type="submit" loading={isLoading} disabled={emailErr || discordErr || walletErr} variant="contained">
         {submitState === SubmitState.SUBMITTED ? "Submitted" : "Submit"}
       </LoadingButton>
     </Container>
@@ -153,7 +153,7 @@ const DataForm = styled((props) => {
   }
 
   .MuiButton-root {
-    color: #222222;
+    color: #ffffff;
     padding: 0.25em 0;
     font-size: 1.5rem;
 
@@ -162,7 +162,10 @@ const DataForm = styled((props) => {
       color: transparent !important;
     }
 
-    &.MuiButton-disabled {
+    :disabled {
+      border: 2px solid white;
+    color: #858585;
+
     }
   }
 

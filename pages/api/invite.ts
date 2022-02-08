@@ -7,6 +7,9 @@ import sendEmail from "@utils/sendEmail";
 const whitelist_id = process.env.NOTION_WHITELIST_ID!;
 const referrers_id = process.env.NOTION_REFERRERS_ID!;
 
+console.log("WHITELIST_ID", whitelist_id);
+console.log("REFERRERS_ID", referrers_id);
+
 async function getDatabaseEntries(id: string) {
   const res = await notion.databases.query({ database_id: id });
   return res;
@@ -14,7 +17,7 @@ async function getDatabaseEntries(id: string) {
 
 async function getReferrerFromToken(token: string) {
   let res;
-  console.log(referrers_id)
+  console.log(referrers_id);
   try {
     res = await notion.databases.query({
       database_id: referrers_id,
@@ -26,7 +29,7 @@ async function getReferrerFromToken(token: string) {
       },
     });
   } catch (err) {
-    throw(err)
+    throw err;
   }
   return res.results[0];
 }
@@ -111,18 +114,23 @@ export default async function inviteHandler(
   //TODO: Pull referral token. How? Probably req params AND JWT. ignore for now.
   const { access, address } = req.body;
 
-  // Query database with access filter
-  // If there is an access filter, then continue...
-  //! If this is not a valid referer, respond with no access!
+  const referrer = await getReferrerFromToken(access);
 
-  console.log("INDEXING FOR REFERRER WITH TOKEN", access)
-  const referrer = await getReferrerFromToken(access)
+  if (!referrer)
+    return res.status(403).send("Referrer not authorized to send invites");
+  console.log("referrer", referrer);
+
+  //* const referrer_id = referrer.properties.UUID.rich_text[0].text.content;
 
   const whitelist = await getDatabaseEntries(whitelist_id);
   const page = getPageFromEmail(address, whitelist);
 
   //TODO: Convert to struct with getters/setters
   const pageProps: any = {}; //TODO: Make my own properties
+
+  //@ts-ignore
+  pageProps.referrer = referrer.properties.Email;
+
   pageProps.token = {
     // DOES THIS WORK?
     rich_text: [{ type: "text", text: { content: generateUUID(whitelist) } }],
@@ -149,8 +157,8 @@ export default async function inviteHandler(
   // If there is no page, just create a new entry from scratch.
   // If there is a page,
 
-  // * NORMAL:
-  // * UPDATE WHITELIST
+  //* NORMAL
+  //* UPDATE WHITELIST
 
   // ! We have page so it has been entered before. What if there is already a referer?
 
