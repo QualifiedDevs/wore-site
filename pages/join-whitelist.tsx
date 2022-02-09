@@ -1,13 +1,16 @@
 //@ts-nocheck
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Paper, Typography, Button } from "@mui/material";
+import { Box, Paper, Typography, Button} from "@mui/material";
 
 import { useRouter } from "next/router";
 
 import ConnectButton from "@components/ConnectButton";
 import PurchaseUI from "@components/PurchaseUI";
 import useWeb3 from "@hooks/useWeb3";
+
+import { WORELogoIcon } from "@components/Branding";
+
 
 const ValueWindow = styled((props) => {
   const {
@@ -61,6 +64,7 @@ const joinWhitelist = styled((props) => {
 
   return (
     <Box {...props}>
+      <WORELogoIcon className="logo"  sx={{mb: 4}} />
       {connected ? whitelistAuth? <PurchaseUI /> : whitelistAuth === undefined? "Fetching Authorization..." : "NOT AUTHORIZED" : <ConnectButton variant="contained" />}
       {/* <ValueWindow className="view" /> */}
     </Box>
@@ -71,6 +75,10 @@ const joinWhitelist = styled((props) => {
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  .logo {
+    width: 100px;
+  }
 
   .view {
     background: orange;

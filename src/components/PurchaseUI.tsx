@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, Stack } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
 import useFeedback from "@hooks/useFeedback";
@@ -87,11 +87,11 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
 
 const PurchaseUI = styled((props) => {
   return (
-    <Box {...props}>
+    <Stack spacing={2} {...props}>
       <PurchaseButton variant="contained" quantity={1} />
       <PurchaseButton variant="contained" quantity={2} />
       <PurchaseButton variant="contained" quantity={3} />
-    </Box>
+    </Stack>
   );
 })``;
 
