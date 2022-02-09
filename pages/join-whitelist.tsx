@@ -1,7 +1,7 @@
 //@ts-nocheck
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography, Button } from "@mui/material";
 
 import { useRouter } from "next/router";
 
@@ -37,17 +37,9 @@ const ValueWindow = styled((props) => {
   );
 })``;
 
-/*
-  When an account is connected, we query!
-  
-  Once we have gotten a response, we wait for the query.
-  
-
-*/
-
 import getPurchaseAuth from "@utils/getPurchaseAuth";
 
-const jointWhitelist = styled((props) => {
+const joinWhitelist = styled((props) => {
   const { connected, connectedAccount, whitelistAuth, setWhitelistAuth } =
     useWeb3();
   const { query, isReady } = useRouter();
@@ -85,4 +77,4 @@ const jointWhitelist = styled((props) => {
   }
 `;
 
-export default jointWhitelist;
+export default joinWhitelist;

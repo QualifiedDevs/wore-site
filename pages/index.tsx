@@ -24,7 +24,6 @@ const index = styled(({ manifest, ...props }) => {
           <Button variant="outlined">Register Now</Button>
         </Link>
       </Box>
-
     </Box>
   );
 })`

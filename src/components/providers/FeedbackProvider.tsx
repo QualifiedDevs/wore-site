@@ -1,75 +1,94 @@
-export default function() {}
+import React, { useState, useEffect, createContext, useCallback } from "react";
+import { styled } from "@mui/material/styles";
+import { Snackbar, Alert } from "@mui/material";
 
-// import React, {
-//   useState,
-//   useEffect,
-//   createContext,
-//   useCallback,
-// } from "react";
-// import { styled } from "@mui/material/styles";
-// import { Snackbar, Alert } from "@mui/material";
+enum FeedbackStatus {
+  ERROR = 0,
+  WARNING,
+  INFO,
+  SUCCESS,
+}
 
-// enum FeedbackStatus {
-//     ERROR = 0,
-//     WARNING,
-//     INFO,
-//     SUCCESS
-// }
+const StatusSevrityTable = {
+  0: "error",
+  1: "warning",
+  2: "info",
+  3: "success",
+};
 
-// const StatusSevrityTable = {
-//     ERROR: "error",
-//     WARNING: "warning",
-//     INFO: "info",
-//     SUCCESS: "success", 
-// }
+type Feedback = {
+  text: string;
+  status: FeedbackStatus;
+};
 
-// type Feedback = {
-//   text: string;
-//   status: FeedbackStatus;
-// };
+type FeedbackContextValues = {
+  feedback?: Feedback;
+  isOpen: boolean;
+  setOpen: React.Dispatch<boolean>;
+  setFeedback: React.Dispatch<Feedback>;
+  setSuccess: React.Dispatch<string>;
+  setError: React.Dispatch<string>;
+};
 
-// type FeedbackContextValues = {
-//   feedback?: Feedback;
-//   setFeedback: React.Dispatch<Feedback>;
-//   setSuccess: React.Dispatch<string>;
-//   setError: React.Dispatch<string>;
-// };
+//@ts-ignore
+const defaultContext: FeedbackContextValues = {};
 
-// const defaultContext = {};
+export const FeedbackContext = createContext(defaultContext);
 
-// export const FeedbackContext = createContext(defaultContext);
+//@ts-ignore
+const FeedbackNotif = styled(({ feedback, open, setOpen, ...props }) => {
+  const handleClose = useCallback((event, reason) => {
+    if (reason === "clickaway") return;
+    setOpen(false);
+  }, []);
 
-// const FeedbackNotif = styled(({...props}) => {
+  return (
+    <Snackbar
+      open={open}
+      autoHideDuration={6000}
+      onClose={handleClose}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      {...props}
+    >
+      {/* @ts-ignore */}
+      <Alert severity={StatusSevrityTable[feedback?.status]} variant="filled">
+        {feedback?.text}
+      </Alert>
+    </Snackbar>
+  );
+})``;
 
-//     const handleClose = useCallback(() => {
+export default function FeedbackProvider(props: any) {
+  const [feedback, setFeedbackRaw] = useState<Feedback>();
+  const [isOpen, setOpen] = useState(false);
 
-//     }, [])
+  const setFeedback = useCallback((feedback: Feedback) => {
+    setFeedbackRaw(feedback);
+    setOpen(true);
+  }, []);
 
-//   return <Snackbar {...props} />;
-// })``;
+  const setSuccess = useCallback((text: string) => {
+    setFeedback({ text, status: FeedbackStatus.SUCCESS });
+  }, []);
 
-// export default function FeedbackProvider(props: any) {
-//   const [feedback, setFeedback] = useState<Feedback>();
+  const setError = useCallback((text: string) => {
+    setFeedback({ text, status: FeedbackStatus.ERROR });
+  }, []);
 
-//   const setSuccess = useCallback((text: string) => {
-//       setFeedback({text, status: FeedbackStatus.SUCCESS})
-//   }, []);
+  const context: FeedbackContextValues = {
+    feedback,
+    setFeedback,
+    setSuccess,
+    setError,
+    isOpen,
+    setOpen,
+  };
 
-//   const setError = useCallback((text: string) => {
-//     setFeedback({text, status: FeedbackStatus.ERROR})
-//   }, []);
-
-//   const context: FeedbackContextValues = {
-//     feedback,
-//     setFeedback,
-//     setSuccess,
-//     setError,
-//   };
-
-//   return (
-//     <FeedbackContext.Provider value={context}>
-//       {props.children}
-//       <FeedbackNotif {...context} />
-//     </FeedbackContext.Provider>
-//   );
-// }
+  return (
+    <FeedbackContext.Provider value={context}>
+      {props.children}
+      {/* @ts-ignore */}
+      <FeedbackNotif feedback={feedback} open={isOpen} setOpen={setOpen} />
+    </FeedbackContext.Provider>
+  );
+}

@@ -10,8 +10,7 @@ import theme from "@src/theme";
 import createEmotionCache from "@src/createEmotionCache";
 
 import Web3Provider from "@src/components/providers/Web3Provider";
-
-import Alert from "@components/Alert";
+import FeedbackProvider from "@src/components/providers/FeedbackProvider";
 
 import DefaultPage from "@layouts/DefaultPage";
 
@@ -47,9 +46,11 @@ function MyApp(props: MyAppProps) {
         />
         {/* <Alert /> */}
         <Web3Provider>
-          <DefaultPage {...pageProps}>
-            <Component {...pageProps} />
-          </DefaultPage>
+          <FeedbackProvider>
+            <DefaultPage {...pageProps}>
+              <Component {...pageProps} />
+            </DefaultPage>
+          </FeedbackProvider>
         </Web3Provider>
       </ThemeProvider>
     </CacheProvider>

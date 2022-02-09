@@ -4,6 +4,8 @@ import { Box, Button, Paper, TextField } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { useRouter } from "next/router";
 
+import useFeedback from "@hooks/useFeedback";
+
 import sendInvite from "@utils/sendInvite";
 
 const invite = styled((props) => {
@@ -12,6 +14,8 @@ const invite = styled((props) => {
 
   const { query, isReady } = useRouter();
 
+  const {setSuccess, setError} = useFeedback();
+
   async function handleSubmit(e: any) {
     e.preventDefault();
     if (!isReady) return;
@@ -19,8 +23,11 @@ const invite = styled((props) => {
     try {
       const res = await sendInvite(query.access as string, address);
       console.log("RESPONSE RECEIVED:", res);
+      setSuccess("Email Sent Successfully")
     } catch (err) {
       console.error(err);
+      //@ts-ignore
+      setError(err.message);
     }
     setIsLoading(false);
   }
