@@ -29,7 +29,7 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     mintedBalance,
   } = useWeb3();
 
-  const {setSuccess, setFailure} = useFeedback()
+  const {setSuccess, setError} = useFeedback()
 
   async function purchase() {
     //TODO: Attempt purchase from contract with given quantity and signer.
