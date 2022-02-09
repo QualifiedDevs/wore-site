@@ -45,45 +45,27 @@ const ValueWindow = styled((props) => {
 
 */
 
-function getEntryFromWalletAddress(address: string) {}
-
-function getEntryFromId(uuid: string) {}
-
-import getPurchaseAuth from "@utils/getPurchaseAuth"
+import getPurchaseAuth from "@utils/getPurchaseAuth";
 
 const jointWhitelist = styled((props) => {
-
-  const { connected, connectedAccount, whitelistAuth, setWhitelistAuth } = useWeb3();
+  const { connected, connectedAccount, whitelistAuth, setWhitelistAuth } =
+    useWeb3();
   const { query, isReady } = useRouter();
 
   useEffect(() => {
-    if (!connectedAccount) {
-      setWhitelistAuth(null)
-      return
-    }
+    setWhitelistAuth(undefined);
+    if (!connectedAccount || !isReady) return;
     (async () => {
-      // const user = await getEntryFromWalletAddress(connectedAccount);
-      // if (!user) {
-      //   setWhitelistAuth(null)
-      //   return
-      // };
       // * Get whitelist auth from server...
       let res;
       try {
-        res = await getPurchaseAuth(connectedAccount)
-      } catch(err) {
-        console.log("ACCOUNT NOT AUTHORIZED")
+        res = await getPurchaseAuth(connectedAccount, query.access);
+      } catch (err) {
+        console.log("ACCOUNT NOT AUTHORIZED");
       }
-      setWhitelistAuth(res)      
-      // If there is a user request auth with this wallet.
-      // If there is not a user then set auth to null.
-    })()
-  }, [connectedAccount]);
-
-  // useEffect(() => {
-    
-  // }, [isReady])
-  // query, connectedAccount
+      setWhitelistAuth(res);
+    })();
+  }, [connectedAccount, isReady]);
 
   return (
     <Box {...props}>

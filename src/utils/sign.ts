@@ -2,6 +2,7 @@
 
 import Web3 from "web3";
 const web3 = new Web3("wss://remotenode.com:8546");
+import type AuthData from "@api/get-getSigner"
 
 async function sign(
   privateKey: string,
@@ -18,7 +19,7 @@ async function sign(
     privateKey
   );
 
-  return { hash, signature };
+  return { hash, signature } as AuthData;
 }
 
 export default sign;
