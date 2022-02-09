@@ -7,9 +7,6 @@ import sendEmail from "@utils/sendEmail";
 const whitelist_id = process.env.NOTION_WHITELIST_ID!;
 const referrers_id = process.env.NOTION_REFERRERS_ID!;
 
-console.log("WHITELIST_ID", whitelist_id);
-console.log("REFERRERS_ID", referrers_id);
-
 async function getDatabaseEntries(id: string) {
   const res = await notion.databases.query({ database_id: id });
   return res;
@@ -17,7 +14,6 @@ async function getDatabaseEntries(id: string) {
 
 async function getReferrerFromToken(token: string) {
   let res;
-  console.log(referrers_id);
   try {
     res = await notion.databases.query({
       database_id: referrers_id,
@@ -107,49 +103,53 @@ async function createEntry(database_id: any, entry_id: string, props: any) {
   return res;
 }
 
+async function sendInviteEmail(address: string, token: string) {
+  let res;
+  try {
+    res = await sendEmail(address, token)
+    console.log("EMAIL SENT SUCESSFULLY")
+  } catch(err) {
+    console.error("SEND EMAIL FAILED", err)
+  }
+  return res;
+}
+
 export default async function inviteHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-
   const { access, address } = req.body;
+
+  if (!access)
+    return res.status(403).json({ error: "No access token provided" });
   const referrer: any = await getReferrerFromToken(access);
 
   if (!referrer)
     return res.status(403).send("Referrer not authorized to send invites");
-  console.log("referrer", referrer);
 
   const whitelist = await getDatabaseEntries(whitelist_id);
   const page = getPageFromEmail(address, whitelist);
 
   const pageProps: any = {};
 
-  pageProps.referrer = referrer.properties.Email;
-
+  pageProps.referrer = { email: referrer.properties.Email.email };
   pageProps.token = {
-    rich_text: [{ type: "text", text: { content: generateUUID(whitelist) } }],
+    rich_text: [{ type: "text", text: {content: generateUUID(whitelist)} }],
   };
 
   if (!page) {
     pageProps.email = { email: address };
     const entry_id = whitelist.results.length.toString();
+    console.log("CREATING ENTRY")
     const entryRes = await createEntry(whitelist_id, entry_id, pageProps);
+    await sendInviteEmail("hodepi9066@host1s.com", "{TOKEN}");
     return res.status(200).send(`New entry for account: ${address}`);
   }
 
-  if (!getAttachedWallet(page)) {
-    // generate uuid
-  }
-
+  console.log("UPDATING ENTRY")
   await updateEntry(page, pageProps);
 
-  let mailRes;
-  try {
-    mailRes = await sendEmail("minnow@qualifieddevs.io", "{TOKEN}");
-    console.log("MAIL RESPONSE RECEIVED", mailRes);
-  } catch (err) {
-    console.error("MAIL FAILED", err);
-  }
+  await sendInviteEmail("hodepi9066@host1s.com", "{TOKEN}");
 
   res.status(200).send(`${address}`);
 }
