@@ -7,6 +7,8 @@ import { Box } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import web3Modal from "@utils/web3Modal";
 
+import useFeedback from "@hooks/useFeedback";
+
 import useWeb3 from "@hooks/useWeb3";
 import { ethers } from "ethers";
 
@@ -26,6 +28,8 @@ const ConnectButton = styled((props) => {
   const { setProvider, connected } = useWeb3();
   const [isLoading, setIsLoading] = useState(false);
 
+  const {setSuccess, setError} = useFeedback()
+
   async function handleClick() {
     setIsLoading(true);
     let res;
@@ -36,6 +40,8 @@ const ConnectButton = styled((props) => {
       setProvider(provider);
     } catch (err) {
       console.error(err);
+      //@ts-ignore
+      setError(err.message)
     }
     setIsLoading(false);
   }

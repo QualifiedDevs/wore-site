@@ -20,8 +20,9 @@ const invite = styled((props) => {
     e.preventDefault();
     if (!isReady) return;
     setIsLoading(true);
+    let res;
     try {
-      const res = await sendInvite(query.access as string, address);
+      res = await sendInvite(query.access as string, address);
       console.log("RESPONSE RECEIVED:", res);
       setSuccess("Email Sent Successfully")
     } catch (err) {

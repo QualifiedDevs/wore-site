@@ -5,6 +5,8 @@ import { styled } from "@mui/material/styles";
 import { Box, Paper } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
+import useFeedback from "@hooks/useFeedback";
+
 import useWeb3 from "@hooks/useWeb3";
 import { BigNumber } from "ethers";
 
@@ -26,6 +28,8 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     price,
     mintedBalance,
   } = useWeb3();
+
+  const {setSuccess, setFailure} = useFeedback()
 
   async function purchase() {
     //TODO: Attempt purchase from contract with given quantity and signer.
@@ -50,8 +54,11 @@ const PurchaseButton = styled(({ quantity, ...props }: any) => {
     try {
       if (!whitelistAuth) throw "Cannot Purchase, Missing Authorization";
       res = await purchase();
+      setSuccess(`Sucessfully Reserved ${quantity} NFTs`)
     } catch (err) {
       console.error(err);
+      //@ts-ignore
+      setError(err.message)
     }
     setIsLoading(false);
     setIsMinting(false);

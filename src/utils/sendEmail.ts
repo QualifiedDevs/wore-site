@@ -67,11 +67,6 @@ export default async function sendEmail(address: string, token: string) {
     },
   });
 
-  console.log("USER", user)
-  console.log("PASS", pass)
-  console.log("ADDRESS", address)
-
-
   const mailOptions = {
     from: `WORE Info ${user}`,
     to: address,
@@ -79,8 +74,6 @@ export default async function sendEmail(address: string, token: string) {
     html: `<span><a href=https://wolfofrealestate.com/join-whitelist?access=${token} >Click Here</a> to join the WORE presale<span>`,
   };
 
-  console.log(mailOptions);
-  console.log("Sending Email...");
   const res = await transport.sendMail(mailOptions);
   return res;
 }
