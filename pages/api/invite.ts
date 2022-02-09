@@ -147,8 +147,14 @@ export default async function inviteHandler(
     return res.status(200).send(`New entry for account: ${address}`);
   }
 
-  console.log("UPDATING ENTRY")
-  await updateEntry(page, pageProps);
+  try {
+    console.log("UPDATING ENTRY")
+    const res = await updateEntry(page, pageProps);
+    console.error("UPDATE SUCCESSFUL", res)
+  } catch(err) {
+    console.error("ENTRY UPDATE FAILED", err)
+    throw(err)
+  }
 
   await sendInviteEmail(address, inviteUUID);
 

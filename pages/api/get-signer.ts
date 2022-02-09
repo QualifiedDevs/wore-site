@@ -72,6 +72,7 @@ export default async function getSigner(
   console.log(`Auth requested for account ${account}`);
 
   if (getEntryFromWalletAddress(account, whitelist)) {
+    console.log("WALLET ADDRESS PRESENT, ACCOUNT AUTHORIZED")
     const message: AuthData = await sign(
       privateKey,
       prePurchaseContractMetadata.address,
@@ -102,7 +103,14 @@ export default async function getSigner(
   };
   pageProps.token = { rich_text: [] };
 
-  await updateEntry(page, pageProps); //TODO: Make sure this is OK!
+  try {
+    console.log("UPDATING ENTRY")
+    const res = await updateEntry(page, pageProps);
+    console.error("UPDATE SUCCESSFUL", res)
+  } catch(err) {
+    console.error("ENTRY UPDATE FAILED", err)
+    throw(err)
+  }
 
   res.status(200).json(message);
 }
