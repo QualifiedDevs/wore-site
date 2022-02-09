@@ -69,7 +69,7 @@ const jointWhitelist = styled((props) => {
 
   return (
     <Box {...props}>
-      {connected ? <PurchaseUI /> : <ConnectButton variant="contained" />}
+      {connected ? whitelistAuth? <PurchaseUI /> : whitelistAuth === undefined? "Fetching Authorization..." : "NOT AUTHORIZED" : <ConnectButton variant="contained" />}
       {/* <ValueWindow className="view" /> */}
     </Box>
   );

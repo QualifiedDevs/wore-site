@@ -111,28 +111,22 @@ export default async function inviteHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  //TODO: Pull referral token. How? Probably req params AND JWT. ignore for now.
-  const { access, address } = req.body;
 
-  const referrer = await getReferrerFromToken(access);
+  const { access, address } = req.body;
+  const referrer: any = await getReferrerFromToken(access);
 
   if (!referrer)
     return res.status(403).send("Referrer not authorized to send invites");
   console.log("referrer", referrer);
 
-  //* const referrer_id = referrer.properties.UUID.rich_text[0].text.content;
-
   const whitelist = await getDatabaseEntries(whitelist_id);
   const page = getPageFromEmail(address, whitelist);
 
-  //TODO: Convert to struct with getters/setters
-  const pageProps: any = {}; //TODO: Make my own properties
+  const pageProps: any = {};
 
-  //@ts-ignore
   pageProps.referrer = referrer.properties.Email;
 
   pageProps.token = {
-    // DOES THIS WORK?
     rich_text: [{ type: "text", text: { content: generateUUID(whitelist) } }],
   };
 
@@ -148,19 +142,6 @@ export default async function inviteHandler(
   }
 
   await updateEntry(page, pageProps);
-
-  //? If an entry with email exists...
-
-  //* TRUE: Wallet Conneted? If so we can send them the email.
-  //! FALSE: Generate a UUID
-
-  // If there is no page, just create a new entry from scratch.
-  // If there is a page,
-
-  //* NORMAL
-  //* UPDATE WHITELIST
-
-  // ! We have page so it has been entered before. What if there is already a referer?
 
   let mailRes;
   try {
