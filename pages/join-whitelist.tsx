@@ -83,6 +83,8 @@ const joinWhitelist = styled((props) => {
   .view {
     background: orange;
   }
+
+  
 `;
 
 export default joinWhitelist;

@@ -4,17 +4,22 @@ import { Box, Button, Paper, TextField } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { useRouter } from "next/router";
 
+import { emailExp } from "@utils/regex";
+
 import useFeedback from "@hooks/useFeedback";
 
 import sendInvite from "@utils/sendInvite";
 
 const invite = styled((props) => {
   const [address, setAddress] = useState("");
+  const [isValid, setIsValid] = useState(false)
+
   const [isLoading, setIsLoading] = useState(false);
 
   const { query, isReady } = useRouter();
 
   const {setSuccess, setError} = useFeedback();
+
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -36,9 +41,12 @@ const invite = styled((props) => {
   return (
     <Box component="form" onSubmit={handleSubmit} {...props}>
       <TextField
+      error={!isValid}
         variant="outlined"
         value={address}
         onChange={(e) => {
+          const val = e.target.value;
+          setIsValid(emailExp.test(val));
           setAddress(e.target.value);
         }}
       />
