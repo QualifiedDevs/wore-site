@@ -129,12 +129,13 @@ export default async function inviteHandler(
 
   const whitelist = await getDatabaseEntries(whitelist_id);
   const page = getPageFromEmail(address, whitelist);
+  const inviteUUID = generateUUID(whitelist);
 
   const pageProps: any = {};
 
   pageProps.referrer = { email: referrer.properties.Email.email };
   pageProps.token = {
-    rich_text: [{ type: "text", text: {content: generateUUID(whitelist)} }],
+    rich_text: [{ type: "text", text: {content: inviteUUID} }],
   };
 
   if (!page) {
@@ -142,14 +143,14 @@ export default async function inviteHandler(
     const entry_id = whitelist.results.length.toString();
     console.log("CREATING ENTRY")
     const entryRes = await createEntry(whitelist_id, entry_id, pageProps);
-    await sendInviteEmail("hodepi9066@host1s.com", "{TOKEN}");
+    await sendInviteEmail(address, inviteUUID);
     return res.status(200).send(`New entry for account: ${address}`);
   }
 
   console.log("UPDATING ENTRY")
   await updateEntry(page, pageProps);
 
-  await sendInviteEmail("hodepi9066@host1s.com", "{TOKEN}");
+  await sendInviteEmail(address, inviteUUID);
 
   res.status(200).send(`${address}`);
 }
