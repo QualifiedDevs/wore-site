@@ -76,8 +76,7 @@ export default async function sendEmail(address: string, token: string) {
     from: `WORE Info ${user}`,
     to: address,
     subject: `Presale access for ${address}`,
-    text: "Hey it worked"
-    // html: `<span>Here is your access link https://wolfofrealestate.com/presale?u=${token}<span>`,
+    html: `<span><a href=https://wolfofrealestate.com/join-whitelist?access=${token} >Click Here</a> to join the WORE presale<span>`,
   };
 
   console.log(mailOptions);

@@ -84,7 +84,9 @@ export default async function getSigner(
     return res
       .status(403)
       .json({ error: "Account not on whitelist, no access token provided" });
+
   const page = getEntryFromToken(access, whitelist);
+
   if (!page)
     return res.status(403).json({ error: "Token does not have access" });
 
@@ -95,8 +97,11 @@ export default async function getSigner(
   );
 
   const pageProps: any = {};
-  pageProps.wallet_address = { rich_text: [{ plain_text: account }] };
-  pageProps.token = { rick_text: [] };
+  pageProps.wallet_address = {
+    rich_text: [{ type: "text", text: { content: account } }],
+  };
+  pageProps.token = { rich_text: [] };
+
   await updateEntry(page, pageProps); //TODO: Make sure this is OK!
 
   res.status(200).json(message);
