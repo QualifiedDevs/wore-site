@@ -13,11 +13,11 @@ const presale = styled((props) => {
         {/* @ts-ignore */}
         <WORELogoIcon sx={{ mb: 4 }} />
       </Link>
-      <Typography className="notice" sx={{mb: 4}}>
-        By submitting your contact information, you are registering for a
-        whitelist spot in April when the project officially launches. There will
-        be <b>10</b> registrations that get <b>randomly selected</b> to <b>Pre Purchase Prior to
-        March 1st.</b>
+      <Typography className="notice" sx={{ mb: 4 }}>
+        By submitting your contact information, you are registering for an
+        opportunity to get a whitelist spot in April when the project officially
+        launches. There will be <b>10</b> registrations that get{" "}
+        <b>randomly selected</b> to <b>Pre Purchase Prior to March 1st.</b>
       </Typography>
       <DataForm />
     </Box>

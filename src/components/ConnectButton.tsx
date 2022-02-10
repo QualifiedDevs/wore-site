@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 
 import { styled } from "@mui/material/styles";
-import { Box } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import web3Modal from "@utils/web3Modal";
 
