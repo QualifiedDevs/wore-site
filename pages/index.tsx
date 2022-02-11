@@ -1,65 +1,48 @@
 import { styled } from "@mui/material/styles";
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Box, Container, Button, Typography } from "@mui/material";
 
-import { LogoFull } from "@components/Branding";
-import { WORELogo } from "@components/Branding";
+import DataForm from "@components/DataForm";
 
+import { WORELogoIcon } from "@src/components/Branding";
 import Link from "@components/Link";
 
-//@ts-ignore
-const index = styled(({ manifest, ...props }) => {
+const presale = styled((props) => {
   return (
     <Box {...props}>
-      <Box sx={{ mb: 10 }}>
         {/* @ts-ignore */}
-        <WORELogo className="logo" />
-        <Typography variant="h2">Real Estate Meets Crypto</Typography>
-      </Box>
-
-      <Box>
-        <Typography className="desc" variant="h5" sx={{ mb: 1 }}>
-          Coming Soon...
-        </Typography>
-        <Link href="/whitelist-registration">
-          <Button variant="outlined">Register Now</Button>
-        </Link>
-      </Box>
+        <WORELogoIcon sx={{ mb: 4 }} />
+      <Typography className="notice" sx={{ mb: 4 }}>
+        By submitting your contact information, you are registering for an
+        opportunity to get a whitelist spot in April when the project officially
+        launches. There will be <b>10</b> registrations that get{" "}
+        <b>randomly selected</b> to <b>Pre Purchase Prior to March 1st.</b>
+      </Typography>
+      <DataForm />
     </Box>
   );
 })`
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-
-  text-align: center;
+  height: 100%;
 
   .logo {
-    width: 650px;
+    width: min(150px, 20%);
+    * {
+      width: 100%;
+    }
   }
 
-  h2 {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 2.5em;
-  }
+  .notice {
+    text-align: center;
+    width: min(500px, 80%);
 
-  h5 {
-    color: #8e8e8e;
-    text-transform: uppercase;
-    font-size: 1.2em;
-  }
-
-  .MuiButton-root {
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
-    background: black;
-    color: white;
-    border: 2px solid white !important;
-    border-radius: 0;
+    color: #808080;
+    b {
+      color: #949494;
+    }
   }
 `;
 
-export default index;
+export default presale;

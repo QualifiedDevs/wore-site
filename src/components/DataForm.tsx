@@ -61,12 +61,12 @@ const DataForm = styled((props) => {
   const [submitState, setSubmitState] = useState(SubmitState.NONE);
 
   const [email, setEmail] = useState("");
-  const [discord, setDiscord] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
+  // const [discord, setDiscord] = useState("");
+  // const [walletAddress, setWalletAddress] = useState("");
 
   const [emailErr, setEmailErr] = useState(false);
-  const [discordErr, setDiscordErr] = useState(false);
-  const [walletErr, setWalletErr] = useState(false);
+  // const [discordErr, setDiscordErr] = useState(false);
+  // const [walletErr, setWalletErr] = useState(false);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -74,8 +74,8 @@ const DataForm = styled((props) => {
     try {
       const res = await signup(
         email,
-        discord,
-        walletAddress !== "" ? walletAddress : undefined
+        // discord,
+        // walletAddress !== "" ? walletAddress : undefined
       );
       console.log("RESPONSE RECEIVED:", res);
     } catch (err) {
@@ -86,7 +86,12 @@ const DataForm = styled((props) => {
   }
 
   return (
-    <Container component="form" onSubmit={handleSubmit} maxWidth="sm" {...props}>
+    <Container
+      component="form"
+      onSubmit={handleSubmit}
+      maxWidth="sm"
+      {...props}
+    >
       <TextField
         error={emailErr}
         required
@@ -101,7 +106,7 @@ const DataForm = styled((props) => {
         }}
       />
 
-      <Tooltip title="ex) worewolf#1184" placement="left">
+      {/* <Tooltip title="ex) worewolf#1184" placement="left">
         <TextField
           error={discordErr}
           required
@@ -132,8 +137,13 @@ const DataForm = styled((props) => {
             setSubmitState(SubmitState.NONE);
           }}
         />
-      </Tooltip>
-      <LoadingButton type="submit" loading={isLoading} disabled={emailErr || discordErr || walletErr} variant="contained">
+      </Tooltip> */}
+      <LoadingButton
+        type="submit"
+        loading={isLoading}
+        disabled={emailErr}
+        variant="contained"
+      >
         {submitState === SubmitState.SUBMITTED ? "Submitted" : "Submit"}
       </LoadingButton>
     </Container>
@@ -164,8 +174,7 @@ const DataForm = styled((props) => {
 
     :disabled {
       border: 2px solid white;
-    color: #858585;
-
+      color: #858585;
     }
   }
 

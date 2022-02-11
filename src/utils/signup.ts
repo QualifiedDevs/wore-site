@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export default async function(email: string, discord: string, walletAddress?: string) {
+export default async function(email: string, discord?: string, walletAddress?: string) {
     let res;
     try {
         res = await axios.post("/api/signup", {

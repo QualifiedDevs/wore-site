@@ -21,14 +21,14 @@ async function getPageFromEmail(email: string) {
   } catch (err) {
     throw err;
   }
-  const page = res.results[0]
-  console.log("PAGE", page)
+  const page = res.results[0];
+  console.log("PAGE", page);
   return page;
 }
 
 async function makeEntry(props: {
   email: string;
-  discord: string;
+  discord?: string;
   walletAddress?: string;
 }) {
   const pageProps: any = {};
@@ -37,13 +37,13 @@ async function makeEntry(props: {
     email: props.email,
   };
 
-  pageProps.Discord = {
-    rich_text: [{ type: "text", text: { content: props.discord } }],
-  };
+  // pageProps.Discord = {
+  //   rich_text: [{ type: "text", text: { content: props.discord } }],
+  // };
 
-  pageProps["Wallet Address"] = props.walletAddress? {
-    rich_text: [{ type: "text", text: { content: props.walletAddress } }],
-  } : undefined;
+  // pageProps["Wallet Address"] = props.walletAddress? {
+  //   rich_text: [{ type: "text", text: { content: props.walletAddress } }],
+  // } : undefined;
 
   let res;
   try {
@@ -103,7 +103,5 @@ export default async function submitData(
   walletAddress?: string
 ) {
   const page = await getPageFromEmail(email);
-  return page
-    ? await updateEntry(page, { email, discord, walletAddress })
-    : await makeEntry({ email, discord, walletAddress });
+  return page ? await updateEntry(page, { email }) : await makeEntry({ email });
 }
