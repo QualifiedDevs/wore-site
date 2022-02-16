@@ -16,14 +16,14 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@components/*": ["src/components/*"],
       "@public/*": ["public/*"],
       "@pages/*": ["pages/*"],
       "@api/*": ["pages/api/*"],
       "@layouts/*": ["src/layouts/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["src/utils/*"],
-      "@src/*": ["src/*"],
-      "@components/*": ["src/components/*"]
+      "@src/*": ["src/*"]
     },
     "incremental": true
   },

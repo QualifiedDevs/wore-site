@@ -1,7 +1,7 @@
 //@ts-nocheck
 
 import { styled } from "@mui/material/styles";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 import Team from "@components/Team";
 import { GPGIcon } from "@components/Branding";
@@ -15,10 +15,14 @@ import SocialsMenu from "@components/SocialsMenu";
 
 const Footer = styled(({ manifest, ...props }) => {
   return (
-    <Box component="footer" {...props} sx={{mt: 4}}>
+    <Box component="footer" {...props} sx={{ mt: 4 }}>
       <Container maxWidth={false}>
         {/* @ts-ignore */}
-        <SocialsMenu socials={socials} />
+
+          <SocialsMenu socials={socials} />
+        
+
+        <Typography variant="h6">© WOLF OF REAL ESTATE</Typography>
         <a href="https://www.greaterpropertygroup.com/">
           {/* @ts-ignore */}
           <GPGIcon className="logo" />
@@ -32,8 +36,13 @@ const Footer = styled(({ manifest, ...props }) => {
 
   .MuiContainer-root {
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: space-between;
+  }
+
+  h6 {
+    font-size: 0.9em;
+    color: #313131;
   }
 
   .logo {
