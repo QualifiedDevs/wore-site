@@ -8,7 +8,7 @@ import TeamDesc from "@components/TeamDesc";
 const index = styled((props) => {
   return (
     <Box {...props}>
-      <Hook />
+      {/* <Hook /> */}
       <Presale />
       <TeamDesc />
     </Box>

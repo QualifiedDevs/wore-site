@@ -46,10 +46,10 @@ const Member = styled(
   align-items: center;
   text-align: center;
   .avatar-wrapper {
-    width: 100%;
+    width: min(200px, 40%);
     border: 3px solid ${({ memberData: { name } }) => themes[name]};
     border-radius: 50%;
-    box-shadow: 0px 0px 70px 0px
+    box-shadow: 0px 0px 40px 0px
       ${({ memberData: { name } }) => `${themes[name]}40`};
     * {
       border-radius: inherit;
@@ -81,7 +81,11 @@ const TeamDesc = styled((props) => {
     });
   }, []);
 
-  return <Container maxWidth="xl" {...props}>{members}</Container>;
+  return (
+    <Container maxWidth="xl" {...props}>
+      {members}
+    </Container>
+  );
 })`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
