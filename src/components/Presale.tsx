@@ -12,7 +12,7 @@ const Presale = styled((props) => {
       <WORELogoIcon sx={{ mb: 4 }} />
       <Typography className="notice" sx={{ mb: 4 }}>
         By submitting your contact information, you are registering for an
-        opportunity to get a whitelist spot.
+        opportunity to receive a whitelist spot.
       </Typography>
       <DataForm />
     </Box>

@@ -46,7 +46,7 @@ const Member = styled(
   align-items: center;
   text-align: center;
   .avatar-wrapper {
-    width: min(200px, 40%);
+    width: clamp(125px, 40%, 300px);
     border: 3px solid ${({ memberData: { name } }) => themes[name]};
     border-radius: 50%;
     box-shadow: 0px 0px 40px 0px
