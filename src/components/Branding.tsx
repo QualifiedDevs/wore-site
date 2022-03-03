@@ -85,14 +85,10 @@ import woreLogoIcon from "@public/wore-nft.png"
 export const WORELogoIcon = styled((props) => {
   return (
     <Box {...props}>
-      <Image src={woreLogoIcon} />
+      <Image src={woreLogoIcon} layout="responsive"/>
     </Box>
   );
-})`
-position: relative;
-aspect-ratio: 1;
-width: 200px;
-`;
+})``;
 
 import gpgIcon from "@public/gpg-icon.png"
 

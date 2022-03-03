@@ -12,8 +12,6 @@ import createEmotionCache from "@src/createEmotionCache";
 import Web3Provider from "@src/components/providers/Web3Provider";
 import FeedbackProvider from "@src/components/providers/FeedbackProvider";
 
-import DefaultPage from "@layouts/DefaultPage";
-
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -24,8 +22,6 @@ interface MyAppProps extends AppProps {
 function MyApp(props: MyAppProps) {
   //@ts-ignore
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const manifestRef = useRef(pageProps.manifest);
-  pageProps.manifest = manifestRef.current;
 
   return (
     <CacheProvider value={emotionCache}>
@@ -44,12 +40,9 @@ function MyApp(props: MyAppProps) {
             html: { scrollBehavior: "smooth" },
           }}
         />
-        {/* <Alert /> */}
         <Web3Provider>
           <FeedbackProvider>
-            <DefaultPage {...pageProps}>
-              <Component {...pageProps} />
-            </DefaultPage>
+            <Component {...pageProps} />
           </FeedbackProvider>
         </Web3Provider>
       </ThemeProvider>

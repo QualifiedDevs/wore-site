@@ -3,7 +3,14 @@
     "twitter": "https://twitter.com/worenft"
   },
   "mainMenu": {
-    "Home": "/"
+    "about": "/#about",
+    "events": "/#events",
+    "FAQ": "/#faq",
+    "roadmap": "/#roadmap",
+    "team": "/#team",
+    "private sale": "/#private-sale",
+    "store": "/#store",
+    "mint": "/#mint"
   },
   "team": {
     "rocky": {
@@ -16,7 +23,7 @@
       "socials": {
         "twitter": ""
       },
-      "description": "Nathan is a real estate veteran with extensive experience in both managing and advising on real estate investments. He is the co-founder of Greater Propety Group - a disruptive nation real estate brand and brokerage that transacts in both fiat and crypto."
+      "description": "Nathan is a real estate veteran with extensive experience in both managing and advising on real estate investments. He is the co-founder of Greater Propety Group - a disruptive national real estate brand and brokerage that transacts in both fiat and crypto."
     },
     "david": {
       "role": "Project Lead | Social Media Marketing",
@@ -36,17 +43,17 @@
     "ruan": {
       "role": "Blockchain Developer",
       "socials": { "twitter": "" },
-      "description": "Ruan is a blockchain developer. He is part of the Hashlips team, has made many improvements to the smart contract standard and has ovdr 5 years as a project development leader. Co-Founder at Qualified Devs"
+      "description": "Ruan is a blockchain developer. He is part of the Hashlips team, has made many improvements to the smart contract standard and has over 5 years as a project development leader. Co-Founder at Qualified Devs"
     },
     "dodge": {
       "role": "Community Manager",
       "socials": { "twitter": "" },
-      "description": "Dodge is an experienced community manager for multiple agencies involved in the crypto realm over the past thre years. Whether it be mining, investing, or NFT collecting, Dodge has managed communities with over 40k discord members. He has used his learned skills in the crypto world to foster client relations, engage in community development, and master community engagement helping to build a safe place for people of all backgrounds."
+      "description": "Dodge is an experienced community manager for multiple agencies involved in the crypto realm over the past three years. Whether it be mining, investing, or NFT collecting, Dodge has managed communities with over 40k discord members. He has used his learned skills in the crypto world to foster client relations, engage in community development, and master community engagement helping to build a safe place for people of all backgrounds."
     },
     "noah": {
       "role": "Community Manager / Consultant",
       "socials": { "twitter": "" },
-      "description": "Noah is a community manager and consultant/adviser in development, community and project creation. Most of his work can be seen on solana where he has workd for 10ths of project gaining over 10mil in vlue. He is also the co-founder at qualfiied devs which is a development company in the NFT space."
+      "description": "Noah is a community manager and consultant/advisor in development, community and project creation. Most of his work can be seen on solana where he has worked for 10ths of project gaining over 10mil in value. He is also the co-founder at Qualified Devs which is a development company in the NFT space."
     }
   }
 }

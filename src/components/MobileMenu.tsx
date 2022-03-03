@@ -1,129 +1,109 @@
-// @ts-nocheck
-
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { styled } from "@mui/material/styles";
 import {
-  Box,
   Drawer,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  Divider,
-  SvgIcon,
   IconButton,
 } from "@mui/material";
 
-import { useRouter } from "next/router";
-
 import Link from "@components/Link";
-
 import MenuIcon from "@mui/icons-material/Menu";
 
-import SocialsMenu from "@components/SocialsMenu";
-
-const Item = styled(({ name, link, closemenu, ...props }) => {
-  return (
-    <ListItem disablePadding {...props}>
-      {link ? (
-        <Link href={link || ""} underline="none" color="white">
-          <ListItemButton onClick={closemenu}>
-            <ListItemText>{name}</ListItemText>
+const Item = styled(
+  ({
+    label,
+    link,
+    closeMenu,
+    ...props
+  }: {
+    label: string;
+    link: string | null;
+    closeMenu: () => void;
+  }) => {
+    return (
+      <ListItem disablePadding {...props}>
+        {link && (
+          <ListItemButton
+            component={Link}
+            onClick={closeMenu}
+            href={link}
+            underline="none"
+            color="white"
+          >
+            <ListItemText primary={label} />
           </ListItemButton>
-        </Link>
-      ) : (
-        <ListItemText className="disabled">{name}</ListItemText>
-      )}
-    </ListItem>
-  );
-})`
-  a {
-    width: 100%;
+        )}
+        {!link && <ListItemText primary={label} className="disabled" />}
+      </ListItem>
+    );
   }
-
-  &.active .MuiTypography-root {
-    font-weight: bold;
-    color: #0077ff;
-  }
+)`
+  text-transform: capitalize;
 
   .disabled {
     opacity: 30%;
-    padding: .5em 1em;
+  }
+
+  a {
+    display: box;
   }
 `;
 
-const DrawerMenu = styled(({items, socials, closemenu, ...props}) => {
-  const { pathname } = useRouter();
+const DrawerMenu = styled(
+  ({
+    menuData,
+    closeMenu,
+    ...props
+  }: {
+    menuData: { [key: string]: string | null };
+    open: boolean;
+    closeMenu: () => void;
+  }) => {
+    const menuItems = useMemo(
+      () =>
+        Object.keys(menuData).map((label: string, index: number) => (
+          <Item
+            label={label}
+            link={menuData[label]}
+            closeMenu={closeMenu}
+            key={index}
+          />
+        )),
+      []
+    );
 
-  const getTopPath = (pathname: string) => {
-    if (!pathname) return null;
-    const subDirStart = pathname.indexOf("/", 1);
-    return subDirStart === -1 ? pathname : pathname.slice(0, subDirStart);
-  };
-
-  const isActiveRoute = (link: string) => {
-    //TODO: Cache results for efficiency
-    return getTopPath(link) === getTopPath(pathname);
-  };
-
-  const menuItems = Object.keys(items).map(
-    (itemName: string, index: number) => (
-      <Item
-        name={itemName}
-        link={items[itemName]}
-        key={index}
-        className={isActiveRoute(items[itemName]) && "active"}
-        closemenu={closemenu}
-      />
-    )
-  );
-
-  return (
-    <Drawer anchor="top" onClose={closemenu} {...props}>
-      {menuItems}
-      <Divider />
-      <SocialsMenu socials={socials} className="socials" />
-    </Drawer>
-  );
-})`
+    return (
+      <Drawer anchor="top" onClose={closeMenu} {...props}>
+        <List>{menuItems}</List>
+      </Drawer>
+    );
+  }
+)`
   .MuiDrawer-paper {
-    background: #0b1126;
-  }
-
-  hr {
-    background: #1c243f;
-  }
-
-  .socials {
-    padding: 0.5em 0.8em;
-    svg {
-      width: 1.8rem;
-      heigth: 1.8rem;
-    }
+    background: #000000;
   }
 `;
 
-const MobileMenu = styled(({ items, socials, ...props }) => {
-  const [open, setOpen] = useState(false);
+const MobileMenu = styled(
+  ({ menuData, ...props }: { menuData: { [key: string]: string | null } }) => {
+    const [open, setOpen] = useState(false);
 
-  return (
-    <>
-      <IconButton color="secondary" onClick={() => setOpen(true)} {...props}>
-        <MenuIcon />
-      </IconButton>
-      <DrawerMenu
-        open={open}
-        closemenu={() => setOpen(false)}
-        items={items}
-        socials={socials}
-      />
-    </>
-  );
-})`
-  svg {
-    width: 2rem;
-    height: 2rem;
+    return (
+      <>
+        <IconButton color="secondary" onClick={() => setOpen(true)} {...props}>
+          <MenuIcon />
+        </IconButton>
+        <DrawerMenu
+          open={open}
+          closeMenu={() => setOpen(false)}
+          menuData={menuData}
+        />
+      </>
+    );
   }
-`;
+)``;
 
 export default MobileMenu;

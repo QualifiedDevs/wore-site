@@ -1,128 +1,115 @@
+import React, { useMemo } from "react";
+
 import { styled } from "@mui/material/styles";
-import { Box, Typography, Divider, Button } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
+import type StaticImageData from "next/image";
 import Image from "next/image";
+import teamMap from "@public/team-map.jpg";
 
-import Link from "@components/Link";
+import avatars from "@src/teamAvatars";
 
-import { LogoFull } from "@components/Branding";
+const themes: { [key: string]: string } = {
+  rocky: "#FAFF00",
+  nathan: "#559BFF",
+  david: "#9967FF",
+  ezequiel: "#71C562",
+  declan: "#00FFFF",
+  ruan: "#FFA0FB",
+  dodge: "#FF3838",
+  noah: "#F99F38",
+};
 
-//@ts-ignore
-const Company = styled(({ link, ...props }) => {
-  return (
-    <Button component="a" href={link} {...props}>
-      <LogoFull />
-    </Button>
-  );
-})`
-  display: block;
-  border: 3px solid #1B2060;
-  width: fit-content;
-  height: fit-content;
-  border-radius: 60px;
-  text-transform: none;
-  padding: 1.1375rem;
-  color: white;
-`;
+import manifest from "@src/manifest.json";
+const teamData = manifest.team as { [key: string]: any };
 
-//@ts-ignore
-const Member = styled(({ member, ...props }) => {
-  const { name, twitter, discord } = member;
-
-  return (
-    <Button {...props} component="a" href={`https://twitter.com/${twitter}`}>
-      <Box component="li">
-        <Box sx={{ mr: 1.8 }} className="avatar">
-          <Image
-            src={`/avatars/${name}.png`}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
+const Member = styled(
+  ({
+    memberData: { avatar, role, name, description, socials },
+    ...props
+  }: {
+    memberData: any;
+  }) => {
+    return (
+      <Box {...props}>
+        <Box className="avatar-wrapper" sx={{ mb: 1.5 }}>
+          <Image src={avatar} layout="responsive" />
         </Box>
-        <Typography component="span" sx={{ fontSize: "inherit" }}>
-          {discord}
-        </Typography>
+        <Typography className="role">{role}</Typography>
+        <Typography className="name">{name}</Typography>
+        <Typography className="description">{description}</Typography>
       </Box>
-    </Button>
-  );
-})`
-  display: block;
-  border: 3px solid #1B2060;
-  width: fit-content;
-  border-radius: 60px;
-  text-transform: none;
-
-  color: white;
-
-  li {
-    font-size: 1.2rem;
-
-    padding: 0.2rem;
-    padding-right: 0.8rem;
-
-    display: flex;
-    align-items: center;
-
-    .avatar {
-      position: relative;
-      width: 60px;
-      height: 60px;
-      border-radius: 100%;
-      border: 3px solid #1B2060;
+    );
+  }
+)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .avatar-wrapper {
+    width: clamp(125px, 40%, 300px);
+    border: 3px solid ${({ memberData: { name } }) => themes[name]};
+    border-radius: 50%;
+    box-shadow: 0px 0px 40px 0px
+      ${({ memberData: { name } }) => `${themes[name]}40`};
+    * {
+      border-radius: inherit;
     }
-
-    .avatar span {
-      border-radius: 100%;
-    }
+  }
+  .role {
+    color: ${({ memberData: { name } }) => themes[name]};
+  }
+  .name {
+    text-transform: capitalize;
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .description {
+    color: rgba(138, 138, 138, 1);
   }
 `;
 
-//@ts-ignore
-const MemberList = styled(({ team, ...props }) => {
-  const members = Object.keys(team).map((memberName, index) => {
-    const member = team[memberName];
-    member.name = memberName;
-    //@ts-ignore
-    return <Member member={member} key={index} />;
-  });
+const Team = styled((props: { id: string }) => {
+  const members = useMemo(() => {
+    return Object.keys(teamData).map((memberName: string, index: number) => {
+      //TODO: Type fixes
+      const memberData = {
+        name: memberName,
+        avatar: avatars[memberName],
+        ...teamData[memberName],
+      };
+      return <Member memberData={memberData} key={index} />;
+    });
+  }, []);
 
-  return (
-    <Box component="ul" {...props}>
-      {members}
-    </Box>
-  );
-})`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-row-gap: .5rem;
-`;
-
-//@ts-ignore
-const Team = styled(({ manifest: { team, socials }, ...props }) => {
   return (
     <Box {...props}>
-        <Typography variant="h3" sx={{mb: 2}}>
-            Created By:
-        </Typography>
-        {/* @ts-ignore */}
-      <Company link={socials.twitter} />
-      <Divider flexItem light sx={{my: 2}} />
-        {/* @ts-ignore */}
-      <MemberList team={team} />
+      <Typography variant="h3" sx={{ mb: 6 }}>
+        The WORE Team
+      </Typography>
+      <Container maxWidth="xl" className="members" sx={{ mb: 4 }}>
+        {members}
+      </Container>
+      <Container className="team-map">
+        <Box className="image-wrapper">
+          <Image src={teamMap} layout="responsive" />
+        </Box>
+      </Container>
     </Box>
   );
 })`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  h3 {
-      font-size: 2rem;
+  .members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 4rem;
   }
 
-  hr {
-      background: white;
-      height: 2px;
+  .team-map {
+    width: 100%;
   }
 `;
 

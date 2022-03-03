@@ -15,26 +15,25 @@ import SocialsMenu from "@components/SocialsMenu";
 
 const Footer = styled(({ manifest, ...props }) => {
   return (
-    <Box component="footer" {...props} sx={{ mt: 4 }}>
+    <Box component="footer" {...props} sx={{ mt: 4, pb: 1 }}>
       <Container maxWidth={false}>
-        {/* @ts-ignore */}
-
-          <SocialsMenu socials={socials} />
-        
-
+        <SocialsMenu socials={socials} />
         <Typography variant="h6">© WOLF OF REAL ESTATE</Typography>
         <a href="https://www.greaterpropertygroup.com/">
-          {/* @ts-ignore */}
           <GPGIcon className="logo" />
         </a>
       </Container>
     </Box>
   );
 })`
-  height: 100px;
+  background: black;
+  border-top: 2px solid #1a1a1a;
+
+  min-height: 80px;
   width: 100%;
 
   .MuiContainer-root {
+    height: 100%;
     display: flex;
     align-items: end;
     justify-content: space-between;
@@ -46,7 +45,7 @@ const Footer = styled(({ manifest, ...props }) => {
   }
 
   .logo {
-    width: 80px;
+    width: 40px;
   }
 `;
 
