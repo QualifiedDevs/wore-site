@@ -69,14 +69,10 @@ const TeaserMockup = styled((props) => {
   return (
     <Box {...props}>
       <Image src={teaserMockup} layout="responsive" />
-      <hr />
     </Box>
   );
 })`
-  width: min(40%, 400px);
-  hr {
-    width: 90%;
-  }
+  width: min(70%, 400px);
 `;
 
 const SignUp = styled(({ ...props }: { id: string }) => {
@@ -107,7 +103,7 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   }
 
   .logo {
-    width: min(70%, 600px);
+    width: min(70%, 450px);
   }
 `;
 
