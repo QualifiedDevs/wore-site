@@ -84,11 +84,11 @@ const SignUp = styled(({ ...props }: { id: string }) => {
     <Container {...props}>
       {/* @ts-ignore */}
       <WoreLogoFull className="logo" sx={{ mb: 3 }} />
+      <TeaserMockup sx={{ mb: 2 }} />
       <Typography className="info" sx={{ mb: 2 }}>
         By submitting your contact information, you are registering for an
         opportunity to receive a whitelist spot.
       </Typography>
-      <TeaserMockup sx={{ mb: 2 }} />
       <RegisterEmail />
     </Container>
   );

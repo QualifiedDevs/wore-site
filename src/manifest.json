@@ -1,6 +1,7 @@
 {
   "socials": {
-    "twitter": "https://twitter.com/worenft"
+    "twitter": "https://twitter.com/worenft",
+    "instagram": "https://www.instagram.com/wolfofrealestate.nft/"
   },
   "mainMenu": {
     "about": "/#about",
@@ -9,7 +10,7 @@
     "roadmap": "/#roadmap",
     "team": "/#team",
     "private sale": "/#private-sale",
-    "store": "/#store",
+    "store": "https://www.wolfofrealestate.store/",
     "mint": "/#mint"
   },
   "team": {

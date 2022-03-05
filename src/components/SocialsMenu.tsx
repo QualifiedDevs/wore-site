@@ -8,10 +8,12 @@ import { Box, IconButton } from "@mui/material";
 // Make this part dynamic later! probably from wherever I parse for socials the first time.
 import discord from "@src/vector-graphics/socials/discord";
 import twitter from "@src/vector-graphics/socials/twitter";
+import instagram from "@src/vector-graphics/socials/instagram";
 
 const socialIcons = {
   discord,
   twitter,
+  instagram
 };
 
 //TODO: Type annotations on props
@@ -30,12 +32,20 @@ const SocialButton = styled(({ social, link, ...props }) => {
 
 //@ts-ignore
 const SocialsMenu = styled(({ socials, ...props }) => {
-  const socialButtons = Object.keys(socials).map((socialName: string, index: number) => {
-    const link = socials[socialName];
-        {/* @ts-ignore */}
-    return <SocialButton social={socialName} link={link} key={index} />;
-  });
-  return <Box component="nav" {...props}>{socialButtons}</Box>;
+  const socialButtons = Object.keys(socials).map(
+    (socialName: string, index: number) => {
+      const link = socials[socialName];
+      {
+        /* @ts-ignore */
+      }
+      return <SocialButton social={socialName} link={link} key={index} />;
+    }
+  );
+  return (
+    <Box component="nav" {...props}>
+      {socialButtons}
+    </Box>
+  );
 })``;
 
 export default SocialsMenu;
