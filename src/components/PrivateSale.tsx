@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { styled } from "@mui/material/styles";
 import {
   Box,
@@ -66,14 +66,24 @@ const TicketPurchase = styled(
   ({
     quantity,
     disabled,
+    quantityFocused,
+    setQuantityFocused,
     ...props
   }: {
     quantity: number;
     disabled?: boolean;
+    quantityFocused: number;
+    setQuantityFocused: React.Dispatch<number>;
   }) => {
+
+    const handleFocus = (e: any) => {
+      setQuantityFocused(quantity)
+      //Handle focus leave: setQuantityFocused(0)
+    }
+
     return (
       <Box {...props}>
-        <Ticket disabled={disabled} sx={{ mb: 2 }} />
+        <Ticket disabled={quantityFocused < quantity && disabled} sx={{ mb: 2 }} />
         {/* @ts-ignore */}
         <PurchaseButton quantity={quantity} variant="contained" />
       </Box>
@@ -118,6 +128,15 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
   const [maxSupplyRes] = useMaxSupply();
   const [totalSupplyRes] = useTotalSupply();
 
+  const [quantityFocused, setQuantityFocused] = useState<number>(2);
+  const tickets = useMemo(() => {
+    return Array(3)
+      .fill(null)
+      .map((__, index: number) => (
+        <TicketPurchase quantity={index + 1} key={index} quantityFocused={quantityFocused} setQuantityFocused={setQuantityFocused} />
+      ));
+  }, []);
+
   return (
     <Container
       component={Stack}
@@ -135,9 +154,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
         {maxSupplyRes.data.toNumber()}
       </Typography> */}
       <Stack direction="row" justifyContent="center" spacing={3} sx={{ mb: 3 }}>
-        <TicketPurchase quantity={1} />
-        <TicketPurchase quantity={2} />
-        <TicketPurchase quantity={3} />
+        {tickets}
       </Stack>
       {/* @ts-ignore */}
       <Remaining className="remaining" sx={{ mb: 3 }} />

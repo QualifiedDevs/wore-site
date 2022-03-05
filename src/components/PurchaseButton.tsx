@@ -16,7 +16,6 @@ import {
 import { useWhitelistAuth } from "@global/auth";
 import { signerAtom } from "@global/web3";
 import useFeedback from "@hooks/useFeedback";
-
 import formatRes from "@utils/formatRes";
 
 const PurchaseButton = styled(
