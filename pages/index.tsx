@@ -26,8 +26,8 @@ const index = styled((props) => {
         <Roadmap id="roadmap" />
         <TeamDesc id="team" sx={{ py: 4, my: 4 }} />
         {/* <PrivateSale id="private-sale" /> */}
-        <Store id="store" />
-        <Mint id="mint" />
+        {/* <Store id="store" /> */}
+        {/* <Mint id="mint" /> */}
       </Box>
       <Footer />
     </Box>

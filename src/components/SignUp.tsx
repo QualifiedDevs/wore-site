@@ -15,6 +15,10 @@ import teaserMockup from "@public/teaser.png";
 
 //TODO: Extract validation and typing to utils
 
+import { useMaxSupply } from "@global/presaleContract";
+
+import { WoreLogoFull } from "@components/Branding";
+
 interface FormData {
   email: string;
 }
@@ -78,8 +82,12 @@ const TeaserMockup = styled((props) => {
 const SignUp = styled(({ ...props }: { id: string }) => {
   return (
     <Container {...props}>
-      <Typography variant="h1">W | O | R | E</Typography>
-      <Typography variant="h2">Wolf of Real Estate</Typography>
+      {/* @ts-ignore */}
+      <WoreLogoFull className="logo" sx={{ mb: 3 }} />
+      <Typography className="info" sx={{ mb: 2 }}>
+        By submitting your contact information, you are registering for an
+        opportunity to receive a whitelist spot.
+      </Typography>
       <TeaserMockup sx={{ mb: 2 }} />
       <RegisterEmail />
     </Container>
@@ -91,6 +99,16 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   align-items: center;
   justify-content: center;
   padding: 2em 0;
+  text-align: center;
+
+  .info {
+    width: 80%;
+    opacity: 30%;
+  }
+
+  .logo {
+    width: min(70%, 600px);
+  }
 `;
 
 export default SignUp;

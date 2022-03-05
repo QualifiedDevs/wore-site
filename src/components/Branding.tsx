@@ -66,7 +66,17 @@ const LogoFull = styled((props) => {
   }
 `;
 
-import woreLogo from "@public/wore-logo.png"
+import woreLogoFull from "@public/wore-logo-full.png";
+
+export const WoreLogoFull = styled((props) => {
+  return (
+    <Box {...props}>
+      <Image src={woreLogoFull} layout="responsive" />
+    </Box>
+  );
+})``;
+
+import woreLogo from "@public/wore-logo.png";
 
 export const WORELogo = styled((props) => {
   return (
@@ -75,37 +85,33 @@ export const WORELogo = styled((props) => {
     </Box>
   );
 })`
-position: relative;
-aspect-ratio: 741/230;
-width: 500px;
+  position: relative;
+  aspect-ratio: 741/230;
+  width: 500px;
 `;
 
-import woreLogoIcon from "@public/wore-nft.png"
+import woreLogoIcon from "@public/wore-nft.png";
 
 export const WORELogoIcon = styled((props) => {
   return (
     <Box {...props}>
-      <Image src={woreLogoIcon} layout="responsive"/>
+      <Image src={woreLogoIcon} layout="responsive" />
     </Box>
   );
 })``;
 
-import gpgIcon from "@public/gpg-icon.png"
-
+import gpgIcon from "@public/gpg-icon.png";
 
 export const GPGIcon = styled((props) => {
   return (
     <Box {...props}>
-      <Image src={gpgIcon}/>
+      <Image src={gpgIcon} />
     </Box>
   );
 })`
-position: relative;
-aspect-ratio: 1;
-width: 200px;
+  position: relative;
+  aspect-ratio: 1;
+  width: 200px;
 `;
-
-
-
 
 export { LogoIcon, LogoFull };

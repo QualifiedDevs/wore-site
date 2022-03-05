@@ -10,7 +10,7 @@ export type AuthData = {
 
 const privateKey = process.env.SIGNER_PRIVATE_KEY!;
 
-import prePurchaseContractMetadata from "@src/artifacts/prePurchaseContract/metadata.json";
+import privateSaleContractMetadata from "@src/artifacts/privateSaleContract/metadata.json";
 
 // * NOTION UTILS
 const whitelist_id = process.env.NOTION_WHITELIST_ID!;
@@ -75,7 +75,7 @@ export default async function getSigner(
     console.log("WALLET ADDRESS PRESENT, ACCOUNT AUTHORIZED")
     const message: AuthData = await sign(
       privateKey,
-      prePurchaseContractMetadata.address,
+      privateSaleContractMetadata.address,
       account
     );
     return res.status(200).json(message);
@@ -93,7 +93,7 @@ export default async function getSigner(
 
   const message: AuthData = await sign(
     privateKey,
-    prePurchaseContractMetadata.address,
+    privateSaleContractMetadata.address,
     account
   );
 

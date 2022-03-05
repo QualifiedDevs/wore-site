@@ -13,16 +13,6 @@ import { ethers } from "ethers";
 
 import isClient from "@utils/isClient";
 
-/*
-  Whenever a wallet connects:
-    -Check in the database for the wallet address. If it exists, they are authorized.
-    -If no wallet exists, search for the bearer token. If it exists, update the attached wallet.
-    -If the first checks pass, send whitelist authorization and continue with fetching blockchain data.
-    -If the checks do NOT pass, prompt them to connect a different wallet 
-
-    I can do useEffect for when they connect. 
-*/
-
 const ConnectButton = styled((props) => {
   const { setProvider, connected } = useWeb3();
   const [isLoading, setIsLoading] = useState(false);

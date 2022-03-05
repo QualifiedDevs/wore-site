@@ -111,6 +111,18 @@ const Team = styled((props: { id: string }) => {
   .team-map {
     width: 100%;
   }
+
+  ${({ theme }) => theme.breakpoints.down("lg")} {
+    .members {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    .members {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export default Team;

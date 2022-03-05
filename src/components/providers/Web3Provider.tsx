@@ -51,14 +51,14 @@ export type Web3ContextValues = {
   setWhitelistAuth: React.Dispatch<AuthData | undefined | null>;
 };
 
-import prePurchaseContractMetadata from "@src/artifacts/prePurchaseContract/metadata.json";
-import prePurchaseAbi from "@src/artifacts/prePurchaseContract/abi.json";
+import privateSaleContractMetadata from "@src/artifacts/privateSaleContract/metadata.json";
+import privateSaleAbi from "@src/artifacts/privateSaleContract/abi.json";
 
 //@ts-ignore
 
-const readonlyPrePurchaseContract = new ethers.Contract(
-  prePurchaseContractMetadata.address,
-  prePurchaseAbi,
+const readonlyprivateSaleContract = new ethers.Contract(
+  privateSaleContractMetadata.address,
+  privateSaleAbi,
   defaultProvider
 );
 
@@ -106,8 +106,8 @@ export const Web3Context = createContext(defaultContext);
 
 //! CONTRACT CONTRACT CONTRACT
 const presaleContractRaw = new ethers.Contract(
-  prePurchaseContractMetadata.address,
-  prePurchaseAbi,
+  privateSaleContractMetadata.address,
+  privateSaleAbi,
   defaultProvider,
 );
 
@@ -167,8 +167,8 @@ export default function Web3Provider(props: any) {
     if (!signer) return;
     setPresaleContract(
       new ethers.Contract(
-        prePurchaseContractMetadata.address,
-        prePurchaseAbi,
+        privateSaleContractMetadata.address,
+        privateSaleAbi,
         signer
       )
     );
@@ -180,21 +180,21 @@ export default function Web3Provider(props: any) {
 
     updateReadonlyProperty(
       "MAX_PURCHASE",
-      readonlyPrePurchaseContract,
+      readonlyprivateSaleContract,
     setMaxPerWallet
     );
     updateReadonlyProperty(
       "MAX_SUPPLY",
-      readonlyPrePurchaseContract,
+      readonlyprivateSaleContract,
       setMaxSupply
     );
     updateReadonlyProperty(
       "totalSupply",
-      readonlyPrePurchaseContract,
+      readonlyprivateSaleContract,
       setTotalSupply
     );
-    updateReadonlyProperty("PRICE", readonlyPrePurchaseContract, setPrice);
-    // ! updateReadonlyProperty("PURCHASED", readonlyPrePurchaseContract, setMintedBalance);
+    updateReadonlyProperty("PRICE", readonlyprivateSaleContract, setPrice);
+    // ! updateReadonlyProperty("PURCHASED", readonlyprivateSaleContract, setMintedBalance);
   }, [isMinting]);
 
   // * Sold Out State

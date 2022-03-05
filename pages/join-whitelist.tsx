@@ -12,17 +12,7 @@ import useWeb3 from "@hooks/useWeb3";
 import { WORELogoIcon } from "@components/Branding";
 
 const ValueWindow = styled((props) => {
-  const {
-    connected,
-    connectedAccount,
-    maxPerWallet,
-    maxSupply,
-    totalSupply,
-    soldOut,
-    mintedBalance,
-    isMinting,
-    price,
-  } = useWeb3();
+
 
   return (
     <Paper {...props}>
@@ -85,7 +75,7 @@ const joinWhitelist = styled((props) => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
 
   .logo {
     width: 100px;
