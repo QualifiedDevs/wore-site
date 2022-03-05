@@ -33,7 +33,9 @@ const Purchased = styled((props) => {
 
   return (
     <Typography {...props}>
+      {/* @ts-ignore */}
       Owned: {amountPurchasedRes.data ? amountPurchasedRes.data.toNumber() : 0}/
+      {/* @ts-ignore */}
       {maxPurchaseAmountRes.data ? maxPurchaseAmountRes.data.toNumber() : 3}
     </Typography>
   );
@@ -45,10 +47,13 @@ const Remaining = styled((props) => {
 
   return (
     <Typography {...props}>
+      {/* @ts-ignore */}
       {totalSupplyRes.loading ? (
         <CircularProgress />
-      ) : totalSupplyRes.data ? (
+      ) : //@ts-ignore
+      totalSupplyRes.data ? (
         <>
+          {/* @ts-ignore */}
           <b>{totalSupplyRes.data.sub(100).abs().toString()}</b> Tickets
           Remaining
         </>
@@ -66,12 +71,10 @@ const TicketPurchase = styled(
     quantity: number;
     disabled?: boolean;
   }) => {
-
-
-
     return (
       <Box {...props}>
         <Ticket disabled={disabled} sx={{ mb: 2 }} />
+        {/* @ts-ignore */}
         <PurchaseButton quantity={quantity} variant="contained" />
       </Box>
     );
@@ -125,6 +128,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       <Typography variant="h3" sx={{ mb: 4 }}>
         Private Sale
       </Typography>
+      {/* @ts-ignore */}
       <Purchased sx={{ mb: 3 }} className="purchased" />
       {/* <Typography variant="h3" sx={{ mb: 5 }}>
         Private Sale {totalSupplyRes.data.toNumber()}/
@@ -137,6 +141,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       </Stack>
       {/* @ts-ignore */}
       <Remaining className="remaining" sx={{ mb: 3 }} />
+      {/* @ts-ignore */}
       <ConnectWallet variant="contained" sx={{ py: 2, px: 6 }} />
       {/* <Debug /> */}
     </Container>

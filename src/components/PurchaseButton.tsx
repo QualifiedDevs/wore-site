@@ -37,16 +37,23 @@ const PurchaseButton = styled(
 
     const [mintAvailable, setMintAvailable] = useState(false);
     useEffect(() => {
+      //@ts-ignore
       if (!whitelistAuthResult.data) {
         setMintAvailable(false);
         return;
       }
 
+      //@ts-ignore
       const price = priceRes.data;
+      //@ts-ignore
       const maxPurchaseAmount = maxPurchaseAmountRes.data;
+      //@ts-ignore
       const amountPurchased = amountPurchasedRes.data;
+      //@ts-ignore
       const maxSupply = maxSupplyRes.data;
+      //@ts-ignore
       const totalSupply = totalSupplyRes.data;
+      //@ts-ignore
 
       const contractLoaded =
         price !== null &&
@@ -85,20 +92,29 @@ const PurchaseButton = styled(
 
     const handleClick = useCallback(async () => {
       if (!mintAvailable) return;
+
+      //@ts-ignore
       if (!whitelistAuthResult.data)
         throw "Cannot purchase, missing authorization";
+      //@ts-ignore
       const { hash, signature } = whitelistAuthResult.data;
 
+      //@ts-ignore
       const price = priceRes.data;
+      //@ts-ignore
       const maxPurchaseAmount = maxPurchaseAmountRes.data;
+      //@ts-ignore
       const amountPurchased = amountPurchasedRes.data;
+      //@ts-ignore
       const maxSupply = maxSupplyRes.data;
+      //@ts-ignore
       const totalSupply = totalSupplyRes.data;
 
       setIsLoading(true);
       setIsMinting(true);
 
       try {
+        //@ts-ignore
         const totalCost = priceRes.data.mul(quantity);
 
         const [data, err] = await formatRes(
@@ -110,6 +126,7 @@ const PurchaseButton = styled(
         if (err) throw err;
         setSuccess("Purchase Processed");
       } catch (err) {
+        //@ts-ignore
         setError(err.message);
       }
 
