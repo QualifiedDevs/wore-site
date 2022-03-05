@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 
 const Ticket = styled(
-  ({ active, ...props }: { active: boolean; className?: string }) => {
+  ({ active, ...props }: { active?: boolean; className?: string }) => {
     return (
       <Box {...props} className={`${props.className || ""} ${active && "active"}`}>
         <video src="/card.mp4" autoPlay loop preload="auto"></video>
