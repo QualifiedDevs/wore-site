@@ -84,7 +84,9 @@ const DrawerMenu = styled(
 )`
   .MuiDrawer-paper {
     background: #000000;
+    border-bottom: 2px solid #242424;
   }
+
 `;
 
 const MobileMenu = styled(

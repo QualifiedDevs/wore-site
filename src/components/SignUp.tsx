@@ -15,7 +15,7 @@ import teaserMockup from "@public/teaser.png";
 
 //TODO: Extract validation and typing to utils
 
-import { useMaxSupply } from "@global/presaleContract";
+import { useMaxSupply } from "@global/privateSaleContract";
 
 import { WoreLogoFull } from "@components/Branding";
 

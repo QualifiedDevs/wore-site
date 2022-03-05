@@ -62,14 +62,14 @@ export default async function getSigner(
 ) {
   const { account, access } = req.body;
 
+  console.log(`AUTH REQUEST WITH ACCOUNT: ${account} AND ACCESS ${access}`)
+
   if (!account)
     return res
       .status(500)
       .json({ error: "Account not provided, fix your shit" });
 
   const whitelist = await getDatabaseEntries(whitelist_id);
-
-  console.log(`Auth requested for account ${account}`);
 
   if (getEntryFromWalletAddress(account, whitelist)) {
     console.log("WALLET ADDRESS PRESENT, ACCOUNT AUTHORIZED")

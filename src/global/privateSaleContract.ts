@@ -56,7 +56,9 @@ async function fetchReadonlyProperty({
   contract,
   args,
 }: FetchPropertyArgs) {
-  const [data, err] = await formatRes(contract[property](args));
+  const [data, err] = await formatRes(
+    args !== undefined ? contract[property](args) : contract[property]()
+  );
   if (err) throw err;
   return data;
 }
@@ -74,7 +76,7 @@ function readonlyPropertyAtom(args: ReadonlyPropertyAtomArgs) {
       );
       if (err) {
         set(resultAtom, { data: null, err, loading: false });
-        console.error(`Failed to fetch property ${args.property}`);
+        console.error(`Failed to fetch property ${args.property}`, err);
       }
       set(resultAtom, { data, err: null, loading: false });
     }
@@ -117,10 +119,52 @@ export const useMaxPurchaseAmount = fetchReadonlyPropertyHook({
   property: "MAX_PURCHASE",
   contractAtom,
 });
-export const useAmountPurchased = fetchReadonlyPropertyHook({
-  property: "PURCHASED",
-  contractAtom,
-});
+
+const amountPurchasedResultAtom = asyncAtom();
+const runFetchAmountPurchasedResultAtom = atom(
+  amountPurchasedResultAtom,
+  (get, set) => {
+    const signer = get(signerAtom);
+    if (!signer) {
+      set(amountPurchasedResultAtom, { data: null, err: null, loading: false });
+      return;
+    }
+
+    async function fetchData() {
+      set(amountPurchasedResultAtom, (prev) => ({ ...prev, loading: true }));
+
+      const [addressData, addressErr] = await formatRes(signer.getAddress());
+      if (addressErr) {
+        console.error("Failed to fetch property PURCHASED", addressData);
+        set(amountPurchasedResultAtom, {
+          data: null,
+          err: addressErr,
+          loading: false,
+        });
+        return;
+      }
+
+      const [data, err] = await formatRes(
+        fetchReadonlyProperty({
+          property: "PURCHASED",
+          contract: get(contractAtom),
+          args: addressData,
+        })
+      );
+      if (err) {
+        set(amountPurchasedResultAtom, { data: null, err, loading: false });
+        console.error(`Failed to fetch property PURCHASED`, err);
+      }
+      set(amountPurchasedResultAtom, { data, err: null, loading: false });
+    }
+    fetchData();
+  }
+);
+
+export const useAmountPurchased = fetchAtomHook(
+  amountPurchasedResultAtom,
+  runFetchAmountPurchasedResultAtom
+);
 
 export default function initPresaleContract() {
   const { provider, signer } = useWeb3();
@@ -148,7 +192,10 @@ export default function initPresaleContract() {
     updatePrice();
     //@ts-ignore
     updateMaxPurchaseAmount();
+  }, [isMinting]);
+
+  useEffect(() => {
     //@ts-ignore
     updateAmountPurchased();
-  }, [isMinting]);
+  }, [signer, isMinting]);
 }
