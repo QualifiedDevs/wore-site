@@ -150,11 +150,38 @@ const Debug = styled((props) => {
   padding: 1em;
 `;
 
+const WhitelistStatusModal = styled((props) => {
+  const [whitelistAuthRes] = useWhitelistAuth();
+
+  return (
+    <Box sx={{display: "none"}} {...props}>
+      {/* @ts-ignore */}
+      {whitelistAuthRes.loading && <CircularProgress />}
+      {/* @ts-ignore */}
+      {(!whitelistAuthRes.loading && !whitelistAuthRes.data) && <Typography>You must be whitelisted to join the private sale.</Typography>}
+    </Box>
+  );
+})`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #000000c0;
+  text-align: center;
+
+  display: grid;
+  place-items: center;
+`;
+
 const PrivateSale = styled(({ ...props }: { id: string }) => {
   const [maxSupplyRes] = useMaxSupply();
   const [totalSupplyRes] = useTotalSupply();
 
+  const [signer] = useAtom(signerAtom);
+
   const [quantityFocused, setQuantityFocused] = useState<number>(0);
+  const [whitelistAuthRes] = useWhitelistAuth()
 
   const tickets = useMemo(() => {
     return Array(3)
@@ -176,6 +203,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       justifyContent="center"
       {...props}
     >
+      {(signer && !whitelistAuthRes.data) && <WhitelistStatusModal />}
       <Typography variant="h3" sx={{ mb: 4 }}>
         Private Sale
       </Typography>
@@ -196,6 +224,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
     </Container>
   );
 })`
+  position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
