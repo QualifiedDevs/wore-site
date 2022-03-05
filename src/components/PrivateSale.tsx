@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { styled } from "@mui/material/styles";
 import {
   Box,
@@ -17,15 +17,23 @@ import PurchaseButton from "@components/PurchaseButton";
 //disclaimer: If you are purchasing on the private sale, it is highly recommended that you use a desktop or laptop, and not a mobile device.
 //backwards countdown
 
+import { useAtom } from "jotai";
+
+import { whitelistAuthResult } from "@global/auth";
+
+import { signerAtom } from "@global/web3";
+
 import {
   useAmountPurchased,
   useMaxPurchaseAmount,
   useMaxSupply,
   useTotalSupply,
   usePrice,
+  isMintingAtom,
 } from "@global/privateSaleContract";
 
 import { useWhitelistAuth } from "@global/auth";
+import { ProductionQuantityLimits } from "@mui/icons-material";
 
 const Purchased = styled((props) => {
   const [amountPurchasedRes] = useAmountPurchased();
@@ -65,7 +73,6 @@ const Remaining = styled((props) => {
 const TicketPurchase = styled(
   ({
     quantity,
-    disabled,
     quantityFocused,
     setQuantityFocused,
     ...props
@@ -75,17 +82,36 @@ const TicketPurchase = styled(
     quantityFocused: number;
     setQuantityFocused: React.Dispatch<number>;
   }) => {
+    const [amountPurchasedRes] = useAmountPurchased();
 
     const handleFocus = (e: any) => {
-      setQuantityFocused(quantity)
-      //Handle focus leave: setQuantityFocused(0)
-    }
+      setQuantityFocused(quantity);
+    };
+
+    const handleFocusLeave = (e: any) => {
+      setQuantityFocused(0);
+    };
 
     return (
       <Box {...props}>
-        <Ticket disabled={quantityFocused < quantity && disabled} sx={{ mb: 2 }} />
+        <Ticket
+          active={
+            //@ts-ignore
+            (amountPurchasedRes.data !== null &&
+              //@ts-ignore
+              quantity > 3 - amountPurchasedRes.data.toNumber()) ||
+            quantityFocused >= quantity
+          }
+          sx={{ mb: 2 }}
+        />
         {/* @ts-ignore */}
-        <PurchaseButton quantity={quantity} variant="contained" />
+        <PurchaseButton
+          quantity={quantity}
+          //@ts-ignore
+          variant="contained"
+          onMouseOver={handleFocus}
+          onMouseLeave={handleFocusLeave}
+        />
       </Box>
     );
   }
@@ -128,14 +154,20 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
   const [maxSupplyRes] = useMaxSupply();
   const [totalSupplyRes] = useTotalSupply();
 
-  const [quantityFocused, setQuantityFocused] = useState<number>(2);
+  const [quantityFocused, setQuantityFocused] = useState<number>(0);
+
   const tickets = useMemo(() => {
     return Array(3)
       .fill(null)
       .map((__, index: number) => (
-        <TicketPurchase quantity={index + 1} key={index} quantityFocused={quantityFocused} setQuantityFocused={setQuantityFocused} />
+        <TicketPurchase
+          quantity={index + 1}
+          key={index}
+          quantityFocused={quantityFocused}
+          setQuantityFocused={setQuantityFocused}
+        />
       ));
-  }, []);
+  }, [quantityFocused]);
 
   return (
     <Container

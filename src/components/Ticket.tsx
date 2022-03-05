@@ -4,9 +4,9 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 
 const Ticket = styled(
-  ({ disabled, ...props }: { disabled?: boolean; className?: string }) => {
+  ({ active, ...props }: { active: boolean; className?: string }) => {
     return (
-      <Box {...props} className={`${props.className || ""} ${!disabled && "active"}`}>
+      <Box {...props} className={`${props.className || ""} ${active && "active"}`}>
         <video src="/card.mp4" autoPlay loop preload="auto"></video>
       </Box>
     );
@@ -28,8 +28,7 @@ const Ticket = styled(
   }
   transition: filter 0.35s ease, border 0.35s;
 
-  &.active,
-  :hover {
+  &.active {
     border: 3px solid #ac00ac;
     box-shadow: 0px 0px 30px #a800a880;
     video {
