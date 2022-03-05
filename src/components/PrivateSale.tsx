@@ -4,11 +4,11 @@ import { Box, Container, Typography, Stack } from "@mui/material";
 import Ticket from "@components/Ticket";
 import ConnectWallet from "@components/ConnectWallet";
 
+//disclaimer: If you are purchasing on the private sale, it is highly recommended that you use a desktop or laptop, and not a mobile device.
+//backwards countdown
+
 const PrivateSale = styled(({ ...props }: { id: string }) => {
-
-    
-
-    return (
+  return (
     <Container
       component={Stack}
       alignItems="center"
