@@ -52,8 +52,6 @@ const ValueWindow = styled((props) => {
 
 import getPurchaseAuth from "@utils/getPurchaseAuth";
 
-import Ticket from "@components/Ticket";
-
 const joinWhitelist = styled((props) => {
   const { connected, connectedAccount, whitelistAuth, setWhitelistAuth } =
     useWeb3();
