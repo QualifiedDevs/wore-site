@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Box, Container, Button, Typography, ButtonBase } from "@mui/material";
 
-import Image from "next/Image";
+import Image from "next/image";
 import storeImg from "@public/wore-store.png";
 
 const Store = styled((props: { id: string }) => {
