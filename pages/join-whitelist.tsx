@@ -11,6 +11,27 @@ import useWeb3 from "@hooks/useWeb3";
 
 import { WORELogoIcon } from "@components/Branding";
 
+import Ticket from "@components/Ticket"
+
+const PurchaseButton = styled((props) => {
+  return (
+    <Button {...props}>
+      
+    </Button>
+  );
+})``;
+
+
+const PurchaseTicket = styled((props) => {
+  return (
+    <Box {...props}>
+      <Ticket />
+      <PurchaseButton />
+    </Box>
+  );
+})``;
+
+
 const ValueWindow = styled((props) => {
 
 
