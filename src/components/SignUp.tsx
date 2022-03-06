@@ -75,6 +75,7 @@ const RegisterEmail = styled(({ ...props }) => {
   return (
     <Stack component="form" onSubmit={handleSubmit} spacing={2} {...props}>
       <TextField
+        color="primary"
         required
         label="EMAIL"
         placeholder="wolfofrealestate.com"
@@ -97,7 +98,11 @@ const RegisterEmail = styled(({ ...props }) => {
 })`
   width: min(90%, 400px);
 
-  .Mui-disabled:not(.MuiLoadingButton-loading) {
+  .MuiOutlinedInput-notchedOutline {
+    border-color: #757575;
+  }
+
+  .MuiLoadingButton-root.Mui-disabled:not(.MuiLoadingButton-loading) {
     border: 2px solid #757575;
     color: #757575;
   }
