@@ -7,13 +7,12 @@ const Ticket = styled(
   ({ active, ...props }: { active?: boolean; className?: string }) => {
     return (
       <Box {...props} className={`${props.className || ""} ${active && "active"}`}>
-        <video src="/card.mp4" autoPlay loop preload="auto"></video>
+        <video src="/card.mp4" autoPlay loop></video>
       </Box>
     );
   }
 )`
-  width: 200px;
-  height: 200px;
+
   border-radius: 8px;
 
   transition: box-shadow 0.2s;

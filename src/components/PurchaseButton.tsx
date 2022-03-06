@@ -145,8 +145,6 @@ const PurchaseButton = styled(
     );
   }
 )`
-  display: border-box;
-
   &.Mui-disabled:not(.MuiLoadingButton-loading) {
     border: 2px solid #757575;
     color: #757575;

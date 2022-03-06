@@ -8,6 +8,7 @@ import {
   Button,
   CircularProgress,
   Paper,
+  Alert,
 } from "@mui/material";
 
 import Ticket from "@components/Ticket";
@@ -62,7 +63,7 @@ const Remaining = styled((props) => {
       totalSupplyRes.data ? (
         <>
           {/* @ts-ignore */}
-          <b>{totalSupplyRes.data.sub(100).abs().toString()}</b> Tickets
+          <b>{totalSupplyRes.data.sub(100).abs().toString()}</b> Tokens
           Remaining
         </>
       ) : null}
@@ -154,11 +155,15 @@ const WhitelistStatusModal = styled((props) => {
   const [whitelistAuthRes] = useWhitelistAuth();
 
   return (
-    <Box sx={{display: "none"}} {...props}>
+    <Box sx={{ display: "none" }} {...props}>
       {/* @ts-ignore */}
       {whitelistAuthRes.loading && <CircularProgress />}
       {/* @ts-ignore */}
-      {(!whitelistAuthRes.loading && !whitelistAuthRes.data) && <Typography>You must be whitelisted to join the private sale.</Typography>}
+      {!whitelistAuthRes.loading && !whitelistAuthRes.data && (
+        <Typography>
+          You must be whitelisted to join the private sale.
+        </Typography>
+      )}
     </Box>
   );
 })`
@@ -181,7 +186,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
   const [signer] = useAtom(signerAtom);
 
   const [quantityFocused, setQuantityFocused] = useState<number>(0);
-  const [whitelistAuthRes] = useWhitelistAuth()
+  const [whitelistAuthRes] = useWhitelistAuth();
 
   const tickets = useMemo(() => {
     return Array(3)
@@ -201,9 +206,11 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       component={Stack}
       alignItems="center"
       justifyContent="center"
+      maxWidth="md"
       {...props}
     >
-      {(signer && !whitelistAuthRes.data) && <WhitelistStatusModal />}
+      {/* @ts-ignore */}
+      {signer && !whitelistAuthRes.data && <WhitelistStatusModal />}
       <Typography variant="h3" sx={{ mb: 4 }}>
         Private Sale
       </Typography>
@@ -216,6 +223,10 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       <Stack direction="row" justifyContent="center" spacing={3} sx={{ mb: 3 }}>
         {tickets}
       </Stack>
+      <Alert className="mobile-notice" severity="info" color="warning" variant="filled" sx={{ mb: 2 }}>
+        If you are purchasing tokens from the private sale, it is highly recommended that
+        you use a desktop or laptop, and not a mobile device.
+      </Alert>
       {/* @ts-ignore */}
       <Remaining className="remaining" sx={{ mb: 3 }} />
       {/* @ts-ignore */}
@@ -239,6 +250,17 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
     b {
       text-decoration: underline;
       text-decoration-color: ${({ theme }) => theme.palette.primary.main};
+    }
+  }
+
+  .mobile-notice {
+    display: none;
+  }
+
+  @media screen and (max-aspect-ratio: 1) {
+    .mobile-notice {
+      display: flex;
+      align-items: center;
     }
   }
 `;

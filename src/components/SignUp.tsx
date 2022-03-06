@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { styled } from "@mui/material/styles";
 import { Box, Container, Stack, TextField, Typography } from "@mui/material";
@@ -15,9 +15,9 @@ import teaserMockup from "@public/teaser.png";
 
 //TODO: Extract validation and typing to utils
 
-import { useMaxSupply } from "@global/privateSaleContract";
-
 import { WoreLogoFull } from "@components/Branding";
+
+import useFeedback from "@hooks/useFeedback";
 
 interface FormData {
   email: string;
@@ -31,18 +31,41 @@ function validateForm(data: FormData) {
   return validateEmail(data.email);
 }
 
+enum FormState {
+  Valid = 0,
+  Invalid,
+  Submitted,
+}
+
 const RegisterEmail = styled(({ ...props }) => {
+  const { setSuccess, setError } = useFeedback();
+
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({ email: "" });
+  const [formState, setFormState] = useState<FormState>(FormState.Valid);
 
-  const handleSubmit = useCallback(async (e: any) => {
-    e.preventDefault();
-    setIsLoading(true);
-    //@ts-ignore
-    const [data, err] = await formatRes(signup(formData));
-    setIsLoading(false);
-    if (err) console.error(err);
-  }, []);
+  useEffect(() => {
+    const isValid = validateForm(formData);
+    setFormState(isValid ? FormState.Valid : FormState.Invalid);
+  }, [formData]);
+
+  const handleSubmit = useCallback(
+    async (e: any) => {
+      e.preventDefault();
+      setIsLoading(true);
+      //@ts-ignore
+      const [data, err] = await formatRes(signup(formData));
+      setIsLoading(false);
+      if (err) {
+        setError("Failed to register, please try again");
+        console.error(err);
+        return;
+      }
+      setFormState(FormState.Submitted);
+      setSuccess("Sucessfully registered");
+    },
+    [formData]
+  );
 
   const handleEmailInputChange = useCallback((e: any) => {
     const value = e.target.value;
@@ -50,20 +73,42 @@ const RegisterEmail = styled(({ ...props }) => {
   }, []);
 
   return (
-    <Stack spacing={2} {...props}>
+    <Stack component="form" onSubmit={handleSubmit} spacing={2} {...props}>
       <TextField
         required
         label="EMAIL"
         placeholder="wolfofrealestate.com"
         value={formData.email}
         onChange={handleEmailInputChange}
+        error={formData.email !== "" && formState === FormState.Invalid}
+        disabled={formState === FormState.Submitted || isLoading}
       />
-      <LoadingButton type="submit" loading={isLoading} variant="contained">
+      <LoadingButton
+        type="submit"
+        loading={isLoading}
+        disabled={formState !== FormState.Valid}
+        variant="contained"
+        sx={{ py: 2 }}
+      >
         Submit
       </LoadingButton>
     </Stack>
   );
-})``;
+})`
+  width: min(90%, 400px);
+
+  .Mui-disabled:not(.MuiLoadingButton-loading) {
+    border: 2px solid #757575;
+    color: #757575;
+  }
+
+  .MuiLoadingButton-loading {
+    background: ${({ theme }) => theme.palette.primary.dark};
+    svg {
+      color: white;
+    }
+  }
+`;
 
 const TeaserMockup = styled((props) => {
   return (
@@ -72,7 +117,7 @@ const TeaserMockup = styled((props) => {
     </Box>
   );
 })`
-  width: min(70%, 400px);
+  width: min(70%, 350px);
 `;
 
 const SignUp = styled(({ ...props }: { id: string }) => {
@@ -103,7 +148,7 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   }
 
   .logo {
-    width: min(70%, 450px);
+    width: min(70%, 400px);
   }
 `;
 
