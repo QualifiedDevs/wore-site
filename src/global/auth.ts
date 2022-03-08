@@ -6,6 +6,7 @@ import { atom, useAtom } from "jotai";
 import { signerAtom } from "@global/web3";
 import formatRes from "@utils/formatRes";
 import fetchAuth from "@utils/getPurchaseAuth";
+import isClient from "@utils/isClient";
 
 interface AsyncAtomResult {
   data: any;
@@ -65,14 +66,21 @@ export const useWhitelistAuth = () => {
 
 export const initWhitelistAuth = () => {
   const { query, isReady } = useRouter();
+
   const [signer] = useAtom(signerAtom);
   const [, setAccessTokenResult] = useAtom(accessTokenAtom);
 
   const [, , updateWhitelistAuth] = useWhitelistAuth();
 
   useEffect(() => {
-    if (!isReady) return;
-    const access = query.access;
+    if (!isClient || !isReady) return;
+    // Set access token if it exists
+    // Retrive access token from local storage
+    if (query.access) {
+      localStorage.setItem("accessToken", query.access as string);
+    }
+    const access = localStorage.getItem("accesstoken");
+
     setAccessTokenResult({ data: access, err: null, loading: false });
     //@ts-ignore
     updateWhitelistAuth();
