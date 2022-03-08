@@ -79,7 +79,7 @@ export const initWhitelistAuth = () => {
     if (query.access) {
       localStorage.setItem("accessToken", query.access as string);
     }
-    const access = localStorage.getItem("accesstoken");
+    const access = localStorage.getItem("accessToken");
 
     setAccessTokenResult({ data: access, err: null, loading: false });
     //@ts-ignore
