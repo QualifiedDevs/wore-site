@@ -44,6 +44,7 @@ export const runFetchWhitelistAuth = atom(asyncAtom, (get, set) => {
     }
 
     console.log("ADDRESS DATA", addressData);
+    console.log("ACCESS TOKEN", accessToken);
 
     const [data, err] = await formatRes(fetchAuth(addressData, accessToken));
     if (err) {
@@ -76,10 +77,17 @@ export const initWhitelistAuth = () => {
     if (!isClient || !isReady) return;
     // Set access token if it exists
     // Retrive access token from local storage
+
+    //! cannot retrive access from anchor link.
+
+    console.log(query.access)
+
     if (query.access) {
+      console.log("setting access", query.access);
       localStorage.setItem("accessToken", query.access as string);
     }
     const access = localStorage.getItem("accessToken");
+    console.log("retrieving access", query.access);
 
     setAccessTokenResult({ data: access, err: null, loading: false });
     //@ts-ignore

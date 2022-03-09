@@ -106,10 +106,10 @@ async function createEntry(database_id: any, entry_id: string, props: any) {
 async function sendInviteEmail(address: string, token: string) {
   let res;
   try {
-    res = await sendEmail(address, token)
-    console.log("EMAIL SENT SUCESSFULLY")
-  } catch(err) {
-    console.error("SEND EMAIL FAILED", err)
+    res = await sendEmail(address, token);
+    console.log("EMAIL SENT SUCESSFULLY");
+  } catch (err) {
+    console.error("SEND EMAIL FAILED", err);
   }
   return res;
 }
@@ -126,7 +126,6 @@ export default async function inviteHandler(
 
   if (!referrer)
     return res.status(403).send("Referrer not authorized to send invites");
-
   const whitelist = await getDatabaseEntries(whitelist_id);
   const page = getPageFromEmail(address, whitelist);
   const inviteUUID = generateUUID(whitelist);
@@ -135,25 +134,24 @@ export default async function inviteHandler(
 
   pageProps.referrer = { email: referrer.properties.Email.email };
   pageProps.token = {
-    rich_text: [{ type: "text", text: {content: inviteUUID} }],
+    rich_text: [{ type: "text", text: { content: inviteUUID } }],
   };
 
   if (!page) {
     pageProps.email = { email: address };
     const entry_id = whitelist.results.length.toString();
-    console.log("CREATING ENTRY")
-    const entryRes = await createEntry(whitelist_id, entry_id, pageProps);
+    const entryRes = await createEntry(whitelist_id, entry_id, pageProps); //! Something is wrong RIGHT HERE
     await sendInviteEmail(address, inviteUUID);
     return res.status(200).send(`New entry for account: ${address}`);
   }
 
   try {
-    console.log("UPDATING ENTRY")
+    console.log("UPDATING ENTRY");
     const res = await updateEntry(page, pageProps);
-    console.error("UPDATE SUCCESSFUL", res)
-  } catch(err) {
-    console.error("ENTRY UPDATE FAILED", err)
-    throw(err)
+    console.error("UPDATE SUCCESSFUL", res);
+  } catch (err) {
+    console.error("ENTRY UPDATE FAILED", err);
+    throw err;
   }
 
   await sendInviteEmail(address, inviteUUID);

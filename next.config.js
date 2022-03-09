@@ -8,4 +8,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/join-whitelist",
+        destination: "/#private-sale",
+        permanent: false
+      }
+    ]
+  }
 };

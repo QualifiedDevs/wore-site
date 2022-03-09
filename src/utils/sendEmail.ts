@@ -71,7 +71,7 @@ export default async function sendEmail(address: string, token: string) {
     from: `WORE Info ${user}`,
     to: address,
     subject: `Presale access for ${address}`,
-    html: `<span><a href=https://wolfofrealestate.com/#private-sale?access=${token} >Click Here</a> to join the WORE presale<span>`,
+    html: `<span><a href=https://wolfofrealestate.com/?access=${token}#private-sale >Click Here</a> to join the WORE presale<span>`,
   };
 
   const res = await transport.sendMail(mailOptions);
