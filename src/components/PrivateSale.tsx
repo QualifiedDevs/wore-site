@@ -172,7 +172,7 @@ const WhitelistStatusModal = styled((props) => {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: #000000c0;
+  background: ${({ theme }) => theme.palette.background.default}c0;
   text-align: center;
 
   display: grid;
@@ -223,9 +223,15 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       <Stack direction="row" justifyContent="center" spacing={3} sx={{ mb: 3 }}>
         {tickets}
       </Stack>
-      <Alert className="mobile-notice" severity="info" color="warning" variant="filled" sx={{ mb: 2 }}>
-        If you are purchasing tokens from the private sale, it is highly recommended that
-        you use a desktop or laptop, and not a mobile device.
+      <Alert
+        className="mobile-notice"
+        severity="info"
+        color="warning"
+        variant="filled"
+        sx={{ mb: 2 }}
+      >
+        If you are purchasing tokens from the private sale, it is highly
+        recommended that you use a desktop or laptop, and not a mobile device.
       </Alert>
       {/* @ts-ignore */}
       <Remaining className="remaining" sx={{ mb: 3 }} />
