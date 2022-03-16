@@ -115,7 +115,7 @@ export async function sendRegistrationConfirmation({
     </head>
     <body>
     <h1>Congratulations On Entering Into Our Wolf Of Real Estate NFT Whitelist Giveaway!</h1>
-    <p>Hey (name), Lupa here.&nbsp;</p>
+    <p>Hi, Lupa here!&nbsp;</p>
     
     <p>I wanted to congratulate you for entering into our Wolf Of Real Estate NFT whitelist giveaway.</p>
     
