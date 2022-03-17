@@ -117,7 +117,7 @@ export async function sendRegistrationConfirmation({
     <h1>Congratulations On Entering Into Our Wolf Of Real Estate NFT Whitelist Giveaway!</h1>
     <p>Hi, Lupa here!&nbsp;</p>
     
-    <p>I wanted to congratulate you for entering into our Wolf Of Real Estate NFT whitelist giveaway.</p>
+    <p>I wanted to congratulate you for entering into our Wolf of Real Estate NFT whitelist giveaway.</p>
     
     <p>These WORE NFTs are going to&nbsp;be loaded with utility and connected to physical real-world rewards and businesses.</p>
     
