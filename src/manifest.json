@@ -55,6 +55,16 @@
       "role": "Community Manager / Consultant",
       "socials": { "twitter": "" },
       "description": "Noah is a community manager and consultant/advisor in development, community and project creation. Most of his work can be seen on solana where he has worked for 10ths of project gaining over 10mil in value. He is also the co-founder at Qualified Devs which is a development company in the NFT space."
+    },
+    "ross": {
+      "role": "Strategic Advisor",
+      "socials": "https://twitter.com/Rossmacdonald1",
+      "description": "Ross specializes in operations management within the blockchain industry. Involved with digital assets since 2013, Ross is also the COO of Gohkshtein Media, where he oversees strategies in every corner of the industry. Taking complex products and breaking them down in a simple, engaging way for the public to understand."
+    },
+    "nina": {
+      "role": "Marketing Specialist",
+      "socials": "https://twitter.com/nina",
+      "description": "Nina, a marketing specialist, is extremely good at one thing: helping companies share their vision through compelling story telling. Her background has been focused in real estate, from brokerages to individual agents, to homebuilders and property equity companies; where she established brands that stood out from the crowd."
     }
   }
 }

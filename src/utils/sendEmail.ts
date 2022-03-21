@@ -85,7 +85,6 @@ export async function sendRegistrationConfirmation({
 }: {
   address: string;
 }) {
-
   const transport = nodemailer.createTransport({
     // service: "gmail",
     host: "smtp.gmail.com",
@@ -102,42 +101,49 @@ export async function sendRegistrationConfirmation({
   });
 
   const mailOptions = {
-    from: `WORE Info <${user}>`,
+    from: `Rocky Mix REALTORⓇ`,
     to: address,
     subject: `WORE Raffle Entry Confirmation`,
-    html: `<html>
+    html: `<html lang="en">
+    
     <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>WORE Subscriber Confirmation Email</title>
       <style>
-        h1 {
-          text-align: center;
+        body {
+          display: flex;
+          flex-direction: column;
+        }
+        span {
+          margin-bottom: 1rem;
+        }
+        .logo {
+          width: 200px;
         }
       </style>
     </head>
     <body>
-    <h1>Congratulations On Entering Into Our Wolf Of Real Estate NFT Whitelist Giveaway!</h1>
-    <p>Hi, Lupa here!&nbsp;</p>
-    
-    <p>I wanted to congratulate you for entering into our Wolf of Real Estate NFT whitelist giveaway.</p>
-    
-    <p>These WORE NFTs are going to&nbsp;be loaded with utility and connected to physical real-world rewards and businesses.</p>
-    
-    <p>Look, you are early joining us now. Whether you are a seasoned NFT enthusiast or looking to finally get into the NFT space for the first time with a trusted team, being here this early will have future benefits.&nbsp;</p>
-    
-    <p>We would like to invite you to join our Twitter community to be part of our conversations and to keep updated with the latest insider news!</p>
-    
-    <p><em>Please <a href="https://twitter.com/worenft">follow us on Twitter</a>&nbsp; to stay up to date and look to get access to our discord.</em></p>
-    
-    <p>Not only that will you receive more WORE information&hellip;</p>
-    
-    <p>&hellip;you will have opportunities to enter&nbsp;<strong>future giveaways for chances to win additional Whitelist spots &amp; even NFTs!</strong></p>
-    
-    <p>Other than that, make sure you save our email address to your contact and keep an eye out for our emails as we will be sharing secret information about this collection over the upcoming days/weeks, without&nbsp;being spammy.</p>
-    
-    <p>And most importantly, we&rsquo;ll be randomly selecting winners, (possibly you) to receive an early&nbsp;Private&nbsp;sale link!&nbsp;</p>
-    
-    <p>Talk soon,</p>
-    <strong>Lupa from Wolf Of Real Estate</strong></body>
-    </html>`
+      <h1>Congratulations On Entering Our Wolf Of Real Estate NFT Whitelist Giveaway!</h1>
+      <span>Hi future Wolf,<br/><br/></span>
+      <span>We wanted to thank you for entering our Wolf Of Real Estate NFT whitelist giveaway.</span>
+      <span>In case you weren't aware, the WORE NFTs are going to be loaded with utility and connected to physical real-world rewards and businesses, by a team that has proven itself in the real world to deliver<br/><br/>.</span>
+      <span>Look, however you see this, you are early joining us now. Whether you are a seasoned NFT enthusiast or looking to finally get into the NFT space for the first time with a trusted team, being here this early will have future benefits.<br/><br/></span>
+      <span>We would like to invite you to join our Twitter community to be part of our conversations and to keep updated with the latest insider news!<br/><br/></span>
+      <span>Please <a href="https://twitter.com/worenft">follow us on Twitter</a> to stay up to date and look to get access to our discord.<br/><br/></span>
+      <span>Not only will you receive more WORE information…<br/><br/></span>
+      <span>…you will have opportunities to enter future giveaways for chances to win additional Whitelist spots, NFTs, and more!<br/><br/></span>
+      <span>Other than that, make sure you save our email address to your contact and keep an eye out for our notifications as we will be sharing secret information about this collection over the upcoming days & weeks.<br/><br/></span>
+      <span>Most importantly, we'll be randomly selecting winners, (possibly you) to receive an early "Private sale" link<br/><br/></span>
+      <span>Don't hesitate to ask any questions.<br/><br/></span>
+      <span>Talk soon,<br/><br/></span>
+      <h3>Rocky from Wolf of Real Estate</h3>
+      <a href="https://www.wolfofrealestate.com">
+      <img src="https://www.wolfofrealestate.com/email-logo.png" class="logo"/>
+      </a>
+    </body>
+    </html>`,
   };
   const [data, err] = await formatRes(transport.sendMail(mailOptions));
   if (err) throw err;

@@ -6,6 +6,8 @@ import declan from "@public/team-avatars/declan.png";
 import ruan from "@public/team-avatars/ruan.png";
 import dodge from "@public/team-avatars/dodge.png";
 import noah from "@public/team-avatars/noah.png";
+import ross from "@public/team-avatars/ross.png";
+import nina from "@public/team-avatars/nina.png";
 
-const avatars: {[key: string]: any} = { rocky, nathan, david, ezequiel, declan, ruan, dodge, noah }
+const avatars: {[key: string]: any} = { rocky, nathan, david, ezequiel, declan, ruan, dodge, noah, ross, nina }
 export default avatars;
