@@ -18,8 +18,8 @@ const themes: { [key: string]: string } = {
   ruan: "#FFA0FB",
   dodge: "#FF3838",
   noah: "#F99F38",
-  ross: "#FF3838",
-  nina: "#9967FF",
+  ross: "#2f3dff",
+  nina: "#ffffff",
 };
 
 import manifest from "@src/manifest.json";
