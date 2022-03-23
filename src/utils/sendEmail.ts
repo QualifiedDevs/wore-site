@@ -146,6 +146,7 @@ export async function sendRegistrationConfirmation({
     </html>`,
   };
   const [data, err] = await formatRes(transport.sendMail(mailOptions));
+  console.error(err)
   if (err) throw err;
   return data;
 }
