@@ -73,7 +73,18 @@ export default async function sendEmail(address: string, token: string) {
     from: `WORE Info <${user}>`,
     to: address,
     subject: `Presale access for ${address}`,
-    html: `<span><a href=https://wolfofrealestate.com/?access=${token}#private-sale >Click Here</a> to join the WORE presale<span>`,
+    html: `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    </head>
+    <body>
+      <span>Congratulations! Here is your personal Wolf of Real Estate Private sale link:<br/><br/></span><a href=https://wolfofrealestate.com/?access=${token}#private-sale >https://wolfofrealestate.com/?access=${token}#private-sale</a><br/><br/><span>This link allows you to purchase up to a maximum of 3 presale NFT's at 0.5 ETH each. The link has been formatted to bind to one wallet and will not allow another wallet to purchase.<br/></span> <span>Therefor, sharing this link will not work for another person and is your unique link.</span>
+    </body>
+    </html>`,
   };
 
   const res = await transport.sendMail(mailOptions);
@@ -104,8 +115,8 @@ export async function sendRegistrationConfirmation({
     from: `Rocky Mix REALTORⓇ`,
     to: address,
     subject: `WORE Raffle Entry Confirmation`,
-    html: `<html lang="en">
-    
+    html: `<!DOCTYPE html>
+    <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -146,7 +157,7 @@ export async function sendRegistrationConfirmation({
     </html>`,
   };
   const [data, err] = await formatRes(transport.sendMail(mailOptions));
-  console.error(err)
+  console.error(err);
   if (err) throw err;
   return data;
 }
