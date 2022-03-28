@@ -1,13 +1,15 @@
 import React, { useMemo } from "react";
 
 import { styled } from "@mui/material/styles";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, IconButton } from "@mui/material";
 
 import type StaticImageData from "next/image";
 import Image from "next/image";
 import teamMap from "@public/team-map.jpg";
 
 import avatars from "@src/teamAvatars";
+
+import TwitterIcon from "@src/vector-graphics/socials/twitter";
 
 const themes: { [key: string]: string } = {
   rocky: "#FAFF00",
@@ -38,7 +40,12 @@ const Member = styled(
           <Image src={avatar} layout="responsive" />
         </Box>
         <Typography className="role">{role}</Typography>
-        <Typography className="name">{name}</Typography>
+        <Box className="title">
+          <Typography className="name">{name}</Typography>
+          {socials.twitter && <IconButton href={socials.twitter}>
+            <TwitterIcon />
+          </IconButton>}
+        </Box>
         <Typography className="description">{description}</Typography>
       </Box>
     );
@@ -61,10 +68,18 @@ const Member = styled(
   .role {
     color: ${({ memberData: { name } }) => themes[name]};
   }
-  .name {
-    text-transform: capitalize;
-    font-size: 2em;
-    font-weight: 600;
+  .title {
+    display: flex;
+    align-items: center;
+    .name {
+      text-transform: capitalize;
+      font-size: 2em;
+      font-weight: 600;
+      margin-right: .2em;
+    }
+    .MuiIconButton-root {
+      color: #0099ff;
+    }
   }
   .description {
     color: rgba(138, 138, 138, 1);

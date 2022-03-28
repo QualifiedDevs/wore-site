@@ -27,8 +27,8 @@
       "description": "Nathan is a Real Estate Industry veteran with extensive experience in both managing and advising on real estate investments.  He is the Co-Founder & Managing Partner of Greater PROPERTY Group - a disruptive national real estate Brand and Brokerage experienced in transacting both in fiat and crypto currencies."
     },
     "david": {
-      "role": "Project Lead | Social Media Marketing",
-      "socials": { "twitter": "" },
+      "role": "Project Lead",
+      "socials": { "twitter": "https://twitter.com/DMorrellYUL" },
       "description": "David has been in the real estate industry for over two decades and is the Co-Founder & Managing Partner of the Greater Property Group. David is also the creator and host of a top rated podcast with guests that include entrepreneurs, influencers, creatives, best-selling authors, celebrities and business builders."
     },
     "ezequiel": {
@@ -38,17 +38,17 @@
     },
     "declan": {
       "role": "Full Stack Developer",
-      "socials": { "twitter": "" },
+      "socials": { "twitter": "https://twitter.com/CryptoMinnows" },
       "description": "Declan is a full stack developer and Co-Founder of qualified devs. He has leagues of experience planning and implementing highly customized full-stack web3 solutions for clients across several blockchains."
     },
     "ruan": {
       "role": "Blockchain Developer",
-      "socials": { "twitter": "" },
+      "socials": { "twitter": "https://twitter.com/OrionDevStar" },
       "description": "Ruan is a blockchain developer. He is part of the Hashlips team, has made many improvements to the smart contract standard and has over 5 years as a project development leader. Co-Founder at Qualified Devs"
     },
     "dodge": {
       "role": "Community Manager",
-      "socials": { "twitter": "" },
+      "socials": { "twitter": "https://twitter.com/DodgeInMedia" },
       "description": "Dodge is an experienced community manager for multiple agencies involved in the crypto realm over the past three years. Whether it be mining, investing, or NFT collecting, Dodge has managed communities with over 40k discord members. He has used his learned skills in the crypto world to foster client relations, engage in community development, and master community engagement helping to build a safe place for people of all backgrounds."
     },
     "noah": {
@@ -58,12 +58,12 @@
     },
     "ross": {
       "role": "Strategic Advisor",
-      "socials": "https://twitter.com/Rossmacdonald1",
+      "socials": {"twitter": "https://twitter.com/Rossmacdonald1"},
       "description": "Ross specializes in operations management within the blockchain industry. Involved with digital assets since 2013, Ross is also the COO of Gohkshtein Media, where he oversees strategies in every corner of the industry. Taking complex products and breaking them down in a simple, engaging way for the public to understand."
     },
     "nina": {
       "role": "Marketing Specialist",
-      "socials": "https://twitter.com/nina",
+      "socials": {"twitter": "https://twitter.com/nina"},
       "description": "Nina, a marketing specialist, is extremely good at one thing: helping companies share their vision through compelling story telling. Her background has been focused in real estate, from brokerages to individual agents, to homebuilders and property equity companies; where she established brands that stood out from the crowd."
     }
   }
