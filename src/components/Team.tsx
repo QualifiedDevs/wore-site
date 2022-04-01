@@ -10,7 +10,7 @@ import teamMap from "@public/team-map.jpg";
 import avatars from "@src/teamAvatars";
 
 import TwitterIcon from "@src/vector-graphics/socials/twitter";
-import LinkedinIcon from "@src/vector-graphics/socials/facebook"
+import LinkedinIcon from "@src/vector-graphics/socials/linkedin"
 
 const themes: { [key: string]: string } = {
   rocky: "#FAFF00",
@@ -52,6 +52,11 @@ const Member = styled(
           {socials.linkedin && <IconButton href={socials.linkedin}>
             <LinkedinIcon />
             </IconButton>}
+            {
+              socials.podcast && <IconButton href={socials.linkedin}>
+
+              </IconButton>
+            }
         </Box>
         <Typography className="description">{description}</Typography>
       </Box>
