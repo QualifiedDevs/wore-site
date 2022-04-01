@@ -34,7 +34,7 @@ const About = styled((props: { id: string }) => {
           <Box component="a" href="/WORE-litepaper.pdf" className="thumbnail-wrapper" sx={{mb: 1, mt: 2}}>
             <Image src={litepaper} />
           </Box>
-          <Typography variant="h4">WORE litepaper</Typography>
+          <Typography variant="h4">W.O.R.E. litepaper</Typography>
         </Box>
       </Container>
     </Box>
