@@ -24,7 +24,7 @@ const themes: { [key: string]: string } = {
   noah: "#F99F38",
   ross: "#2f3dff",
   nina: "#ffffff",
-  steve: "#00FFFF",
+  steve: "#00690e",
 };
 
 import manifest from "@src/manifest.json";
