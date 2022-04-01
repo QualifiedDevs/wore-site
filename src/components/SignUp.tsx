@@ -99,12 +99,12 @@ const RegisterEmail = styled(({ ...props }) => {
   width: min(90%, 400px);
 
   .MuiOutlinedInput-notchedOutline {
-    border-color: #757575;
+    border-color: #d4d4d4;
   }
 
   .MuiLoadingButton-root.Mui-disabled:not(.MuiLoadingButton-loading) {
-    border: 2px solid #757575;
-    color: #757575;
+    border: 2px solid #d4d4d4;
+    color: #d4d4d4;
   }
 
   .MuiLoadingButton-loading {
@@ -127,22 +127,22 @@ const TeaserMockup = styled((props) => {
 
 const SignUp = styled(({ ...props }: { id: string }) => {
   return (
-    <Container {...props}>
+    <Box {...props} sx={{mb: 8}}>
       {/* @ts-ignore */}
       <WoreLogoFull className="logo" sx={{ mb: 3 }} />
       {/* <TeaserMockup sx={{ mb: 2 }} /> */}
-      <Box className="video-wrapper" sx={{mb: 4}}>
-        <video src="/teaser-trailer.mp4" autoPlay loop></video>
+      <Box className="video-wrapper" sx={{ mb: 4 }}>
+        <video src="/teaser-trailer.mp4" autoPlay loop muted></video>
       </Box>
-
       <Typography className="info" sx={{ mb: 2 }}>
         By submitting your contact information, you are registering for an
         opportunity to receive a whitelist spot.
       </Typography>
       <RegisterEmail />
-    </Container>
+    </Box>
   );
 })`
+  position: relative;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -153,7 +153,7 @@ const SignUp = styled(({ ...props }: { id: string }) => {
 
   .info {
     width: 80%;
-    opacity: 30%;
+    color: #d4d4d4;
   }
 
   .logo {
@@ -161,15 +161,21 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   }
 
   .video-wrapper {
-    width: min(600px, 95%);
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+
+    left: 0;
+    right:  0;
+    top: 0;
+    bottom: 0;
     border-radius: 8px;
     video {
-      border: 2px solid #363636;
-      border-radius: inherit;
       width: 100%;
     }
   }
-
 `;
 
 export default SignUp;

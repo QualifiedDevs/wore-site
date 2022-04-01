@@ -6,7 +6,7 @@ import manifest from "@src/manifest.json";
 const Events = styled((props: { id: string }) => {
   return (
     <Box {...props}>
-      <Typography variant="h3" sx={{ my: -12, mb: 4 }}>
+      <Typography variant="h3" sx={{ my: -8, mb: 4 }}>
         Weekly Live Calls
       </Typography>
       <Stack className="event-items" spacing={2}>
@@ -39,7 +39,7 @@ const Events = styled((props: { id: string }) => {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
+  height: 60vh;
 
   a {
     text-decoration: none;
