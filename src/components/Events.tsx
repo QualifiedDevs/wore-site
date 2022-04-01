@@ -34,6 +34,7 @@ const Events = styled((props: { id: string }) => {
     </Box>
   );
 })`
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;

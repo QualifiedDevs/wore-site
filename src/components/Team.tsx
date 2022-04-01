@@ -152,6 +152,12 @@ const Team = styled((props: { id: string }) => {
     width: 100%;
   }
 
+  .image-wrapper {
+    * {
+      border-radius: 8px;
+    }
+  }
+
   ${({ theme }) => theme.breakpoints.down("lg")} {
     .members {
       grid-template-columns: repeat(2, 1fr);
@@ -161,6 +167,12 @@ const Team = styled((props: { id: string }) => {
   ${({ theme }) => theme.breakpoints.down("sm")} {
     .members {
       grid-template-columns: 1fr;
+    }
+    .image-wrapper {
+      width: 100%;
+      * {
+        border-radius: 0;
+      }
     }
   }
 `;

@@ -150,6 +150,7 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   justify-content: center;
   padding: 2em 0;
   text-align: center;
+  overflow: hidden;
 
   .info {
     width: 80%;
@@ -162,18 +163,18 @@ const SignUp = styled(({ ...props }: { id: string }) => {
 
   .video-wrapper {
     z-index: -1;
+    margin: auto;
     position: absolute;
-    width: 100%;
     height: 100%;
+    width: 100%;
     opacity: 30%;
-
-    left: 0;
-    right:  0;
     top: 0;
-    bottom: 0;
-    border-radius: 8px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
     video {
-      width: 100%;
+      min-width: 100%;
+      min-height: 100%;
     }
   }
 `;
