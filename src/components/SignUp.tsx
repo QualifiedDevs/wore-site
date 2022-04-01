@@ -130,7 +130,11 @@ const SignUp = styled(({ ...props }: { id: string }) => {
     <Container {...props}>
       {/* @ts-ignore */}
       <WoreLogoFull className="logo" sx={{ mb: 3 }} />
-      <TeaserMockup sx={{ mb: 2 }} />
+      {/* <TeaserMockup sx={{ mb: 2 }} /> */}
+      <Box className="video-wrapper" sx={{mb: 4}}>
+        <video src="/teaser-trailer.mp4" autoPlay loop></video>
+      </Box>
+
       <Typography className="info" sx={{ mb: 2 }}>
         By submitting your contact information, you are registering for an
         opportunity to receive a whitelist spot.
@@ -155,6 +159,17 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   .logo {
     width: min(70%, 400px);
   }
+
+  .video-wrapper {
+    width: min(600px, 95%);
+    border-radius: 8px;
+    video {
+      border: 2px solid #363636;
+      border-radius: inherit;
+      width: 100%;
+    }
+  }
+
 `;
 
 export default SignUp;

@@ -11,8 +11,8 @@ import twitter from "@src/vector-graphics/socials/twitter";
 import instagram from "@src/vector-graphics/socials/instagram";
 
 const socialIcons = {
-  discord,
   twitter,
+  discord,
   instagram
 };
 

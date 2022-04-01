@@ -10,6 +10,7 @@ import teamMap from "@public/team-map.jpg";
 import avatars from "@src/teamAvatars";
 
 import TwitterIcon from "@src/vector-graphics/socials/twitter";
+import LinkedinIcon from "@src/vector-graphics/socials/facebook"
 
 const themes: { [key: string]: string } = {
   rocky: "#FAFF00",
@@ -22,6 +23,7 @@ const themes: { [key: string]: string } = {
   noah: "#F99F38",
   ross: "#2f3dff",
   nina: "#ffffff",
+  steve: "#00FFFF",
 };
 
 import manifest from "@src/manifest.json";
@@ -42,9 +44,14 @@ const Member = styled(
         <Typography className="role">{role}</Typography>
         <Box className="title">
           <Typography className="name">{name}</Typography>
-          {socials.twitter && <IconButton href={socials.twitter}>
-            <TwitterIcon />
-          </IconButton>}
+          {socials.twitter && (
+            <IconButton href={socials.twitter}>
+              <TwitterIcon />
+            </IconButton>
+          )}
+          {socials.linkedin && <IconButton href={socials.linkedin}>
+            <LinkedinIcon />
+            </IconButton>}
         </Box>
         <Typography className="description">{description}</Typography>
       </Box>
@@ -75,7 +82,7 @@ const Member = styled(
       text-transform: capitalize;
       font-size: 2em;
       font-weight: 600;
-      margin-right: .2em;
+      margin-right: 0.2em;
     }
     .MuiIconButton-root {
       color: #0099ff;

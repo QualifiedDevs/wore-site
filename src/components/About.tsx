@@ -3,6 +3,7 @@ import { Box, Container, Typography, Paper } from "@mui/material";
 
 import Image from "next/image";
 import background from "@public/about-bg.jpg";
+import litepaper from "@public/litepaper-thumbnail.png";
 
 const Background = styled((props) => {
   return (
@@ -25,7 +26,11 @@ const About = styled((props: { id: string }) => {
       <Background />
       <Typography variant="h3">ABOUT</Typography>
       <Container className="content-wrapper">
-        <Box className="text-bg">
+        <Box className="bg">
+          <Box component="a" href="/WORE-litepaper.pdf" className="thumbnail-wrapper" sx={{mb: 1, mt: 2}}>
+            <Image src={litepaper} />
+          </Box>
+          <Typography variant="h4" sx={{mb: 4}}>WORE litepaper</Typography>
           <Typography>
             The Wolf Of Real Estate NFT is the world's first NFT project backed
             by an established and successful real world real estate brokerage.
@@ -52,10 +57,25 @@ height: min(100%);
     text-align: center;
 }
 
-.text-bg {
+.bg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #00000096;
     padding: 2em;
     border-radius: 8px;
+}
+
+.thumbnail-wrapper {
+  transition: transform .2s ease;
+  :hover {
+    transform: scale(1.05, 1.05);
+  }
+  width: min(550px, 90%);
+  border-radius: 8px;
+  * {
+    border-radius: inherit;
+  }
 }
 
 `;
