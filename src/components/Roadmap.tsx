@@ -13,7 +13,7 @@ const Roadmap = styled((props: { id: string }) => {
     </Container>
   );
 })`
-  height: 100%;
+  min-height: 100%;
   display: grid;
   place-items: center;
   border-radius: 25px;

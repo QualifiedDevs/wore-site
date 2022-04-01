@@ -16,10 +16,10 @@ import SocialsMenu from "@components/SocialsMenu";
 const Footer = styled(({ manifest, ...props }) => {
   return (
     <Box component="footer" {...props} sx={{ mt: 4, pb: 1 }}>
-      <Container maxWidth={false}>
+      <Container maxWidth={false} sx={{px: .5}}>
         <SocialsMenu socials={socials} className="socials"/>
         <Typography variant="h6">© WOLF OF REAL ESTATE</Typography>
-        <Box className="logo-wrapper">
+        <Box className="logo-wrapper" >
           <a href="https://www.greaterpropertygroup.com/">
             <GPGIcon className="logo" />
           </a>
@@ -60,7 +60,7 @@ const Footer = styled(({ manifest, ...props }) => {
     a {
       display: block;
       width: fit-content;
-
+      margin-right: .25rem;
     }
   }
 
