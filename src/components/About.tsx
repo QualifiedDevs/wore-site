@@ -27,14 +27,14 @@ const About = styled((props: { id: string }) => {
       <Typography variant="h3">ABOUT</Typography>
       <Container className="content-wrapper">
         <Box className="bg">
-          <Box component="a" href="/WORE-litepaper.pdf" className="thumbnail-wrapper" sx={{mb: 1, mt: 2}}>
-            <Image src={litepaper} />
-          </Box>
-          <Typography variant="h4" sx={{mb: 4}}>WORE litepaper</Typography>
-          <Typography>
+          <Typography sx={{mb: 4}}>
             The Wolf Of Real Estate NFT is the world's first NFT project backed
             by an established and successful real world real estate brokerage.
           </Typography>
+          <Box component="a" href="/WORE-litepaper.pdf" className="thumbnail-wrapper" sx={{mb: 1, mt: 2}}>
+            <Image src={litepaper} />
+          </Box>
+          <Typography variant="h4">WORE litepaper</Typography>
         </Box>
       </Container>
     </Box>

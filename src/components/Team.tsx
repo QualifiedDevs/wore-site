@@ -6,11 +6,12 @@ import { Box, Container, Typography, IconButton } from "@mui/material";
 import type StaticImageData from "next/image";
 import Image from "next/image";
 import teamMap from "@public/team-map.jpg";
+import podcast from "@public/podcast.png";
 
 import avatars from "@src/teamAvatars";
 
 import TwitterIcon from "@src/vector-graphics/socials/twitter";
-import LinkedinIcon from "@src/vector-graphics/socials/linkedin"
+import LinkedinIcon from "@src/vector-graphics/socials/linkedin";
 
 const themes: { [key: string]: string } = {
   rocky: "#FAFF00",
@@ -49,14 +50,18 @@ const Member = styled(
               <TwitterIcon />
             </IconButton>
           )}
-          {socials.linkedin && <IconButton href={socials.linkedin}>
-            <LinkedinIcon />
-            </IconButton>}
-            {
-              socials.podcast && <IconButton href={socials.linkedin}>
-
-              </IconButton>
-            }
+          {socials.linkedin && (
+            <IconButton href={socials.linkedin}>
+              <LinkedinIcon />
+            </IconButton>
+          )}
+          {socials.podcast && (
+            <IconButton href={socials.podcast}>
+              <Box className="podcast-wrapper">
+                <Image src={podcast} />
+              </Box>
+            </IconButton>
+          )}
         </Box>
         <Typography className="description">{description}</Typography>
       </Box>
@@ -95,6 +100,11 @@ const Member = styled(
   }
   .description {
     color: rgba(138, 138, 138, 1);
+  }
+
+  .podcast-wrapper {
+    width: 2rem;
+    height: 2rem;
   }
 `;
 

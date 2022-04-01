@@ -17,7 +17,7 @@ const Events = styled((props: { id: string }) => {
           href={manifest.socials.twitter}
         >
           <Typography variant="h5">
-            <b>Twitter Spaces</b> - 3:30pm Eastern
+            <b>Twitter Spaces</b> - Thursdays 3:30pm Eastern
           </Typography>
         </Button>
         <Button
