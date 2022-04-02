@@ -9,6 +9,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Paper,
+  Stack,
 } from "@mui/material";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -138,7 +140,77 @@ const FAQ = styled((props) => {
             summary={"How do I purchase?"}
             expanded={expanded === "panel8"}
             onChange={handleChange("panel8")}
-          ></FAQItem>
+          >
+            <Stack spacing={2}>
+              <Paper className="purchase-step">
+                <Typography variant="h5">Buy ETH</Typography>
+                <Typography>Buy ETH from your preferred exchange</Typography>
+                <Typography>
+                  Canada: Shakepay Sign up Bonus: https://shakepay.me/r/K9A4STK{" "}
+                </Typography>
+                <Typography>
+                  USA: Coinbase Sign up Bonus:
+                  https://www.coinbase.com/join/K6YY5M
+                </Typography>
+                <Typography>
+                  Shakepay and Coinbase are two popular exxchanges that you can
+                  use. The sign-up process is easy and you can fund your account
+                  and purchase ETH quickly. Be sure to get slightly more ETH
+                  than the purchase price in order to cover network/gas fees.
+                  0.05 ETH will more than cover it.
+                </Typography>
+              </Paper>
+              <Paper className="purchase-step">
+                <Typography variant="h5">Transfer ETH to Wallet</Typography>
+                <Typography>Buy ETH from your preferred exchange</Typography>
+                <Typography>
+                  Install a wallet on your phone via Google Chrome browser.
+                  <br />
+                  Metamask + Trust Wallet are popular choices.
+                </Typography>
+                <Typography>Metamask: https://metamask.io/</Typography>
+                <Typography>Trust Wallet: https://trustwallet.com/</Typography>
+                <Typography>
+                  Open wallet, select RECEIVE. Choose ETHEREUM and copy the
+                  address that appears. Go back to your exchange app (i.e.
+                  Shakepay or Coinbase) and select ETHEREUM from your portfolio.
+                  There you can SEND/WITHDRAW the desired amount of ETH to the
+                  address you copied from your wallet. Confirm that the amount
+                  of ETH to send to the address. Confirm that the wallet address
+                  you paste is the same as the RECEIVE address you copied.
+                </Typography>
+              </Paper>
+              <Paper className="purchase-step">
+                <Typography variant="h5">
+                  Connect Wallet to wolfofrealestate.com
+                </Typography>
+                <Typography>Desktop</Typography>
+                <Typography>
+                  Go to WORE Presale link in Chrome. Click connect wallet an
+                  follow wallet instructions.
+                </Typography>
+                <Typography>Smartphone</Typography>
+                <Typography>
+                  Open wallet and sollect 'Browser' (in settings for Metamask,
+                  in bottom nav bar for Trust Wallet). Go to WORE Presale link,
+                  connect wallet and follow wallet instructions.
+                </Typography>
+              </Paper>
+              <Paper className="purchase-step">
+                <Typography variant="h5">
+                  Click to Pre-Purchase 1, 2 or 3 WORE NFTs.
+                </Typography>
+                <Typography>Follow wallet instructions</Typography>
+              </Paper>
+              <Paper className="purchase-step">
+                <Typography variant="h5">Hold!</Typography>
+                <Typography>
+                  Welcome to the Wolf of Real Estate family! Get ready for
+                  launch 🚀
+                </Typography>
+              </Paper>
+            </Stack>
+          </FAQItem>
         </Box>
       </Container>
     </Box>
@@ -146,6 +218,11 @@ const FAQ = styled((props) => {
 })`
   padding: 4rem 0;
   width: 100%;
+
+  .purchase-step {
+    background: #6b6b6b;
+    padding: 1em;
+  }
 
   .heading {
     text-align: center;
