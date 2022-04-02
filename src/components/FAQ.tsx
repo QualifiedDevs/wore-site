@@ -60,7 +60,7 @@ const FAQItem = styled(({ summary, children, ...props }) => {
   }
 `;
 
-const FAQ = styled((props) => {
+const FAQ = styled(({...props}: { id: string }) => {
   const [expanded, setExpanded] = useState<boolean | string>(false);
   const handleChange =
     (panel: string) =>
@@ -219,14 +219,26 @@ const FAQ = styled((props) => {
   padding: 4rem 0;
   width: 100%;
 
+  counter-reset: step;
+
   .purchase-step {
     background: #6b6b6b;
     padding: 1em;
+    text-align: center;
+    counter-increment: step;
+    h5 {
+        color: ${({theme}) => theme.palette.primary.light};
+        font-weight: 600;
+        ::before {
+            content: counter(step) " ";
+        }
+        text-transform: uppercase; margin-bottom: 1rem;
+    }
   }
 
   .heading {
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
   }
   .faq-box {
     list-style-type: none;
