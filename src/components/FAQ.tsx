@@ -16,6 +16,11 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import theme from "@src/theme";
 
+import manifest from "@src/manifest.json";
+
+const coinbaseReferral = manifest["referral links"].coinbase;
+const shakepayReferral = manifest["referral links"].shakepay;
+
 const FAQItem = styled(({ summary, children, ...props }) => {
   return (
     <Accordion component="li" {...props}>
@@ -60,7 +65,7 @@ const FAQItem = styled(({ summary, children, ...props }) => {
   }
 `;
 
-const FAQ = styled(({...props}: { id: string }) => {
+const FAQ = styled(({ ...props }: { id: string }) => {
   const [expanded, setExpanded] = useState<boolean | string>(false);
   const handleChange =
     (panel: string) =>
@@ -144,52 +149,82 @@ const FAQ = styled(({...props}: { id: string }) => {
             <Stack spacing={2}>
               <Paper className="purchase-step">
                 <Typography variant="h5">Buy ETH</Typography>
-                <Typography>Buy ETH from your preferred exchange</Typography>
-                <Typography>
-                  Canada: Shakepay Sign up Bonus: https://shakepay.me/r/K9A4STK{" "}
+                <Typography className="subheader">
+                  Buy ETH from your preferred exchange
                 </Typography>
                 <Typography>
-                  USA: Coinbase Sign up Bonus:
-                  https://www.coinbase.com/join/K6YY5M
+                  <b>
+                    Canada: <a href={shakepayReferral}>Shakepay</a>
+                  </b>{" "}
+                  Sign up Bonus:{" "}
+                  <a href={shakepayReferral}>{shakepayReferral}</a>
+                </Typography>
+                <Typography sx={{ mb: 2 }}>
+                  <b>
+                    USA: <a href={coinbaseReferral}>Coinbase</a>
+                  </b>{" "}
+                  Sign up Bonus:{" "}
+                  <a href={coinbaseReferral}>{coinbaseReferral}</a>
                 </Typography>
                 <Typography>
-                  Shakepay and Coinbase are two popular exxchanges that you can
-                  use. The sign-up process is easy and you can fund your account
-                  and purchase ETH quickly. Be sure to get slightly more ETH
-                  than the purchase price in order to cover network/gas fees.
-                  0.05 ETH will more than cover it.
+                  <a href={shakepayReferral}>Shakepay</a> and{" "}
+                  <a href={coinbaseReferral}>Coinbase</a> are two popular
+                  exchanges that you can use. The sign-up process is easy and
+                  you can fund your account and purchase ETH quickly. Be sure to
+                  get slightly more ETH than the purchase price in order to
+                  cover network/gas fees. 0.05 ETH will more than cover it.
                 </Typography>
               </Paper>
               <Paper className="purchase-step">
                 <Typography variant="h5">Transfer ETH to Wallet</Typography>
-                <Typography>Buy ETH from your preferred exchange</Typography>
-                <Typography>
+                <Typography className="subheader">
+                  Buy ETH from your preferred exchange
+                </Typography>
+                <Typography sx={{ mb: 2 }}>
                   Install a wallet on your phone via Google Chrome browser.
                   <br />
-                  Metamask + Trust Wallet are popular choices.
+                  <strong>Metamask + Trust Wallet</strong> are popular choices.
                 </Typography>
-                <Typography>Metamask: https://metamask.io/</Typography>
-                <Typography>Trust Wallet: https://trustwallet.com/</Typography>
                 <Typography>
-                  Open wallet, select RECEIVE. Choose ETHEREUM and copy the
-                  address that appears. Go back to your exchange app (i.e.
-                  Shakepay or Coinbase) and select ETHEREUM from your portfolio.
-                  There you can SEND/WITHDRAW the desired amount of ETH to the
-                  address you copied from your wallet. Confirm that the amount
-                  of ETH to send to the address. Confirm that the wallet address
-                  you paste is the same as the RECEIVE address you copied.
+                  <strong>Metamask:</strong>{" "}
+                  <a href="https://metamask.io/">https://metamask.io/</a>
+                </Typography>
+                <Typography sx={{ mb: 2 }}>
+                  <strong>Trust Wallet:</strong>{" "}
+                  <a href="https://trustwallet.com/">
+                    https://trustwallet.com/
+                  </a>
+                </Typography>
+                <Typography>
+                  Open wallet, select <strong>RECEIVE</strong>. Choose{" "}
+                  <strong>ETHEREUM</strong> and copy the address that appears.
+                  Go back to your exchange app (i.e.{" "}
+                  <a href={shakepayReferral}>Shakepay</a> or{" "}
+                  <a href={coinbaseReferral}>Coinbase</a>) and select{" "}
+                  <strong>ethereum</strong>
+                  from your portfolio. There you can{" "}
+                  <strong>send/withdraw</strong> the desired amount of{" "}
+                  <strong>ETH</strong> to the address you copied from your
+                  wallet. Confirm that the amount of <strong>ETH</strong> to
+                  send to the address. Confirm that the wallet address you paste
+                  is the same as the <strong>receive</strong> address you
+                  copied.
                 </Typography>
               </Paper>
               <Paper className="purchase-step">
                 <Typography variant="h5">
                   Connect Wallet to wolfofrealestate.com
                 </Typography>
-                <Typography>Desktop</Typography>
                 <Typography>
+                  <b>Desktop</b>
+                </Typography>
+                <Typography sx={{ mb: 2 }}>
                   Go to WORE Presale link in Chrome. Click connect wallet an
                   follow wallet instructions.
                 </Typography>
-                <Typography>Smartphone</Typography>
+                <Typography>
+                  <b>Smartphone</b>
+                </Typography>
                 <Typography>
                   Open wallet and sollect 'Browser' (in settings for Metamask,
                   in bottom nav bar for Trust Wallet). Go to WORE Presale link,
@@ -205,8 +240,8 @@ const FAQ = styled(({...props}: { id: string }) => {
               <Paper className="purchase-step">
                 <Typography variant="h5">Hold!</Typography>
                 <Typography>
-                  Welcome to the Wolf of Real Estate family! Get ready for
-                  launch 🚀
+                  Welcome to the <strong>Wolf of Real Estate</strong> family!
+                  Get ready for launch 🚀
                 </Typography>
               </Paper>
             </Stack>
@@ -227,18 +262,36 @@ const FAQ = styled(({...props}: { id: string }) => {
     text-align: center;
     counter-increment: step;
     h5 {
-        color: ${({theme}) => theme.palette.primary.light};
-        font-weight: 600;
-        ::before {
-            content: counter(step) " ";
-        }
-        text-transform: uppercase; margin-bottom: 1rem;
+      color: ${({ theme }) => theme.palette.primary.light};
+      font-weight: 600;
+      ::before {
+        content: "Step " counter(step) ": ";
+      }
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .subheader {
+      color: #cfcfcf;
+      text-transform: uppercase;
+      font-size: 1.1em;
+      margin-bottom: 1em;
+      font-weight: 500;
+    }
+
+    a {
+      color: ${({ theme }) => theme.palette.primary.light};
+    }
+
+    strong {
+      text-transform: uppercase;
+      font-weight: 600;
     }
   }
 
   .heading {
     text-align: center;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
   .faq-box {
     list-style-type: none;
