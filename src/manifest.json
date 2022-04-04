@@ -15,25 +15,25 @@
     "mint": "/#mint"
   },
   "team": {
+    "david": {
+      "role": "Project Lead",
+      "socials": { "twitter": "https://twitter.com/DMorrellYUL", "linkedin": "https://www.linkedin.com/in/yycrealestate/", "podcast": "https://podcasts.apple.com/us/podcast/run-gpg-podcast/id1473609949" },
+      "description": "David has been in the real estate industry for over two decades and is the Co-Founder & Managing Partner of the Greater Property Group. David is also the creator and host of a top rated podcast with guests that include entrepreneurs, influencers, creatives, best-selling authors, celebrities and business builders."
+    },
     "rocky": {
       "role": "Project Lead",
       "socials": { "twitter": "https://twitter.com/rockymix", "linkedin": "https://www.linkedin.com/in/rocky-mix-87028436/" },
       "description": "Rocky is a professional relationship builder. He has created and led multiple business development and sales teams including running a real estate brokerage. Rocky also has a background in creating incentives and rewards programs for thousands of employees. He has been in real estate since 2018, and has been in the NFT space since 2017."
     },
     "nathan": {
-      "role": "Project Lead | Branding",
+      "role": "Project Lead",
       "socials": { "twitter": "https://twitter.com/NatGPG", "linkedin": "https://www.linkedin.com/in/singhnathan/" },
       "description": "Nathan is a Real Estate Industry veteran with extensive experience in both managing and advising on real estate investments.  He is the Co-Founder & Managing Partner of Greater PROPERTY Group - a disruptive national real estate Brand and Brokerage experienced in transacting both in fiat and crypto currencies."
     },
-    "david": {
-      "role": "Project Lead",
-      "socials": { "twitter": "https://twitter.com/DMorrellYUL", "linkedin": "https://www.linkedin.com/in/yycrealestate/", "podcast": "https://podcasts.apple.com/us/podcast/run-gpg-podcast/id1473609949" },
-      "description": "David has been in the real estate industry for over two decades and is the Co-Founder & Managing Partner of the Greater Property Group. David is also the creator and host of a top rated podcast with guests that include entrepreneurs, influencers, creatives, best-selling authors, celebrities and business builders."
-    },
-    "ezequiel": {
-      "role": "Art Director",
-      "socials": { "twitter": "https://twitter.com/Zinit", "linkedin": "https://www.linkedin.com/in/ezequielmalbergier/" },
-      "description": "Ezequiel is a professional artist. He's a co-founder of Linterna de Hidrogeno, a 15-year-old animation and art company based in Mexico City that has won multiple international awards for their content in traditional media, cinema, museums, and video mappings. Since 2018, he's participated in the creation of multiple NFT projects using a combination of different art styles and techniques."
+    "ross": {
+      "role": "Strategic Advisor",
+      "socials": { "twitter": "https://twitter.com/Rossmacdonald1", "linkedin": "https://www.linkedin.com/in/rossmacdonaldyyc/" },
+      "description": "Ross specializes in operations management within the blockchain industry. Involved with digital assets since 2013, Ross is also the COO of Gohkshtein Media, where he oversees strategies in every corner of the industry. Taking complex products and breaking them down in a simple, engaging way for the public to understand."
     },
     "declan": {
       "role": "Full Stack Developer",
@@ -55,10 +55,10 @@
       "socials": { "twitter": "https://twitter.com/SolanaJax", "linkedin": "https://www.linkedin.com/in/noah-porsager-38448b22a/" },
       "description": "Noah is a community manager and consultant/advisor in development, community and project creation. Most of his work can be seen on solana where he has worked for 10ths of project gaining over 10mil in value. He is also the co-founder at Qualified Devs which is a development company in the NFT space."
     },
-    "ross": {
-      "role": "Strategic Advisor",
-      "socials": { "twitter": "https://twitter.com/Rossmacdonald1", "linkedin": "https://www.linkedin.com/in/rossmacdonaldyyc/" },
-      "description": "Ross specializes in operations management within the blockchain industry. Involved with digital assets since 2013, Ross is also the COO of Gohkshtein Media, where he oversees strategies in every corner of the industry. Taking complex products and breaking them down in a simple, engaging way for the public to understand."
+    "ezequiel": {
+      "role": "Art Director",
+      "socials": { "twitter": "https://twitter.com/Zinit", "linkedin": "https://www.linkedin.com/in/ezequielmalbergier/" },
+      "description": "Ezequiel is a professional artist. He's a co-founder of Linterna de Hidrogeno, a 15-year-old animation and art company based in Mexico City that has won multiple international awards for their content in traditional media, cinema, museums, and video mappings. Since 2018, he's participated in the creation of multiple NFT projects using a combination of different art styles and techniques."
     },
     "nina": {
       "role": "Marketing Specialist",
