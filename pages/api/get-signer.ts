@@ -62,57 +62,62 @@ export default async function getSigner(
 ) {
   const { account, access } = req.body;
 
-  console.log("ACCESSED")
+  console.log("ACCESSED");
 
-  console.log(`AUTH REQUEST WITH ACCOUNT: ${account} AND ACCESS ${access}`)
+  console.log(`AUTH REQUEST WITH ACCOUNT: ${account} AND ACCESS ${access}`);
 
-  if (!account)
-    return res
-      .status(500)
-      .json({ error: "Account not provided" });
+  if (!account) return res.status(500).json({ error: "Account not provided" });
 
-  const whitelist = await getDatabaseEntries(whitelist_id);
-
-  if (getEntryFromWalletAddress(account, whitelist)) {
-    console.log("WALLET ADDRESS PRESENT, ACCOUNT AUTHORIZED")
-    const message: AuthData = await sign(
-      privateKey,
-      privateSaleContractMetadata.address,
-      account
-    );
-    return res.status(200).json(message);
-  }
-
-  if (!access)
-    return res
-      .status(403)
-      .json({ error: "Account not on whitelist, no access token provided" });
-
-  const page = getEntryFromToken(access, whitelist);
-
-  if (!page)
-    return res.status(403).json({ error: "Token does not have access" });
-
+  console.log("PRIVATE SALE OPEN, ACCOUNT AUTHORIZED");
   const message: AuthData = await sign(
     privateKey,
     privateSaleContractMetadata.address,
     account
   );
+  return res.status(200).json(message);
 
-  const pageProps: any = {};
-  pageProps.wallet_address = {
-    rich_text: [{ type: "text", text: { content: account } }],
-  };
-  pageProps.token = { rich_text: [] };
+  // const whitelist = await getDatabaseEntries(whitelist_id);
 
-  try {
-    console.log("UPDATING ENTRY")
-    const res = await updateEntry(page, pageProps);
-    console.error("UPDATE SUCCESSFUL", res)
-  } catch(err) {
-    console.error("ENTRY UPDATE FAILED", err)
-    throw(err)
-  }
+  // if (getEntryFromWalletAddress(account, whitelist)) {
+  //   console.log("WALLET ADDRESS PRESENT, ACCOUNT AUTHORIZED");
+  //   const message: AuthData = await sign(
+  //     privateKey,
+  //     privateSaleContractMetadata.address,
+  //     account
+  //   );
+  //   return res.status(200).json(message);
+  // }
 
-  res.status(200).json(message);
+  // if (!access)
+  //   return res
+  //     .status(403)
+  //     .json({ error: "Account not on whitelist, no access token provided" });
+
+  // const page = getEntryFromToken(access, whitelist);
+
+  // if (!page)
+  //   return res.status(403).json({ error: "Token does not have access" });
+
+  // const message: AuthData = await sign(
+  //   privateKey,
+  //   privateSaleContractMetadata.address,
+  //   account
+  // );
+
+  // const pageProps: any = {};
+  // pageProps.wallet_address = {
+  //   rich_text: [{ type: "text", text: { content: account } }],
+  // };
+  // pageProps.token = { rich_text: [] };
+
+  // try {
+  //   console.log("UPDATING ENTRY");
+  //   const res = await updateEntry(page, pageProps);
+  //   console.error("UPDATE SUCCESSFUL", res);
+  // } catch (err) {
+  //   console.error("ENTRY UPDATE FAILED", err);
+  //   throw err;
+  // }
+
+  // res.status(200).json(message);
 }
