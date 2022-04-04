@@ -127,7 +127,7 @@ const TeaserMockup = styled((props) => {
 
 const SignUp = styled(({ ...props }: { id: string }) => {
   return (
-    <Box {...props} sx={{mb: 8}}>
+    <Box {...props} >
       {/* @ts-ignore */}
       <WoreLogoFull className="logo" sx={{ mb: 3 }} />
       {/* <TeaserMockup sx={{ mb: 2 }} /> */}

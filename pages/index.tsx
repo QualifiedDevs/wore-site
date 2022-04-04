@@ -19,8 +19,8 @@ const index = styled((props) => {
     <Box {...props}>
       <Header />
       <Box className="content" sx={{ scrollBehavior: "smooth" }}>
-        <SignUp id="sign-up" sx={{mb: 4}}/>
-        <About id="about" sx={{ my: 4 }} />
+        <SignUp id="sign-up" />
+        <About id="about" sx={{ mb: 4 }} />
         <Events id="events" />
         <FAQ id="faq" />
         <Roadmap id="roadmap" />
