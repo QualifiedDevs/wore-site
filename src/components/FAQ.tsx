@@ -81,7 +81,7 @@ const FAQ = styled(({ ...props }: { id: string }) => {
         </Typography>
         <Box component="ul" className="faq-box">
           <FAQItem
-            summary={"What is NFT?"}
+            summary={"What does NFT mean?"}
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
