@@ -201,8 +201,7 @@ const FAQ = styled(({ ...props }: { id: string }) => {
                   Go back to your exchange app (i.e.{" "}
                   <a href={shakepayReferral}>Shakepay</a> or{" "}
                   <a href={coinbaseReferral}>Coinbase</a>) and select{" "}
-                  <strong>ethereum</strong>
-                  from your portfolio. There you can{" "}
+                  <strong>ethereum</strong> from your portfolio. There you can{" "}
                   <strong>send/withdraw</strong> the desired amount of{" "}
                   <strong>ETH</strong> to the address you copied from your
                   wallet. Confirm that the amount of <strong>ETH</strong> to
