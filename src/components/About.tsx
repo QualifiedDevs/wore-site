@@ -1,5 +1,7 @@
 import { styled } from "@mui/material/styles";
-import { Box, Container, Typography, Paper } from "@mui/material";
+import { Box, Container, Typography, Paper, IconButton } from "@mui/material";
+
+import DownloadIcon from "@mui/icons-material/Download";
 
 import Image from "next/image";
 import background from "@public/about-bg.jpg";
@@ -24,31 +26,48 @@ const About = styled((props: { id: string }) => {
   return (
     <Box {...props} sx={{ py: 2 }}>
       <Background />
-      <Typography variant="h3" sx={{mb: 4}}>ABOUT</Typography>
+      <Typography variant="h3" sx={{ mb: 4 }}>
+        ABOUT
+      </Typography>
       <Container className="content-wrapper">
         <Box className="bg">
-          <Typography sx={{mb: 4}}>
+          <Typography sx={{ mb: 4 }}>
             The Wolf Of Real Estate NFT is the world's first NFT project backed
             by an established and successful real world real estate brokerage.
           </Typography>
-          <Box component="a" href="/WORE-litepaper.pdf" className="thumbnail-wrapper" sx={{mb: 1, mt: 2}}>
+          <Typography variant="h4">
+            W.O.R.E. Litepaper{" "}
+            <IconButton
+              className="download-button"
+              component="a"
+              href="/WORE-litepaper.pdf"
+              download="WORE-litepaper.pdf"
+            >
+              <DownloadIcon />
+            </IconButton>
+          </Typography>
+          <Box
+            component="a"
+            href="/WORE-litepaper.pdf"
+            className="thumbnail-wrapper"
+            sx={{ mb: 1, mt: 2 }}
+          >
             <Image src={litepaper} />
           </Box>
-          <Typography variant="h4">W.O.R.E. Litepaper</Typography>
         </Box>
       </Container>
     </Box>
   );
 })`
-display: flex;
-position: relative;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-min-height: 100vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
 
-.content-wrapper {
+  .content-wrapper {
     display: flex;
     width: 100%;
     height: 100%;
@@ -56,29 +75,34 @@ min-height: 100vh;
     align-items: center;
     justify-content: center;
     text-align: center;
-}
+  }
 
-.bg {
+  .bg {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #00000096;
     padding: 2em;
     border-radius: 8px;
-}
-
-.thumbnail-wrapper {
-  transition: transform .2s ease;
-  :hover {
-    transform: scale(1.05, 1.05);
   }
-  width: min(550px, 90%);
-  border-radius: 8px;
-  * {
-    border-radius: inherit;
-  }
-}
 
+  .thumbnail-wrapper {
+    transition: transform 0.2s ease;
+    :hover {
+      transform: scale(1.05, 1.05);
+    }
+    width: min(550px, 90%);
+    border-radius: 8px;
+    * {
+      border-radius: inherit;
+    }
+  }
+
+  .download-button {
+    svg {
+      color: #058cfcfd;
+    }
+  }
 `;
 
 export default About;
