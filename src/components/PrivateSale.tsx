@@ -211,8 +211,14 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
     >
       {/* @ts-ignore */}
       {signer && !whitelistAuthRes.data && <WhitelistStatusModal />}
-      <Typography variant="h3" sx={{ mb: 4 }}>
+      <Typography variant="h3" sx={{ mb: .5 }}>
         Preorder
+      </Typography>
+      <Typography className="description" sx={{mb: 2}}>
+        There will be a limit of 400 Gen 0 for the presale.
+        <br />
+        Presale Token holders will be Airdropped NFT upon launch & avoid gas
+        fees upon mint.
       </Typography>
       {/* @ts-ignore */}
       <Purchased sx={{ mb: 3 }} className="purchased" />
@@ -268,6 +274,11 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       display: flex;
       align-items: center;
     }
+  }
+
+  .description {
+    font-size: .8em;
+    opacity: 60%;
   }
 `;
 

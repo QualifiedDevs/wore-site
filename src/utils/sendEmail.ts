@@ -73,7 +73,7 @@ export default async function sendEmail(address: string, token: string) {
     from: `WORE Info <${user}>`,
     to: address,
     subject: `Presale access for ${address}`,
-    html: `<!DOCTYPE html>
+    html: `
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -87,8 +87,10 @@ export default async function sendEmail(address: string, token: string) {
     </html>`,
   };
 
-  const res = await transport.sendMail(mailOptions);
-  return res;
+  const [data, err] = await formatRes(transport.sendMail(mailOptions));
+  if (err) throw err;
+  console.log("GMAIL RESPONSE RECEIVED:", data)
+  return data;
 }
 
 export async function sendRegistrationConfirmation({
@@ -115,7 +117,7 @@ export async function sendRegistrationConfirmation({
     from: `WORE Info <${user}>`,
     to: address,
     subject: `WORE Raffle Entry Confirmation`,
-    html: `<!DOCTYPE html>
+    html: `
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -156,8 +158,9 @@ export async function sendRegistrationConfirmation({
     </body>
     </html>`,
   };
+
   const [data, err] = await formatRes(transport.sendMail(mailOptions));
-  console.error(err);
   if (err) throw err;
+  console.log("GMAIL RESPONSE RECEIVED:", data)
   return data;
 }

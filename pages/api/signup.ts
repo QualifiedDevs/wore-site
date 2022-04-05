@@ -12,22 +12,24 @@ export default async function signup(
 
   let entryRes;
 
-  try {
-    entryRes = await submitData(email, discord, walletAddress);
-    console.log("RESPONSE RECEIVED", entryRes);
-    res.status(200).send("Submission Successful");
-  } catch (err) {
-    throw err;
+  const [data1, err1] = await formatRes(submitData(email, discord, walletAddress))
+  if (err1) {
+    res.status(500).send("Failed to register, please try again");
+    throw err1;
   }
+  console.log(`${email} successfully added to notion collection`)
 
-  console.log("sending registration email...")
-
+  console.log("sending registration email...");
   const [data2, err2] = await formatRes(
     sendRegistrationConfirmation({ address: email })
   );
   if (err2) {
-    console.error(err2);
+    res
+      .status(500)
+      .send("Registration successful but confirmation failed to send");
+      throw err2;
   }
-
-  return res;
+  console.log("Email sent successfully")
+  
+  res.status(200).send("Submission Successful");
 }
