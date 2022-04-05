@@ -1,5 +1,8 @@
+import React, { useState, useEffect } from "react";
+
 import { styled } from "@mui/material/styles";
-import { Box, Button, Stack, Typography, IconButton } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Box, Button, Stack, Typography, IconButton, useMediaQuery } from "@mui/material";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
@@ -38,6 +41,14 @@ const Background = styled((props) => {
 `;
 
 const Hook = styled((props: { id: string }) => {
+
+  const theme = useTheme();
+  const isSmallDevice = useMediaQuery(theme.breakpoints.down("md"));
+
+  useEffect(() => {
+    console.log("recoom!!!");
+  }, [isSmallDevice]);
+
   return (
     <Box {...props}>
       <Background />
@@ -48,9 +59,9 @@ const Hook = styled((props: { id: string }) => {
           Hello
         </Typography> */}
         <Stack
-          direction="row"
+          direction={isSmallDevice? "column" : "row"}
           spacing={2}
-          alignItems="flex-end"
+          alignItems={isSmallDevice? "center" : "flex-end"}
           className="buttons"
           sx={{ pl: 2 }}
         >
@@ -86,6 +97,9 @@ const Hook = styled((props: { id: string }) => {
     position: absolute;
     bottom: min(8%, 60px);
     left: min(4%, 40px);
+    .buttons {
+      width: fit-c
+    }
   }
 
   .logo {
@@ -105,6 +119,7 @@ const Hook = styled((props: { id: string }) => {
   }
 
   .community {
+    font-size: .9em;
     color: ${({ theme }) => theme.palette.primary.main};
   }
 
@@ -116,6 +131,20 @@ const Hook = styled((props: { id: string }) => {
     right: 0;
     margin: auto;
     color: #ffffff;
+  }
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    display: grid;
+    place-items: center;
+    .ui {
+      position: static;
+    }
+  }
+
+  ${({theme}) => theme.breakpoints.down("sm")} {
+    .buttons {
+      font-size: .8em;
+    }
   }
 `;
 

@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 import { styled } from "@mui/material/styles";
-import { Box, Container, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Stack,
+  TextField,
+  Typography,
+  Button,
+} from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
 import { emailExp } from "@utils/regex";
@@ -16,6 +23,10 @@ import teaserMockup from "@public/teaser.png";
 //TODO: Extract validation and typing to utils
 
 import { WoreLogoFull } from "@components/Branding";
+
+import manifest from "@src/manifest.json";
+
+import DiscordIcon from "@src/vector-graphics/socials/discord";
 
 import useFeedback from "@hooks/useFeedback";
 
@@ -73,7 +84,14 @@ const RegisterEmail = styled(({ ...props }) => {
   }, []);
 
   return (
-    <Stack component="form" onSubmit={handleSubmit} spacing={2} {...props}>
+    <Stack
+      component="form"
+      direction="row"
+      alignItems="center"
+      onSubmit={handleSubmit}
+      spacing={2}
+      {...props}
+    >
       <TextField
         color="primary"
         required
@@ -89,14 +107,16 @@ const RegisterEmail = styled(({ ...props }) => {
         loading={isLoading}
         disabled={formState !== FormState.Valid}
         variant="contained"
-        sx={{ py: 2 }}
+        sx={{ py: 1.75, px: 3 }}
       >
-        Submit
+        Subscribe
       </LoadingButton>
     </Stack>
   );
 })`
-  width: min(90%, 400px);
+  .MuiTextField-root {
+    width: 100%;
+  }
 
   .MuiOutlinedInput-notchedOutline {
     border-color: #d4d4d4;
@@ -125,17 +145,45 @@ const TeaserMockup = styled((props) => {
   width: min(70%, 350px);
 `;
 
+const DiscordButton = styled((props) => {
+  return (
+    <Button
+      {...props}
+      component="a"
+      href={manifest.socials.discord}
+      endIcon={<DiscordIcon />}
+    >
+      Join our Discord
+    </Button>
+  );
+})`
+  font-size: 1.2em;
+  padding: 1em 2.5em;
+  border-radius: 1000px;
+  border: 2px solid white;
+`;
+
 const SignUp = styled(({ ...props }: { id: string }) => {
   return (
-    <Box {...props} >
+    <Box {...props}>
       {/* @ts-ignore */}
-      <WoreLogoFull className="logo" sx={{ mb: 3 }} />
       {/* <TeaserMockup sx={{ mb: 2 }} /> */}
-      <Typography className="info" sx={{ mb: 2 }}>
+      {/* <Typography className="info" sx={{ mb: 2 }}>
         By submitting your contact information, you are registering for an
         opportunity to receive a whitelist spot.
-      </Typography>
-      <RegisterEmail />
+      </Typography> */}
+
+      <Box>
+        <Typography variant="h3" component="h4" sx={{mb: 3}} >Ready to get involved?</Typography>
+        {/* @ts-ignore */}
+        <DiscordButton variant="contained" className="discord-button" />
+      </Box>
+      <Stack className="newsletter" spacing={2} justifyContent="start">
+        <Typography className="description">
+          ...and <b>sign up</b> to our newsletter for exclusive updates!
+        </Typography>
+        <RegisterEmail />
+      </Stack>
     </Box>
   );
 })`
@@ -149,13 +197,22 @@ const SignUp = styled(({ ...props }: { id: string }) => {
   text-align: center;
   overflow: hidden;
 
-  .info {
-    width: 80%;
-    color: #d4d4d4;
+  h4 {
+
   }
 
-  .logo {
-    width: min(70%, 400px);
+  .newsletter {
+    position: absolute;
+    bottom: max(15px, 8%);
+    width: min(90%, 500px);
+  }
+
+  .description {
+    font-size: 0.8em;
+
+    b {
+      color: ${({ theme }) => theme.palette.primary.light};
+    }
   }
 `;
 
