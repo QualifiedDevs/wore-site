@@ -25,7 +25,7 @@ const Background = styled((props) => {
 const About = styled((props: { id: string }) => {
   return (
     <Box {...props} sx={{ py: 2 }}>
-      <Background />
+      {/* <Background /> */}
       <Typography variant="h3" sx={{ mb: 4 }}>
         ABOUT
       </Typography>

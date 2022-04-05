@@ -112,7 +112,7 @@ export async function sendRegistrationConfirmation({
   });
 
   const mailOptions = {
-    from: `Rocky Mix REALTORⓇ`,
+    from: `WORE Info <${user}>`,
     to: address,
     subject: `WORE Raffle Entry Confirmation`,
     html: `<!DOCTYPE html>
