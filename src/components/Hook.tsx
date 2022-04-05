@@ -96,13 +96,15 @@ const Hook = styled((props: { id: string }) => {
     color: white;
     padding: 1em 2em;
     border-radius: 1000px;
-    border: 3px solid white;
     width: fit-content;
     height: fit-content;
   }
 
   .preorder {
     font-size: 1.5em;
+  }
+
+  .community {
     color: ${({ theme }) => theme.palette.primary.main};
   }
 
