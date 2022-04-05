@@ -5,14 +5,15 @@
     "instagram": "https://www.instagram.com/wolfofrealestate.nft/"
   },
   "mainMenu": {
+    "private sale": "/#private-sale",
     "about": "/#about",
     "events": "/#events",
     "FAQ": "/#faq",
     "roadmap": "/#roadmap",
     "team": "/#team",
-    "private sale": "/#private-sale",
     "store": "https://www.wolfofrealestate.store/",
-    "mint": "/#mint"
+    "mint": "/#mint",
+    "community": "/#sign-up"
   },
   "team": {
     "david": {

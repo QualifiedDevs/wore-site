@@ -131,9 +131,6 @@ const SignUp = styled(({ ...props }: { id: string }) => {
       {/* @ts-ignore */}
       <WoreLogoFull className="logo" sx={{ mb: 3 }} />
       {/* <TeaserMockup sx={{ mb: 2 }} /> */}
-      <Box className="video-wrapper" sx={{ mb: 4 }}>
-        <video src="/teaser-trailer.mp4" autoPlay loop muted></video>
-      </Box>
       <Typography className="info" sx={{ mb: 2 }}>
         By submitting your contact information, you are registering for an
         opportunity to receive a whitelist spot.
@@ -159,23 +156,6 @@ const SignUp = styled(({ ...props }: { id: string }) => {
 
   .logo {
     width: min(70%, 400px);
-  }
-
-  .video-wrapper {
-    z-index: -1;
-    margin: auto;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    opacity: 30%;
-    top: 0;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    video {
-      min-width: 100%;
-      min-height: 100%;
-    }
   }
 `;
 

@@ -16,7 +16,7 @@ const mainMenu = manifest.mainMenu;
 
 const NavLogo = styled((props) => {
   return (
-    <Link href={"/#sign-up"} {...props}>
+    <Link href={"/#hook"} {...props}>
       <WORELogoIcon className="logo" />
     </Link>
   );
