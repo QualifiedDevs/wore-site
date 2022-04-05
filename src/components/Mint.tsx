@@ -28,11 +28,11 @@ const Mint = styled((props: { id: string }) => {
         </Box>
       </Box>
       <Typography sx={{ mb: 4 }}>
-        Submit your contact information <Link href="/#sign-up">above</Link> for
+        Join our community <Link href="/#sign-up">below</Link> for
         an opportunity to receive a whitelist spot.
       </Typography>
       <Button component={Link} href="/#sign-up" variant="contained">
-        Sign Up
+        Join Now
       </Button>
     </Container>
   );

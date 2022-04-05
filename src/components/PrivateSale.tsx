@@ -212,7 +212,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
       {/* @ts-ignore */}
       {signer && !whitelistAuthRes.data && <WhitelistStatusModal />}
       <Typography variant="h3" sx={{ mb: 4 }}>
-        Private Sale
+        Preorder
       </Typography>
       {/* @ts-ignore */}
       <Purchased sx={{ mb: 3 }} className="purchased" />

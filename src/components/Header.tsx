@@ -36,7 +36,7 @@ const Header = styled(({ ...props }) => {
         />
         <ConnectWallet variant="contained" />
         <MobileMenu
-          menuData={{ "sign up": "/#sign-up", ...mainMenu }}
+          menuData={{ "Home": "/#hook", ...mainMenu }}
           className="mobile-menu"
         />
       </Container>
