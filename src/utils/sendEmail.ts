@@ -141,7 +141,7 @@ export async function sendRegistrationConfirmation({
       <h1>Congratulations On Entering Our Wolf Of Real Estate NFT Whitelist Giveaway!</h1>
       <span>Hi future Wolf,<br/><br/></span>
       <span>We wanted to thank you for entering our Wolf Of Real Estate NFT whitelist giveaway.</span>
-      <span>In case you weren't aware, the WORE NFTs are going to be loaded with utility and connected to physical real-world rewards and businesses, by a team that has proven itself in the real world to deliver<br/><br/>.</span>
+      <span>In case you weren't aware, the WORE NFTs are going to be loaded with utility and connected to physical real-world rewards and businesses, by a team that has proven itself in the real world to deliver.<br/><br/></span>
       <span>Look, however you see this, you are early joining us now. Whether you are a seasoned NFT enthusiast or looking to finally get into the NFT space for the first time with a trusted team, being here this early will have future benefits.<br/><br/></span>
       <span>We would like to invite you to join our Twitter community to be part of our conversations and to keep updated with the latest insider news!<br/><br/></span>
       <span>Please <a href="https://twitter.com/worenft">follow us on Twitter</a> to stay up to date and look to get access to our discord.<br/><br/></span>
