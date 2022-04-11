@@ -56,7 +56,7 @@ const Member = styled(
             </IconButton>
           )}
           {socials.podcast && (
-            <IconButton href={socials.podcast}>
+            <IconButton href={socials.podcast} sx={{pb: 1.8}}>
               <Box className="podcast-wrapper">
                 <Image src={podcast} />
               </Box>
@@ -90,11 +90,15 @@ const Member = styled(
     align-items: center;
     .name {
       text-transform: capitalize;
-      font-size: 2em;
-      font-weight: 600;
+      font-size: 1.4em;
+      font-weight: 500;
       margin-right: 0.2em;
     }
     .MuiIconButton-root {
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
       color: #0099ff;
     }
   }
@@ -103,8 +107,8 @@ const Member = styled(
   }
 
   .podcast-wrapper {
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 `;
 
@@ -122,7 +126,7 @@ const Team = styled((props: { id: string }) => {
   }, []);
 
   return (
-    <Box {...props}>
+    <Box {...props} sx={{mt: 2}}>
       <Typography variant="h3" sx={{ mb: 12 }}>
         The WORE Team
       </Typography>
