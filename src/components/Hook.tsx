@@ -80,7 +80,7 @@ const Hook = styled((props: { id: string }) => {
           </Button>
         </Stack>
       </Stack>
-      <IconButton component="a" href="#private-sale" className="jump">
+      <IconButton component="a" href="#about" className="jump">
         <KeyboardArrowDownIcon />
       </IconButton>
     </Box>

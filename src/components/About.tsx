@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Box, Container, Typography, Paper, IconButton } from "@mui/material";
+import { Box, Container, Typography, Paper, IconButton, Stack } from "@mui/material";
 
 import DownloadIcon from "@mui/icons-material/Download";
 
@@ -24,38 +24,36 @@ const Background = styled((props) => {
 
 const About = styled((props: { id: string }) => {
   return (
-    <Box {...props} sx={{ py: 2 }}>
+    <Box {...props} sx={{my: 2}}>
       {/* <Background /> */}
       <Typography variant="h3" sx={{ mb: 4 }}>
         About
       </Typography>
-      <Container className="content-wrapper">
-        <Box className="bg">
-          <Typography sx={{ mb: 4 }}>
-            The Wolf Of Real Estate NFT is the world's first NFT project backed
-            by an established and successful real world real estate brokerage.
-          </Typography>
-          <Typography variant="h4">
-            W.O.R.E. Litepaper{" "}
-            <IconButton
-              className="download-button"
-              component="a"
-              href="/WORE-litepaper.pdf"
-              download="WORE-litepaper.pdf"
-            >
-              <DownloadIcon />
-            </IconButton>
-          </Typography>
-          <Box
+      <Stack className="content-wrapper">
+        <Typography sx={{ mb: 4 }}>
+          The Wolf Of Real Estate NFT is the world's first NFT project backed by
+          an established and successful real world real estate brokerage.
+        </Typography>
+        <Typography variant="h4">
+          W.O.R.E. Litepaper{" "}
+          <IconButton
+            className="download-button"
             component="a"
             href="/WORE-litepaper.pdf"
-            className="thumbnail-wrapper"
-            sx={{ mb: 1, mt: 2 }}
+            download="WORE-litepaper.pdf"
           >
-            <Image src={litepaper} />
-          </Box>
+            <DownloadIcon />
+          </IconButton>
+        </Typography>
+        <Box
+          component="a"
+          href="/WORE-litepaper.pdf"
+          className="thumbnail-wrapper"
+          sx={{ mb: 1, mt: 2 }}
+        >
+          <Image src={litepaper} />
         </Box>
-      </Container>
+      </Stack>
     </Box>
   );
 })`
@@ -65,7 +63,7 @@ const About = styled((props: { id: string }) => {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 100vh;
+  min-height: 100%;
 
   .content-wrapper {
     display: flex;
