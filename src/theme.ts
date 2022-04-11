@@ -33,11 +33,9 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "gotham, Tw Cen MT, sans-serif",
+    fontFamily: "gothambook",
     h1: {},
-    h2: {
-      fontWeight: 600,
-    },
+    h2: {},
     h3: {
       fontWeight: 500,
     },
