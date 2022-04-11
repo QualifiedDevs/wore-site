@@ -5,29 +5,28 @@
     "instagram": "https://www.instagram.com/wolfofrealestate.nft/"
   },
   "mainMenu": {
-    "private sale": "/#private-sale",
     "about": "/#about",
-    "events": "/#events",
-    "FAQ": "/#faq",
+    "preorder": "/#private-sale",
     "roadmap": "/#roadmap",
     "team": "/#team",
+    "FAQ": "/#faq",
     "store": "https://www.wolfofrealestate.store/",
     "mint": "/#mint",
     "community": "/#sign-up"
   },
   "team": {
     "david": {
-      "role": "Project Lead",
+      "role": "Managing Partner",
       "socials": { "twitter": "https://twitter.com/DMorrellYUL", "linkedin": "https://www.linkedin.com/in/yycrealestate/", "podcast": "https://podcasts.apple.com/us/podcast/run-gpg-podcast/id1473609949" },
       "description": "David has been in the real estate industry for over two decades and is the Co-Founder & Managing Partner of the Greater Property Group. David is also the creator and host of a top rated podcast with guests that include entrepreneurs, influencers, creatives, best-selling authors, celebrities and business builders."
     },
     "rocky": {
-      "role": "Project Lead",
+      "role": "Managing Partner",
       "socials": { "twitter": "https://twitter.com/rockymix", "linkedin": "https://www.linkedin.com/in/rocky-mix-87028436/" },
       "description": "Rocky is a professional relationship builder. He has created and led multiple business development and sales teams including running a real estate brokerage. Rocky also has a background in creating incentives and rewards programs for thousands of employees. He has been in real estate since 2018, and has been in the NFT space since 2017."
     },
     "nathan": {
-      "role": "Project Lead",
+      "role": "Managing Partner",
       "socials": { "twitter": "https://twitter.com/NatGPG", "linkedin": "https://www.linkedin.com/in/singhnathan/" },
       "description": "Nathan is a Real Estate Industry veteran with extensive experience in both managing and advising on real estate investments.  He is the Co-Founder & Managing Partner of Greater PROPERTY Group - a disruptive national real estate Brand and Brokerage experienced in transacting both in fiat and crypto currencies."
     },
@@ -52,7 +51,7 @@
       "description": "Dodge is an experienced community manager for multiple agencies involved in the crypto realm over the past three years. Whether it be mining, investing, or NFT collecting, Dodge has managed communities with over 40k discord members. He has used his learned skills in the crypto world to foster client relations, engage in community development, and master community engagement helping to build a safe place for people of all backgrounds."
     },
     "noah": {
-      "role": "Community Manager / Consultant",
+      "role": "Community Manager",
       "socials": { "twitter": "https://twitter.com/SolanaJax", "linkedin": "https://www.linkedin.com/in/noah-porsager-38448b22a/" },
       "description": "Noah is a community manager and consultant/advisor in development, community and project creation. Most of his work can be seen on solana where he has worked for 10ths of project gaining over 10mil in value. He is also the co-founder at Qualified Devs which is a development company in the NFT space."
     },

@@ -27,7 +27,7 @@ const About = styled((props: { id: string }) => {
     <Box {...props} sx={{ py: 2 }}>
       {/* <Background /> */}
       <Typography variant="h3" sx={{ mb: 4 }}>
-        ABOUT
+        About
       </Typography>
       <Container className="content-wrapper">
         <Box className="bg">
@@ -81,7 +81,6 @@ const About = styled((props: { id: string }) => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #00000096;
     padding: 2em;
     border-radius: 8px;
   }

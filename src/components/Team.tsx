@@ -63,7 +63,7 @@ const Member = styled(
             </IconButton>
           )}
         </Box>
-        <Typography className="description">{description}</Typography>
+        {/* <Typography className="description">{description}</Typography> */}
       </Box>
     );
   }
@@ -123,17 +123,17 @@ const Team = styled((props: { id: string }) => {
 
   return (
     <Box {...props}>
-      <Typography variant="h3" sx={{ mb: 6 }}>
+      <Typography variant="h3" sx={{ mb: 12 }}>
         The WORE Team
       </Typography>
-      <Container maxWidth="xl" className="members" sx={{ mb: 4 }}>
+      <Container maxWidth="xl" className="members" sx={{ mb: 12 }}>
         {members}
       </Container>
-      <Container className="team-map">
+      {/* <Container className="team-map">
         <Box className="image-wrapper">
           <Image src={teamMap} layout="responsive" />
         </Box>
-      </Container>
+      </Container> */}
     </Box>
   );
 })`
@@ -141,10 +141,11 @@ const Team = styled((props: { id: string }) => {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-height: 100%;
 
   .members {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 4rem;
   }
 
@@ -159,6 +160,12 @@ const Team = styled((props: { id: string }) => {
   }
 
   ${({ theme }) => theme.breakpoints.down("lg")} {
+    .members {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
     .members {
       grid-template-columns: repeat(2, 1fr);
     }

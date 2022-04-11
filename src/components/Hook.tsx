@@ -55,9 +55,6 @@ const Hook = styled((props: { id: string }) => {
       <Stack className="ui" spacing={5}>
         {/* @ts-ignore */}
         <WoreLogoFull className="logo" />
-        {/* <Typography variant="h2" sx={{ pl: 2 }}>
-          Hello
-        </Typography> */}
         <Stack
           direction={isSmallDevice? "column" : "row"}
           spacing={2}

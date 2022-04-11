@@ -33,10 +33,14 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Roboto, Tw Cen MT, sans-serif",
+    fontFamily: "gotham, Tw Cen MT, sans-serif",
     h1: {},
-    h2: {},
-    h3: {},
+    h2: {
+      fontWeight: 600,
+    },
+    h3: {
+      fontWeight: 500,
+    },
     h4: {},
     h5: {},
     h6: {},
