@@ -16,56 +16,67 @@
   },
   "team": {
     "david": {
-      "role": "Managing Partner",
+      "name": "David Morrel",
+      "role": "Marketing Manager",
       "socials": { "twitter": "https://twitter.com/DMorrellYUL", "linkedin": "https://www.linkedin.com/in/yycrealestate/", "podcast": "https://podcasts.apple.com/us/podcast/run-gpg-podcast/id1473609949" },
       "description": "David has been in the real estate industry for over two decades and is the Co-Founder & Managing Partner of the Greater Property Group. David is also the creator and host of a top rated podcast with guests that include entrepreneurs, influencers, creatives, best-selling authors, celebrities and business builders."
     },
     "rocky": {
-      "role": "Managing Partner",
+      "name": "Rocky Mix",
+      "role": "Project Lead",
       "socials": { "twitter": "https://twitter.com/rockymix", "linkedin": "https://www.linkedin.com/in/rocky-mix-87028436/" },
       "description": "Rocky is a professional relationship builder. He has created and led multiple business development and sales teams including running a real estate brokerage. Rocky also has a background in creating incentives and rewards programs for thousands of employees. He has been in real estate since 2018, and has been in the NFT space since 2017."
     },
     "nathan": {
-      "role": "Managing Partner",
+      "name": "Nathan Singh",
+      "role": "Operations Manager",
       "socials": { "twitter": "https://twitter.com/NatGPG", "linkedin": "https://www.linkedin.com/in/singhnathan/" },
       "description": "Nathan is a Real Estate Industry veteran with extensive experience in both managing and advising on real estate investments.  He is the Co-Founder & Managing Partner of Greater PROPERTY Group - a disruptive national real estate Brand and Brokerage experienced in transacting both in fiat and crypto currencies."
     },
     "ross": {
+      "name": "Ross Macdonald",
       "role": "Strategic Advisor",
       "socials": { "twitter": "https://twitter.com/Rossmacdonald1", "linkedin": "https://www.linkedin.com/in/rossmacdonaldyyc/" },
       "description": "Ross specializes in operations management within the blockchain industry. Involved with digital assets since 2013, Ross is also the COO of Gohkshtein Media, where he oversees strategies in every corner of the industry. Taking complex products and breaking them down in a simple, engaging way for the public to understand."
     },
     "declan": {
+      "name": "Declan Maguire",
       "role": "Full Stack Developer",
       "socials": { "twitter": "https://twitter.com/CryptoMinnows", "linkedin": "https://www.linkedin.com/in/declan-maguire/" },
       "description": "Declan is a full stack developer and Co-Founder of qualified devs. He has leagues of experience planning and implementing highly customized full-stack web3 solutions for clients across several blockchains."
     },
     "ruan": {
+      "name": "Ruan Periclys",
       "role": "Blockchain Developer",
       "socials": { "twitter": "https://twitter.com/OrionDevStar", "linkedin": "https://www.linkedin.com/in/ruan-periclys-meireles-da-silva-34666a106/" },
       "description": "Ruan is a blockchain developer. He is part of the Hashlips team, has made many improvements to the smart contract standard and has over 5 years as a project development leader. Co-Founder at Qualified Devs"
     },
     "dodge": {
+      "name": "Dodge Kudrna",
       "role": "Community Manager",
       "socials": { "twitter": "https://twitter.com/DodgeInMedia?t=615B6Lxglf-oy0rWbfhnkg&s=09", "linkedin": "https://www.linkedin.com/in/dodgekudrna" },
       "description": "Dodge is an experienced community manager for multiple agencies involved in the crypto realm over the past three years. Whether it be mining, investing, or NFT collecting, Dodge has managed communities with over 40k discord members. He has used his learned skills in the crypto world to foster client relations, engage in community development, and master community engagement helping to build a safe place for people of all backgrounds."
     },
     "noah": {
-      "role": "Community Manager",
+      "name": "Noah Porsager",
+      "role": "Community Moderator",
       "socials": { "twitter": "https://twitter.com/SolanaJax", "linkedin": "https://www.linkedin.com/in/noah-porsager-38448b22a/" },
       "description": "Noah is a community manager and consultant/advisor in development, community and project creation. Most of his work can be seen on solana where he has worked for 10ths of project gaining over 10mil in value. He is also the co-founder at Qualified Devs which is a development company in the NFT space."
     },
     "ezequiel": {
+      "name": "Ezequiel Malbergier",
       "role": "Art Director",
       "socials": { "twitter": "https://twitter.com/Zinit", "linkedin": "https://www.linkedin.com/in/ezequielmalbergier/" },
       "description": "Ezequiel is a professional artist. He's a co-founder of Linterna de Hidrogeno, a 15-year-old animation and art company based in Mexico City that has won multiple international awards for their content in traditional media, cinema, museums, and video mappings. Since 2018, he's participated in the creation of multiple NFT projects using a combination of different art styles and techniques."
     },
     "nina": {
+      "name": "Nina Kozlowska",
       "role": "Marketing Specialist",
       "socials": { "twitter": "https://twitter.com/KozlowskaNina", "linkedin": "https://www.linkedin.com/in/nina-kozlowska/" },
       "description": "Nina, a marketing specialist, is extremely good at one thing: helping companies share their vision through compelling story telling. Her background has been focused in real estate, from brokerages to individual agents, to homebuilders and property equity companies; where she established brands that stood out from the crowd."
     },
     "steve": {
+      "name": "Steven Chiboucas",
       "role": "Community Growth",
       "socials": { "twitter": "https://twitter.com/BlockMaven", "linkedin": "https://www.linkedin.com/in/steven-chiboucas-09a8201b3/" },
       "description": "Steve is a community builder at heart and has contributed to various projects in the Blockchain industry ranging from DeFi protocols to NFT ecosystems. After discovering cryptocurrency in 2015, he began his journey into Blockchain technology and realized shortly after that his true passions were teaching and sharing information with others, specifically crypto-related. Since then, his journey has only continued to accelerate as he works for various projects in hopes of spreading knowledge to as many people as possible"

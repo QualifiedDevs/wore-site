@@ -7,7 +7,7 @@ const Ticket = styled(
   ({ active, ...props }: { active?: boolean; className?: string }) => {
     return (
       <Box {...props} className={`${props.className || ""} ${active && "active"}`}>
-        <video src="/card.mp4" autoPlay loop muted></video>
+        <video src="/card.mp4" autoPlay loop muted />
       </Box>
     );
   }

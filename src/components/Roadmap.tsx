@@ -16,15 +16,15 @@ const Roadmap = styled((props: { id: string }) => {
   min-height: 100%;
   display: grid;
   place-items: center;
-  border-radius: 25px;
-  * {
-    border-radius: inherit;
-  }
   .image-wrapper {
     width: 90%;
+    border-radius: 10px;
+    * {
+      border-radius: inherit;
+    }
   }
 
-  ${({theme}) => theme.breakpoints.down("sm")} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     border-radius: 0;
     padding: 0;
     .image-wrapper {

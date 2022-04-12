@@ -96,11 +96,13 @@ const FAQ = styled(({ ...props }: { id: string }) => {
           >
             Metamask is a software-based cryptocurrency wallet. It stores your
             Ethereum and bridges interaction with Ethereum blockchain. You will
-            need Metamask or a similar wallet to pre purchase or mint a WORE
+            need Metamask or a similar wallet to pre purchase or mint a W.O.R.E.
             NFT. Visit metamask.io for more information.
           </FAQItem>
           <FAQItem
-            summary={"What is the total NFT Count for Wolf Of Real Estate?"}
+            summary={
+              "How many NFT's are being created with Wolf of Real Estate?"
+            }
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
@@ -117,24 +119,18 @@ const FAQ = styled(({ ...props }: { id: string }) => {
             greater initial utility reward.
           </FAQItem>
           <FAQItem
-            summary={"What is a utility reward?"}
+            summary={"What are the utility rewards?"}
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >
-            A utility reward is a specific system created by certain projects
-            that give their NFT holders benefits whether in the real or digital
-            world.
-          </FAQItem>
-          <FAQItem
-            summary={"What is the specific utility reward?"}
-            expanded={expanded === "panel6"}
-            onChange={handleChange("panel6")}
-          >
-            Details will be released as the roadmap unveils. We are in real
+            A utility reward is a specific system created that gives NFT holders
+            benefits in the real or digital world. This can be done through
+            exclusive access, community or through different assets.<br /><br />
+            Details on our specific utility rewards will be released as the roadmap unveils. We are in real
             estate, so let your imagination run wild.
           </FAQItem>
           <FAQItem
-            summary={"How do I get a WORE NFT?"}
+            summary={"How do I get a W.O.R.E. NFT?"}
             expanded={expanded === "panel7"}
             onChange={handleChange("panel7")}
           >
@@ -218,7 +214,7 @@ const FAQ = styled(({ ...props }: { id: string }) => {
                   <b>Desktop</b>
                 </Typography>
                 <Typography sx={{ mb: 2 }}>
-                  Go to WORE Presale link in Chrome. Click connect wallet an
+                  Go to W.O.R.E. Presale link in Chrome. Click connect wallet an
                   follow wallet instructions.
                 </Typography>
                 <Typography>
@@ -226,13 +222,13 @@ const FAQ = styled(({ ...props }: { id: string }) => {
                 </Typography>
                 <Typography>
                   Open wallet and sollect 'Browser' (in settings for Metamask,
-                  in bottom nav bar for Trust Wallet). Go to WORE Presale link,
-                  connect wallet and follow wallet instructions.
+                  in bottom nav bar for Trust Wallet). Go to W.O.R.E. Presale
+                  link, connect wallet and follow wallet instructions.
                 </Typography>
               </Paper>
               <Paper className="purchase-step">
                 <Typography variant="h5">
-                  Click to Pre-Purchase 1, 2 or 3 WORE NFTs.
+                  Click to Pre-Purchase 1, 2 or 3 W.O.R.E. NFTs.
                 </Typography>
                 <Typography>Follow wallet instructions</Typography>
               </Paper>

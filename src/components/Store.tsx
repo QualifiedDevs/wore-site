@@ -7,7 +7,7 @@ import storeImg from "@public/wore-store.png";
 const Store = styled((props: { id: string }) => {
   return (
     <Container {...props}>
-      <Typography variant="h3">WORE Store</Typography>
+      <Typography variant="h3">W.O.R.E. Store</Typography>
       <Box className="image-wrapper">
         <Image src={storeImg} layout="responsive" />
       </Box>

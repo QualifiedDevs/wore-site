@@ -56,7 +56,7 @@ const Member = styled(
             </IconButton>
           )}
           {socials.podcast && (
-            <IconButton href={socials.podcast} sx={{pb: 1.8}}>
+            <IconButton href={socials.podcast} sx={{pb: 3}}>
               <Box className="podcast-wrapper">
                 <Image src={podcast} />
               </Box>
@@ -74,30 +74,32 @@ const Member = styled(
   text-align: center;
   .avatar-wrapper {
     width: clamp(125px, 40%, 300px);
-    border: 3px solid ${({ memberData: { name } }) => themes[name]};
+    border: 3px solid ${({ memberData: { key } }) => themes[key]};
     border-radius: 50%;
     box-shadow: 0px 0px 40px 0px
-      ${({ memberData: { name } }) => `${themes[name]}40`};
+      ${({ memberData: { key } }) => `${themes[key]}40`};
     * {
       border-radius: inherit;
     }
   }
   .role {
-    color: ${({ memberData: { name } }) => themes[name]};
+    font-size: .8em;
+    color: ${({ memberData: { key } }) => themes[key]};
   }
   .title {
     display: flex;
     align-items: center;
     .name {
       text-transform: capitalize;
-      font-size: 1.4em;
+      font-size: 1em;
       font-weight: 500;
       margin-right: 0.2em;
+      white-space: nowrap;
     }
     .MuiIconButton-root {
       svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.1rem;
+        height: 1.1rem;
       }
       color: #0099ff;
     }
@@ -107,28 +109,28 @@ const Member = styled(
   }
 
   .podcast-wrapper {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 `;
 
 const Team = styled((props: { id: string }) => {
   const members = useMemo(() => {
-    return Object.keys(teamData).map((memberName: string, index: number) => {
+    return Object.keys(teamData).map((key: string, index: number) => {
       //TODO: Type fixes
       const memberData = {
-        name: memberName,
-        avatar: avatars[memberName],
-        ...teamData[memberName],
+        key,
+        avatar: avatars[key],
+        ...teamData[key],
       };
       return <Member memberData={memberData} key={index} />;
     });
   }, []);
 
   return (
-    <Box {...props} sx={{mt: 2}}>
+    <Box {...props} >
       <Typography variant="h3" sx={{ mb: 12 }}>
-        The WORE Team
+        The W.O.R.E. Team
       </Typography>
       <Container maxWidth="xl" className="members" sx={{ mb: 12 }}>
         {members}

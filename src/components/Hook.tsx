@@ -11,7 +11,7 @@ import { WoreLogoFull } from "@components/Branding";
 const Background = styled((props) => {
   return (
     <Box {...props}>
-      <video src="/teaser-trailer.mp4" autoPlay loop muted></video>
+      <video src="/teaser-trailer.mp4" autoPlay loop muted />
       <div className="overlay" />
     </Box>
   );

@@ -21,10 +21,10 @@ const index = styled((props) => {
       <Header />
       <Box className="content" sx={{ scrollBehavior: "smooth" }}>
         <Hook id="hook" />
-        <About id="about" sx={{ mb: 4 }} />
-        <Roadmap id="roadmap" />
-        <TeamDesc id="team" sx={{ py: 4, my: 4 }} />
-        <FAQ id="faq" />
+        <About id="about" sx={{ mt: 8, mb: 10 }} />
+        <Roadmap id="roadmap" sx={{mt: 14, mb: 20}} />
+        <TeamDesc id="team" sx={{ my: 10 }} />
+        <FAQ id="faq" sx={{my: 10}} />
         <PrivateSale id="private-sale" sx={{my: 4}} />
         <Mint id="mint" />
         {/* <Events id="events" /> */}
