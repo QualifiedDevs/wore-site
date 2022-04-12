@@ -1,5 +1,12 @@
 import { styled } from "@mui/material/styles";
-import { Box, Container, Typography, Paper, IconButton, Stack } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Paper,
+  IconButton,
+  Stack,
+} from "@mui/material";
 
 import DownloadIcon from "@mui/icons-material/Download";
 
@@ -24,15 +31,17 @@ const Background = styled((props) => {
 
 const About = styled((props: { id: string }) => {
   return (
-    <Box {...props} sx={{my: 2}}>
+    <Box {...props} sx={{ my: 2, mx: 2 }}>
       {/* <Background /> */}
-      <Typography variant="h3" sx={{ mb: 4 }}>
+      {/* <Typography variant="h3" sx={{ mb: 4 }}>
         About
-      </Typography>
+      </Typography> */}
       <Stack className="content-wrapper">
         <Typography sx={{ mb: 4 }}>
           The Wolf Of Real Estate NFT is the world's first NFT project backed by
-          an established and successful real world real estate brokerage.
+          an established and successful real world real estate brokerage. Our
+          community has exclusive access to education and business with web3 and
+          IRL (In Real Life) opportunities.
         </Typography>
         <Typography variant="h4">
           W.O.R.E. Litepaper{" "}
@@ -64,6 +73,10 @@ const About = styled((props: { id: string }) => {
   justify-content: center;
   text-align: center;
   min-height: 100%;
+
+  p {
+    max-width: 800px;
+  }
 
   .content-wrapper {
     display: flex;
