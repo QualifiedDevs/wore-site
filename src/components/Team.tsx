@@ -56,7 +56,7 @@ const Member = styled(
             </IconButton>
           )}
           {socials.podcast && (
-            <IconButton href={socials.podcast} sx={{pb: 3}}>
+            <IconButton href={socials.podcast}>
               <Box className="podcast-wrapper">
                 <Image src={podcast} />
               </Box>
@@ -109,6 +109,8 @@ const Member = styled(
   }
 
   .podcast-wrapper {
+    position: relative;
+    display: grid;
     width: 1.2rem;
     height: 1.2rem;
   }
