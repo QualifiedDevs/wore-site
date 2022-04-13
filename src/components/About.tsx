@@ -48,15 +48,15 @@ const About = styled((props: { id: string }) => {
           <IconButton
             className="download-button"
             component="a"
-            href="/W.O.R.E.-litepaper.pdf"
-            download="W.O.R.E.-litepaper.pdf"
+            href="/WORE-litepaper.pdf"
+            download="WORE-litepaper.pdf"
           >
             <DownloadIcon />
           </IconButton>
         </Typography>
         <Box
           component="a"
-          href="/W.O.R.E.-litepaper.pdf"
+          href="/WORE-litepaper.pdf"
           className="thumbnail-wrapper"
           sx={{ mb: 1, mt: 2 }}
         >
