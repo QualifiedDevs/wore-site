@@ -14,6 +14,15 @@
     "mint": "/#mint",
     "community": "/#sign-up"
   },
+  "store": {
+    "link": "https://www.wolfofrealestate.store/",
+    "catalogue": {
+      "hat-black": "https://www.wolfofrealestate.store/products/premium-snapback-icon-embroidered?_pos=4&_sid=b47e206bc&_ss=r",
+      "hoodie-white-m": "https://www.wolfofrealestate.store/products/independent-heavyweight-emroidered-hoodie-original?variant=42618462470362",
+      "bottle-white-220z": "https://www.wolfofrealestate.store/products/22oz-vacuum-insulated-bottle",
+      "shirt-black-m": "https://www.wolfofrealestate.store/products/gildan-mens-t-shirt?variant=42370343043290"
+    }
+  },
   "team": {
     "david": {
       "name": "David Morrell",

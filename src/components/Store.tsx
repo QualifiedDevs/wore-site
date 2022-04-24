@@ -1,8 +1,22 @@
 import { styled } from "@mui/material/styles";
 import { Box, Container, Button, Typography, ButtonBase } from "@mui/material";
 
+import manifest from "@src/manifest.json"
+
+const shopLink = manifest.store.link;
+const catologue = manifest.store.catalogue;
+
 import Image from "next/image";
 import storeImg from "@public/wore-store.png";
+
+const Item = styled((props) => {
+  return (
+    <Box {...props}>
+      
+    </Box>
+  );
+})``;
+
 
 const Store = styled((props: { id: string }) => {
   return (
@@ -14,7 +28,7 @@ const Store = styled((props: { id: string }) => {
     </Container>
   );
 })`
-  height: 100%;
+  min-height: 100%;
 
   display: flex;
   flex-direction: column;

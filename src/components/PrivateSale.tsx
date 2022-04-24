@@ -63,8 +63,9 @@ const Remaining = styled((props) => {
       totalSupplyRes.data ? (
         <>
           {/* @ts-ignore */}
-          <b>{totalSupplyRes.data.sub(100).abs().toString()}</b> Tokens
-          Remaining
+          {/* <b>{totalSupplyRes.data.sub(100).abs().toString()}</b> Tokens
+          Remaining */}
+          Presale is Live!
         </>
       ) : null}
     </Typography>
