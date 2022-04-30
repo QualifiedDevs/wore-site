@@ -83,7 +83,7 @@ const Member = styled(
     }
   }
   .role {
-    font-size: .8em;
+    font-size: 0.8em;
     color: ${({ memberData: { key } }) => themes[key]};
   }
   .title {
@@ -120,6 +120,7 @@ const Team = styled((props: { id: string }) => {
   const members = useMemo(() => {
     return Object.keys(teamData).map((key: string, index: number) => {
       //TODO: Type fixes
+      if (key === "steve") return;
       const memberData = {
         key,
         avatar: avatars[key],
@@ -130,7 +131,7 @@ const Team = styled((props: { id: string }) => {
   }, []);
 
   return (
-    <Box {...props} >
+    <Box {...props}>
       <Typography variant="h3" sx={{ mb: 12 }}>
         The W.O.R.E. Team
       </Typography>
@@ -153,7 +154,7 @@ const Team = styled((props: { id: string }) => {
 
   .members {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 4rem;
   }
 
