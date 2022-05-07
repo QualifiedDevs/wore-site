@@ -14,8 +14,8 @@ const Mint = styled((props: { id: string }) => {
         <b>MINT</b> - Coming Soon...
       </Typography>
       <Box>
-        <Typography variant="h4">Mint will take place in Q2 F'22</Typography>
-        <Box component="ul" className="info">
+        <Typography variant="h4" sx={{mb: 4}}>Mint will take place in Q2 F'22</Typography>
+        {/* <Box component="ul" className="info">
           <li>
             <Typography>8,888 Total Supply</Typography>
           </li>
@@ -25,7 +25,7 @@ const Mint = styled((props: { id: string }) => {
           <li>
             <Typography>7,000 Gen 1</Typography>
           </li>
-        </Box>
+        </Box> */}
       </Box>
       <Typography sx={{ mb: 4 }}>
         Join our community <Link href="/#sign-up">below</Link> for

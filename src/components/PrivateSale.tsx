@@ -212,13 +212,20 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
     >
       {/* @ts-ignore */}
       {signer && !whitelistAuthRes.data && <WhitelistStatusModal />}
-      <Typography variant="h3" sx={{ mb: .5 }}>
+      <Typography variant="h3" sx={{ mb: 0.5 }}>
         Preorder
       </Typography>
-      <Typography className="description" sx={{mb: 2}}>
-        There will be a limit of 400 Gen 0 for the presale.
+      <Typography className="description" sx={{ mb: 2 }}>
+        {/* There will be a limit of 400 Gen 0 for the presale.
         <br />
         Presale Token holders will be Airdropped NFT upon launch & avoid gas
+        fees upon mint. */}
+        There are 100 Preorder Tickets available. Each ticket gets redeemed for
+        3 W.O.R.E. NFT's upon Mint.
+        <br />
+        Maximum 3 tickets per person (9 W.O.R.E. NFT's).
+        <br />
+        Presale Ticket holders will be Airdropped NFT upon launch & avoid gas
         fees upon mint.
       </Typography>
       {/* @ts-ignore */}
@@ -278,7 +285,7 @@ const PrivateSale = styled(({ ...props }: { id: string }) => {
   }
 
   .description {
-    font-size: .8em;
+    font-size: 0.8em;
     opacity: 60%;
   }
 `;

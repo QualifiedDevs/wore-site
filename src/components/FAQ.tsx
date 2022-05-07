@@ -99,7 +99,7 @@ const FAQ = styled(({ ...props }: { id: string }) => {
             need Metamask or a similar wallet to pre purchase or mint a W.O.R.E.
             NFT. Visit metamask.io for more information.
           </FAQItem>
-          <FAQItem
+          {/* <FAQItem
             summary={
               "How many NFT's are being created with Wolf of Real Estate?"
             }
@@ -109,15 +109,15 @@ const FAQ = styled(({ ...props }: { id: string }) => {
             There will be 8,888 original Wolf OF Real Estate NFT's. Of that,
             there will be 1,888 Gen 0 and 7,000 Gen 1 to start. The total count
             will never increase.
-          </FAQItem>
-          <FAQItem
+          </FAQItem> */}
+          {/* <FAQItem
             summary={"What is the difference between Gen 0 & Gen 1?"}
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
             Details will be released as the roadmap unveils. Gen 0 will have a
             greater initial utility reward.
-          </FAQItem>
+          </FAQItem> */}
           <FAQItem
             summary={"What are the utility rewards?"}
             expanded={expanded === "panel5"}
