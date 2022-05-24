@@ -36,7 +36,7 @@ const defaultContext: FeedbackContextValues = {};
 export const FeedbackContext = createContext(defaultContext);
 
 //@ts-ignore
-const FeedbackNotif = styled(({ feedback, open, setOpen, ...props }) => {
+const FeedbackNotif = styled(({ feedback, open, setOpen, ...props }) => { s
   const handleClose = useCallback((event, reason) => {
     if (reason === "clickaway") return;
     setOpen(false);
